@@ -3,7 +3,7 @@ In the winter of 2022, I am pleased to share materials on the two crystal struct
 for the purpose of the practice along with the presentation at the electronic structure calculation conference held at KIAS.
 
 The first method is AMADEUS and the second method is RDFSEARCH.
-AMADEUS is a combination of the first-principles electronic structure calculation and the global area optimization method.
+AMADEUS is a combination of the first-principles electronic structure calculation and the global optimization method.
 RDFSEARCH can generate a set of new crystal structures as a database-based generative model.
 
 I am looking forward to seeing your interest and feedback.
