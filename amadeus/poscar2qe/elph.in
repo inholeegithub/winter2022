@@ -1,0 +1,20 @@
+electron-phonon
+&INPUTPH
+          prefix = 'rlxallz4',
+          outdir = './',
+          fildyn = 'rlxallz4.dyn'
+        fildvscf = 'dv',
+         fildrho = 'drho',
+           ldisp = .true.,
+        lshift_q = .true.,
+             nq1 = 4, 
+             nq2 = 4,
+             nq3 = 4,
+ electron_phonon = "lambda_tetra"
+             nk1 = 16,
+             nk2 = 16,
+             nk3 = 16,
+/
+&INPUTa2F
+ nfreq = 5000
+/

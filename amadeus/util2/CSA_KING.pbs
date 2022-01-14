@@ -1,0 +1,30 @@
+#!/bin/sh
+#PBS -l nodes=1:quad:ppn=1
+#PBS -N csa_king_exam2
+                                                                                
+NPROCS=`wc -l < $PBS_NODEFILE`
+
+hostname
+date
+
+cd $PBS_O_WORKDIR
+
+
+#rm fort.?
+#rm -rf 0???
+#rm -rf /home/ihlee/csa_vasp/exam0/deposit/*
+#mkdir  /home/ihlee/csa_vasp/exam0/deposit
+# nohup nice /home/ihlee/csa_vasp/csa_vasp.x < csa.in &> csa.out &
+
+# check files INCAR_bs, INCAR_rlx,INCAR_rlxall, POTCAR, csa.in, and CSA_SOLDIER.pbs
+# never ending job : kill the PBS job, change STATUS
+if [ ! -d deposit ]
+then
+    mkdir deposit
+fi
+
+/home/ihlee/csa_vasp/csa_vasp.x < csa.in &> csa.out
+
+STAMP=$(date +%Y%m%d_%H%M%S)_$RANDOM
+cp csa.out   csa.out_$STAMP
+cp fort.1     fort.1_$STAMP

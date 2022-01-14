@@ -1,0 +1,147 @@
+---------------------------------------------------------------------------------------------------
+
+1. prepare input files : targets, rdfsearch.in
+   the last three lines of rdfsearch.in are not used.
+   generate *_fin files by using calfinger.x [ifort -o calfinger.x calfinger.f90]
+   check the number of *_fin files, this should be ntargets in the file targets
+   make a negative ntargets value in the file targets
+!      See "program calfinger" (a short program as found in file calfinger.f90)
+!      Usage ifort -o calfinger.x calfinger.f90
+!            python plot_fort7.py
+!            xmgrace fort7
+output: fingers/
+2  
+gen_replicas_fin.py:# nohup nice python /home/ihlee/rdfsearch/gen_replicas.py &> replicas.out &
+gen_replicas_fin.py:mypath_replicas='/home/ihlee/rdfsearch/fingerprintdiff/work3/replica_fingers/'
+gen_replicas_fin.py:mypath_replicas=mypath0+'replica_fingers/'
+
+output: replica_fingers/
+3. mpirun -np  64  invsearch.x   [input files: targets, rdfsearch.in replicas_fingers, fingers]
+   See makefile
+4. ifort numeral.o sortnr.o readfort8.f90 ; ./a.out
+5. xmgrace fort.11 or python plot_fort11.py
+6. variable-cell shape relaxations
+7. mechanical stability tests
+
+---------------------------------------------------------------------------------------------------
+
+1. ifort pearson.o difffinger.f90 
+2. ./a.out POSCAR_1 POSCAR_2
+
+---------------------------------------------------------------------------------------------------
+
+#!/bin/bash
+#SBATCH --partition=g1
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=8
+##
+#SBATCH -J "Sn6Se6"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if [ -f INVSEARCH.pbs.[eo]* ] ; then
+rm INVSEARCH.pbs.[eo]*
+fi
+if [ -f KPOINTS ] ; then
+rm KPOINTS
+fi
+if [ -f STOPCAR ] ; then
+rm STOPCAR
+fi
+
+#
+# 1. check the file targets [ the number of files considered, list of files]
+#    presence of POSCAR files
+# 2. check the file rdfsearch.in [ see variable: cwd ]
+# 3. run the search program [ parallel ]
+if false; then
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /home/ihlee/rdfsearch/invsearch.x > stdout.log
+# 4. run the sorting program [ serial ], even the search program is being executed
+# /home/ihlee/rdfsearch/fingerprintdiff/readfort8.x
+# 5. make a plot to see a set of rare virtual crystals with esepcially high correlations 
+# python plot_fort11.py   or  xmgrace fort.11   [ serial ]
+# rm POSCAR_??????     [for later use, use mouse]
+# rm -rf 00??/         [for later use, use mouse]
+fi
+#
+# 6. make a series of structural relxations 
+if true; then
+for icar in $(seq -f "%06g"  1  100)
+do
+cp POSCAR_$icar   POSCAR
+cp INCAR_rlx      INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+number=1
+while [ $number -lt 4 ]
+do
+cp INCAR_rlxall   INCAR
+cp CONTCAR        POSCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp OUTCAR out.out_$number
+sleep 0.5
+if true; then
+lvar=$(grep sigma OUTCAR |awk '/py=/ {print $7}' |tail -n1 | awk '{ if ($0 <  -0.000000  ) {print "Yes"} else {print "No"}}')
+if [ $lvar == "No" ] ;  then
+      break
+fi
+fi
+number=`expr $number + 1`
+done
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+cp CONTCAR    CONTCAR_$icar
+done
+rm out.out_?
+fi
+if false; then
+for icar in $(seq -f "%06g"  201  900000)
+do
+if [ -f POSCAR_$icar ] ; then
+rm POSCAR_$icar
+fi
+done
+fi
+# discard nonsense structure
+# find . -type f -name 'CSA_SOLDIER.pbs' |xargs sed -i 's/ -0.000000 / -0.000000 /g'
+#
+# 7. make a series of mechanical stability tests
+if false; then
+for icar in $(seq -f "%06g"  1  100)
+do
+cp CONTCAR_$icar    POSCAR
+cp /home/ihlee/csa_vasp/util1/mechanical_stability/INCAR_mechanical_stability    INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=orthorhombic > output_mech
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=monoclinic > output_mech
+python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D > output_mech
+mv output_mech   output_mech_$icar
+#
+# 8. make a series of band gaps
+if false; then
+cp CONTCAR_$icar    POSCAR
+cp INCAR_rlxall0  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+cp INCAR_bs  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+/home/ihlee/csa_vasp/util1/egap_test/a.out > direct_test
+mv direct_test direct_test_$icar
+fi
+done
+fi

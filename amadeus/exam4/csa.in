@@ -1,0 +1,172 @@
+    1                                                nspecies
+    C                                                symbl(:)
+    8                                                nelements(:)
+   45.378190      0.000d0    0.040d0                 cellvol0(A^3), extpress(Mbar), voltol
+    1.0000000    0.0000000    0.0000000              cmatrix(1,1), cmatrix(1,2), cmatrix(1,3)
+    0.0000000    1.0000000    0.0000000              cmatrix(2,1), cmatrix(2,2), cmatrix(2,3)
+    0.0000000    0.0000000    1.0000000              cmatrix(3,1), cmatrix(3,2), cmatrix(3,3)
+    1.08                                             sigmamatrix(1,1), sigmamatrix(1,2), ...... in Angstrom unit
+ .true.     .true.    7                              lvcs, lpbc, iobj
+   50                                                ndirectory
+  /home/ihlee/csa_vasp/exam0/                        cwd 
+    3     5                                          idiff, nevol
+   50     50                                         npop, npop1
+   80     20        3                                nmate, npert, nfrac
+   3.0     0.990d0                                   amp(A), drate
+ 457    1442       .false.                           iseed10, iseed20, lnewjob
++-----------------------------------------------------------+
+|      read(5,*) nspecies                                   |
+|      read(5,*) (symbl(i),i=1,nspecies)                    |
+|      read(5,*) (nelements(i),i=1,nspecies)                |
+|      read(5,*) cellvol0,extpress,voltol                   |
+|      read(5,*) cmatrix(1,1),cmatrix(1,2),cmatrix(1,3)     |
+|      read(5,*) cmatrix(2,1),cmatrix(2,2),cmatrix(2,3)     |
+|      read(5,*) cmatrix(3,1),cmatrix(3,2),cmatrix(3,3)     |
+|      do i=1,nspecies                                      |
+|      read(5,*) (sigmamatrix(i,j),j=1,nspecies)            |
+|      enddo                                                |
+|      read(5,*) lvcs,lpbc,iobj                             |
+|      read(5,*) ndirectory                                 |
+|      read(5,'(a280)') cwd                                 |
+|      read(5,*) idiff,nevol0                               |
+|      read(5,*) npop0,npop10                               |
+|      read(5,*) nmate0,npert0,nfrac                        |
+|      read(5,*) amp0,drate0                                |
+|      read(5,*) iseed10,iseed20,lnewjob                    |
++-----------------------------------------------------------+
+Note that the extpress is a dummy variable.
+It should be expressed in the input files (INCAR_rlx, INCAR_rlxall, and INCAR_bs), if it is necessary.
+
+Check the file CSA_SOLDIER.pbs. It remains to be seen whether or not the contents can be put into practice.
+It should be compatible with parameter iobj.
+
+If we call this file csa.in, we can run the csa_vasp.x by putting it as an input file, and then just place it like so:
+nohup nice /home/ihlee/csa_vasp/csa_vasp.x < csa.in &> csa.out  &
+
+voltol, this value is in percent unit, tolerance in volume, cellvol0 (in unit of A^3) initial volume setting, which is different from the relaxed one, in general.
+cmatrix(3,3) will be given in Angstrom unit.
+ndirectory, this parameter is useful for limiting the usage of the resources,
+as an intentional action. 1 <= ndirectory <= npop
+
+lnewjob, this variable can actually be set to .false. any cases.
+You can explicitly remove the file fort.1 by using the command rm fort.1 for a new job.
+
+As this example shows, input parameters may not be broken after lines, and a comment may be inserted at the end of each line.
+
+To check the latest calculations.
+grep car csa.out
+grep car csa.out |wc
+ls -ltr 00??/stdout.log
+ls -ltr 00??/OUTCAR
+tail -n1 0???/STATUS |awk /./ | awk  'ORS=NR%2?FS:RS' |awk '{print $2, $4}'
+echo ./0???/ | xargs -n 1 cp CSA_SOLDIER.pbs
+qstat -u ihlee|grep Sn4S4 |grep -E 'R|Q' |wc
+find . -type f -name 'CSA_SOLDIER.pbs' |xargs sed -i 's/ -56.427001 / -56.427009 /g'
+
+grep E0 OSZICAR 
+
+Availability of each directory, the quality of being at hand when needed, can be monitored by using the command.
+tail -n1 ./00??/STATUS
+tail -n1 0???/STATUS |awk /./ | awk  'ORS=NR%2?FS:RS' |awk '{print $2, $4}' : to see the progress
+qstat -a|grep csa|awk '{split($0,a,"."); print "qdel ", a[1]}'| sh -x       : to delete the jobs
+qstat -a|grep csa|awk '{split($0,a,"."); print "qhold ", a[1]}'| sh -x      : to hold the jobs
+qstat -a|grep csa|awk '{split($0,a,"."); print "qrls ", a[1]}'| sh -x       : to release the jobs
+
+
+check list
+fort.1          : cp, rm
+csa.in          : vi
+INCAR_rlx       : vi
+INCAR_rlxall    : vi
+INCAR_bs        : vi
+POTCAR          : cp
+CSA_KING.pbs    : vi
+CSA_SODIER.pbs  : vi
+deposit         : mkdir deposit
+"touch your_job_ID" in case of nohup nice /home/ihlee/csa_vasp/csa_vasp.x < csa.in &> csa.out  &
+/home/ihlee/csa_vasp/readfort1.x < csa.in
+e.g.,
+csa_vasp.x job ID : 29861
+CSA_SOLDIER.pbs related Jobname from the PBS 'qstat -a' command : SiC18 
+kill -9  29861; rm   29861;  qstat -a|grep SiC18 |awk '{split($0,a,"."); print "qdel ", a[1]}' |sh -x
+qstat -a|grep csa |awk '{split($0,a,"."); print "qhold ", a[1]}' |sh -x
+qstat -a|grep csa |awk '{split($0,a,"."); print "qrls ", a[1]}' |sh -x
+head -n1 CONTCAR_* |awk 'NF'  |awk 'ORS=NR%2?FS:RS' |awk '{print $5, $2}' | sort -nk2
+head -n1 CONTCAR_* |awk 'NF'  |awk 'ORS=NR%2?FS:RS' |awk '{print $5, $2}' | sort -nrk2
+find . -type f -name 'CSA_SOLDIER.pbs' |xargs sed -i 's/ -56.427001 / -56.427009 /g'
+
+/home/ihlee/csa_vasp/readfort1.x < csa.in >outputreadfort1
+python /home/ihlee/csa_vasp/util1/mds0.py
+python /home/ihlee/csa_vasp/util1/abcalbega.py        
+python /home/ihlee/csa_vasp/util1/energydensity.py    
+python /home/ihlee/csa_vasp/util1/energyhistogram.py  
+python /home/ihlee/csa_vasp/util1/status.py
+python /home/ihlee/csa_vasp/util1/energyvolume.py     
+python /home/ihlee/csa_vasp/util1/structureupdate1.py
+python /home/ihlee/csa_vasp/util1/energyvolumesc.py   
+python /home/ihlee/csa_vasp/util1/structureupdate.py
+python /home/ihlee/csa_vasp/util1/idenergy.py         
+python /home/ihlee/csa_vasp/util1/volumehistogram.py
+python /home/ihlee/csa_vasp/util1/mdsbank.py
+
+In-Ho Lee: ihlee@kriss.re.kr
+!      Conformational Space Annealing (CSA) with First Principles Electronic Structure Calculations
+!      Atomic positions and six lattice parameters (a,b,c, alpha, beta, gamma) are dynamical variables for the CSA.
+!      References: Phys. Rev. Lett. 91, 080201 (2003); Phys. Rev. B 90, 115209 (2014);
+!      Sci. Rep. 5, 18086 (2015); Phys. Rev. B 93, 085201 (2016); Comput. Phys. Commun. 203, 110 (2016).
+!
+!       ######   ######     ###            ##     ##    ###     ######  ########  
+!      ##    ## ##    ##   ## ##           ##     ##   ## ##   ##    ## ##     ## 
+!      ##       ##        ##   ##          ##     ##  ##   ##  ##       ##     ## 
+!      ##        ######  ##     ## ####### ##     ## ##     ##  ######  ########  
+!      ##             ## #########          ##   ##  #########       ## ##        
+!      ##    ## ##    ## ##     ##           ## ##   ##     ## ##    ## ##        
+!       ######   ######  ##     ##            ###    ##     ##  ######  ##        
+!           
+!               #     #     #     #     ######   #######  #     #   #####   
+!              # #    ##   ##    # #    #     #  #        #     #  #     #  
+!             #   #   # # # #   #   #   #     #  #        #     #  #        
+!            #     #  #  #  #  #     #  #     #  #####    #     #   #####   
+!            #######  #     #  #######  #     #  #        #     #        #         
+!            #     #  #     #  #     #  #     #  #        #     #  #     #  
+!            #     #  #     #  #     #  ######   #######   #####    #####   
+!                        Ab initio MAterials DEsign Using cSa               
+!
+
+
+example 1 [csa.in]
+    2                                                nspecies
+   Si  Na                                            symbl(:)
+   14   1                                            nelements(:)
+  274.454500      0.000d0    0.080d0                 cellvol0(A^3), extpress(Mbar), voltol
+    1.0000000    0.0000000    0.0000000              cmatrix(1,1), cmatrix(1,2), cmatrix(1,3)
+    0.0000000    1.0000000    0.0000000              cmatrix(2,1), cmatrix(2,2), cmatrix(2,3)
+    0.0000000    0.0000000    1.0000000              cmatrix(3,1), cmatrix(3,2), cmatrix(3,3)
+    1.70  1.85                                       sigmamatrix(1,1), sigmamatrix(1,2), ...... in Angstrom unit
+    1.85  2.10                                       sigmamatrix(2,1), sigmamatrix(2,2), ...... in Angstrom unit
+ .true.     .true.    0                              lvcs, lpbc, iobj
+   20                                                ndirectory
+  /home/ihlee/csa_lj/Si14Na1/                        cwd
+    3     5                                          idiff, nevol
+   50     50                                         npop, npop1
+   80     20        4                                nmate, npert, nfrac
+   3.0     0.990d0                                   amp(A), drate
+ 439    1611       .false.                           iseed10, iseed20, lnewjob
+
+
+Take a look at a tabulated covalent radius by issuing the following command.
+cat /home/ihlee/csa_vasp/source0/rcrystal.f90 
+
+phonopy --tolerance 0.01 --symmetry -c POSCAR
+
+phonopy --symmetry -c POSCAR
+
+phonopy -d --dim="2 2 3" -c POSCAR
+
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/phonopy --tolerance 0.01 --symmetry -c POSCAR >/dev/null
+head -n 1 POSCAR >z1
+sed -e 1d PPOSCAR >>z1
+rm BPOSCAR PPOSCAR
+mv z1 POSCAR
+
+

@@ -1,0 +1,52 @@
+ SYSTEM = csa_vasp_band
+ Starting parameters for this run:
+   NWRITE =      2    write-flag
+   ISTART =      0    job   : 0-new, 1-cont, 2-samecut
+   ICHARG =     11    charge: 0-wave, 1-file, 2-atom, >10-const
+   INIWAV =      1    electr: 0-lowe 1-rand  2-diag
+
+ Electronic Relaxation:
+    PREC = Accurate
+    ENCUT  = 500.0
+#   ENAUG  =  700.0 eV  augmentation charge cutoff
+   ISPIN  =      1
+#   MAGMOM =  1.0 61*0.0 1.0 31*0.0 1.0 40*0.0
+
+#   NELMDL =    -11    number of delayed ELM steps
+   NELM   =      60    number of ELM steps
+#   EDIFF  =  1E-05    energy stopping-criterion for ELM
+   LREAL  =   .FALSE.    real-space projection (.FALSE., .TRUE., On, Auto)
+#   IALGO  =     38    algorithm (38=CG for small, 48=RMM for big systems)
+#   ALGO   = Fast
+#   NELECT=499
+#  NGX = 78; NGY= 78; NGZ=130
+
+   LCHARG = .FALSE.
+   LWAVE  = .FALSE.
+   LVTOT  = .FALSE.
+
+ Ionic Relaxation:
+   NSW    =     0    max number of geometry steps
+#   NELMIN =     6
+   IBRION =     2     ionic relax: 0-MD, 1-quasi-Newton, 2-CG, 3-Damped MD
+   EDIFFG =    -0.01 force (eV/A) stopping-criterion for geometry steps
+   ISIF   =     2    (1:force=y stress=trace only ions=y shape=n volume=n)
+   ISYM   =     0     (1-use symmetry, 0-no symmetry)
+   POTIM  =     0.1  initial time step for geo-opt (increase for soft sys)
+   VOSKOWN  =   1
+
+ DOS related values:
+   ISMEAR =     1    (-1-Fermi, 1-Methfessel/Paxton)
+   NEDOS = 601
+   SIGMA  =     0.03   broadening in eV
+#  LORBIT=11
+
+ Parallelization flags:
+   NPAR   = 1
+   LPLANE = .TRUE.
+
+  KSPACING = 0.10
+  KGAMMA = .TRUE. 
+
+#  PSTRESS = 1550.
+

@@ -1,0 +1,40 @@
+Written by In-Ho Lee, KRISS, December 25, 2021.
+
+Place reference POSCAR files                 {for example, POSCAR.mp-* from materialsproject}
+
+Set file targets  {for example, ls POSCAR.mp* >g1 and additional edition}      { ctrl+v, arrow keys + press x}
+
+cp ../source/calfinger.f90 .
+ifort calfinger.f90
+./a.out
+
+Check directory fingers/
+xmgrace fingers/*
+
+Prepare rdfsearch.in
+cp ../source/gen_replicas_fin.py .
+nohup nice python gen_replicas_fin.py &> replicas.out &
+
+Check the directory replica_fingers/
+xmgrace replica_fingers/*
+
+mpirun -np 8  /home/ihlee/winter2022/rdfsearch/invsearch.x <rdfsearch.in &> stdout.log &
+or
+cp ../source/RDFSEARCH.pbs .
+sbatch RDFSEARCH.pbs
+
+cp ../source/readfort8.f90 .
+cp ../source/numeral.f .
+cp ../source/sortnr.f90 .
+ifort readfort8.f90 numeral.f sortnr.f90 ; ./a.out
+
+./a.out
+cp ../source/plot_fort11.py .
+python plot_fort11.py
+xmgrace fort.11
+
+./a.out
+python plot_fort11.py
+
+./a.out
+python plot_fort11.py

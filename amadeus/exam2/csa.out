@@ -1,0 +1,2430 @@
+date,time   20160122  214038.774
+                      `..     `.. ..        `.             `..         `..      `.         `.. ..  `....... 
+                 `..   `..`..    `..     `. ..            `..       `..      `. ..     `..    `..`..    `.. 
+                `..        `..          `.  `..            `..     `..      `.  `..     `..      `..    `.. 
+                `..          `..       `..   `..   `.....   `..   `..      `..   `..      `..    `.......   
+                `..             `..   `...... `..            `.. `..      `...... `..        `.. `..        
+                 `..   `..`..    `.. `..       `..            `....      `..       `.. `..    `..`..        
+                   `....    `.. ..  `..         `..            `..      `..         `..  `.. ..  `..        
+                                                                                                    20130911
+                                  #     #     #     #     ######   #######  #     #   #####  
+                                 # #    ##   ##    # #    #     #  #        #     #  #     # 
+                                #   #   # # # #   #   #   #     #  #        #     #  #       
+                               #     #  #  #  #  #     #  #     #  #####    #     #   #####  
+                               #######  #     #  #######  #     #  #        #     #        # 
+                               #     #  #     #  #     #  #     #  #        #     #  #     # 
+                               #     #  #     #  #     #  ######   #######   #####    #####  
+                                           Ab initio MAterials DEsign Using cSa              
+January 22 2016   9:40:38.774 PM
+           2
+  Si   C 
+   2    2
+      240.00000000        0.00000000        0.10000000
+        4.000000000000        0.000000000000        0.000000000000
+        0.000000000000        4.000000000000        0.000000000000
+        0.000000000000        0.000000000000       15.000000000000
+    1.1000    1.0800
+    1.0800    1.0000
+ sigmamatrix in Angstrom
+  Si  Si      1.1000
+  Si  C       1.0800
+  C   Si      1.0800
+  C   C       1.0000
+ enthalpy minimization (See INCAR)
+ T T           0
+          50
+ /home/ihlee/csa_vasp/exam2/
+           5           5
+          50          50
+          80          20           2
+   3.00000000000000       0.990000000000000     
+         417        1412 F
+ fort.1 is present. This is an iterative job.
+   240.000000000000       vtest,cellvol0   240.000000000000     
+   4.00000000000000       0.000000000000000E+000  0.000000000000000E+000
+  0.000000000000000E+000   4.00000000000000       0.000000000000000E+000
+  0.000000000000000E+000  0.000000000000000E+000   15.0000000000000     
+  0.100000000000000      voltol (%)   10.0000000000000     
+ natom,nfrac           4           2
+  Si   C 
+   2   2
+ T lvcs,lpbc T
+   50   50  npop,npop1,iseed1,iseed2    417 1412
+  idiff      5
+ 3.000    0.990000000    4000   1000      2 amp,drate,nmate,npert,nfrac,nevol       5
+     1.544250     1.944611     0.000000  rc1,rc2,shift
+ iterative, npop1_r,npop1          50          50
+ iterative, npop_r,npop          50          50
+ iterative, energy_best_r  -28.3284970000000     
+       1 itr,repul              0.0             1.0        250.30229759
+       1
+ Si C 
+   24   28
+      230.75353718
+ symm-introduction:mutation  204
+       1 itr,repul              0.0             1.0        239.54134655
+       1
+ Si C 
+    4    3
+      225.24198818
+ symm-introduction:mutation    2
+       1 itr,repul              0.0             1.0        217.05747414
+       2
+ Si C 
+    2    2
+      223.99952030
+ symm-introduction:mutation    1
+       1 itr,repul              0.0             1.0        239.88811111
+       1
+ Si C 
+    8    8
+      253.32919407
+ symm-introduction:mutation    8
+       1 itr,repul              0.0             1.0        244.89820576
+       1
+ Si C 
+   16   16
+      235.88231277
+ symm-introduction:mutation   50
+       1 itr,repul              0.0             1.0        222.18972874
+       1
+ Si C 
+   16   16
+      260.60557938
+ symm-introduction:mutation   57
+       1 itr,repul              0.0             1.0        246.73396111
+       1
+ Si C 
+   32   32
+      223.16792965
+ symm-introduction:mutation   73
+       1 itr,repul              0.0             1.0        221.70470238
+       3
+ Si C 
+    6   12
+      236.92951870
+ symm-introduction:mutation  103
+       1 itr,repul              0.0             1.0        262.10356808
+       1
+ Si C 
+  192  192
+      253.15374756
+ symm-introduction:mutation  226
+       1 itr,repul              0.0             2.0        228.57077408
+       1
+ Si C 
+   12   16
+      238.52812099
+ symm-introduction:mutation  129
+       1 itr,repul              0.0             1.0        222.68816471
+       1
+ Si C 
+    8    8
+      225.08563614
+ symm-introduction:mutation    9
+       1 itr,repul              0.0             1.0        257.98112869
+       1
+ Si C 
+   16   16
+      226.24028206
+ symm-introduction:mutation   85
+       1 itr,repul              0.0             2.0        224.43862724
+       1
+ Si C 
+   16   16
+      218.00956249
+ symm-introduction:mutation   37
+       1 itr,repul              0.0             1.0        243.56829929
+       1
+ Si C 
+   12   16
+      252.77404690
+ symm-introduction:mutation  133
+       1 itr,repul              0.0             1.0        223.05778885
+       1
+ Si C 
+    4    4
+      249.53536892
+ symm-introduction:mutation    7
+       1 itr,repul              0.0             2.0        250.45209217
+       1
+ Si C 
+    3    2
+      244.46776772
+ symm-introduction:mutation    6
+       1 itr,repul              0.0             1.0        222.45984650
+       1
+ Si C 
+   16   16
+      242.92527866
+ symm-introduction:mutation   73
+       1 itr,repul              0.0             1.0        242.57752419
+       1
+ Si C 
+    8    8
+      258.35575962
+ symm-introduction:mutation   27
+       1 itr,repul              0.0             1.0        247.12475967
+       2
+ Si C 
+   24   16
+      221.41799641
+ symm-introduction:mutation  128
+       1 itr,repul              0.0             1.0        224.46912575
+       2
+ Si C 
+   16   16
+      253.84087086
+ symm-introduction:mutation  128
+       1 itr,repul              0.0             1.0        245.69240856
+       1
+ Si C 
+    6   16
+      244.40767765
+ symm-introduction:mutation  175
+       1 itr,repul              0.0             1.0        247.45920181
+       1
+ Si C 
+   20   20
+      255.10149765
+ symm-introduction:mutation  218
+       1 itr,repul              0.0             1.0        252.51133347
+       1
+ Si C 
+   24   16
+      236.69077778
+ symm-introduction:mutation   42
+       1 itr,repul              0.0             1.0        245.91015816
+       4
+ Si C 
+   10    8
+      251.73608780
+ symm-introduction:mutation  175
+       1 itr,repul              0.0             1.0        261.54198360
+       1
+ Si C 
+  128  128
+      250.16453075
+ symm-introduction:mutation  227
+       1 itr,repul              0.0             1.0        236.04504204
+       3
+ Si C 
+   16   16
+      243.16973019
+ symm-introduction:mutation   37
+       1 itr,repul              0.0             2.0        249.70145416
+       1
+ Si C 
+   96  144
+      238.99128914
+ symm-introduction:mutation  225
+       1 itr,repul              0.0             1.0        229.32151794
+       1
+ Si C 
+    6   10
+      259.91316319
+ symm-introduction:mutation   79
+       1 itr,repul              0.0             1.0        245.14249420
+       1
+ Si C 
+   16   12
+      251.98994637
+ symm-introduction:mutation   62
+       1 itr,repul              0.0             1.0        232.45049858
+       1
+ Si C 
+   24   24
+      258.74027824
+ symm-introduction:mutation   72
+       1 itr,repul              0.0             1.0        255.50293922
+       1
+ Si C 
+   32   24
+      233.40958214
+ symm-introduction:mutation   69
+       1 itr,repul              0.0             1.0        247.10798836
+       2
+ Si C 
+    8    8
+      228.23307896
+ symm-introduction:mutation   19
+       1 itr,repul              0.0             3.0        240.04807377
+       1
+ Si C 
+   24   32
+      220.96131420
+ symm-introduction:mutation   98
+       1 itr,repul              0.0             1.0        226.94321823
+       1
+ Si C 
+    9   12
+      232.89476967
+ symm-introduction:mutation  151
+       1 itr,repul              0.0             1.0        257.16501331
+       1
+ Si C 
+   16    6
+      240.80865383
+ symm-introduction:mutation   83
+       1 itr,repul              0.0             1.0        249.12280083
+       2
+ Si C 
+   16   16
+      255.92499161
+ symm-introduction:mutation   50
+       1 itr,repul              0.0             1.0        243.32645130
+       2
+ Si C 
+   16   24
+      233.07013321
+ symm-introduction:mutation  198
+       1 itr,repul              0.0             2.0        223.81958199
+       1
+ Si C 
+    5    5
+      260.55086517
+ symm-introduction:mutation  150
+       1 itr,repul              0.0             1.0        228.58890724
+       1
+ Si C 
+   10   10
+      217.09491348
+ symm-introduction:mutation   79
+       1 itr,repul              0.0             1.0        236.11111450
+       1
+ Si C 
+   12    8
+      222.00706100
+ symm-introduction:mutation   96
+       1 itr,repul              0.0             1.0        240.75873184
+       2
+ Si C 
+    9   20
+      242.41494083
+ symm-introduction:mutation  207
+       1 itr,repul              0.0             1.0        222.22175503
+       1
+ Si C 
+    9    9
+      245.22225952
+ symm-introduction:mutation  155
+       1 itr,repul              0.0             1.0        230.30480003
+       1
+ Si C 
+   12   24
+      216.47743320
+ symm-introduction:mutation  119
+       1 itr,repul              0.0             1.0        263.76011467
+       1
+ Si C 
+   18   16
+      253.14317608
+ symm-introduction:mutation  189
+       1 itr,repul              0.0             1.0        260.88507843
+       1
+ Si C 
+   16   16
+      253.74052334
+ symm-introduction:mutation   54
+       1 itr,repul              0.0             2.0        225.43935013
+       1
+ Si C 
+   10    8
+      225.22052193
+ symm-introduction:mutation  184
+       0 itr,repul              0.0             0.0        244.19429111
+       3
+ Si C 
+    8    3
+      252.67599106
+ symm-introduction:mutation  147
+       0 itr,repul              0.0             0.0        240.07751083
+       2
+ Si C 
+    8    8
+      226.53912735
+ symm-introduction:mutation   78
+       1 itr,repul              0.0             1.0        260.08412933
+       1
+ Si C 
+    8    8
+      247.28106594
+ symm-introduction:mutation   18
+       1 itr,repul              0.0             1.0        237.19456387
+       2
+ Si C 
+   16   12
+      220.26032925
+ symm-introduction:mutation  192
+       1 itr,repul              0.0             1.0        235.51647663
+       1
+ Si C 
+    6    9
+      240.06667328
+ symm-introduction:mutation  154
+       1 itr,repul              0.0             1.0        220.39440536
+       1
+ Si C 
+    4    4
+      252.62471867
+ symm-introduction:mutation   18
+       1 itr,repul              0.0             1.0        238.88615227
+       1
+ Si C 
+    8    8
+      257.14281750
+ symm-introduction:mutation   18
+       1 itr,repul              0.0             1.0        253.06020069
+       1
+ Si C 
+    8    4
+      217.15239429
+ symm-introduction:mutation  173
+       1 itr,repul              0.0             1.0        262.25975132
+       2
+ Si C 
+    6    8
+      232.17819500
+ symm-introduction:mutation   89
+       1 itr,repul              0.0             1.0        230.70592690
+       1
+ Si C 
+   12   20
+      232.63947201
+ symm-introduction:mutation  123
+       1 itr,repul              0.0             1.0        250.16864491
+       1
+ Si C 
+   16   24
+      234.57526875
+ symm-introduction:mutation  125
+       1 itr,repul              0.0             1.0        260.97859669
+       1
+ Si C 
+   24   16
+      224.22621632
+ symm-introduction:mutation   98
+       1 itr,repul              0.0             1.0        233.74837017
+       1
+ Si C 
+   30    8
+      241.51764107
+ symm-introduction:mutation  191
+       1 itr,repul              0.0             1.0        251.38778973
+       1
+ Si C 
+   40   48
+      232.26880932
+ symm-introduction:mutation  211
+       1 itr,repul              0.0             1.0        231.19937325
+       1
+ Si C 
+    4    6
+      252.18883896
+ symm-introduction:mutation    8
+       1 itr,repul              0.0             1.0        219.90420628
+       1
+ Si C 
+   32   36
+      227.82166100
+ symm-introduction:mutation  213
+       1 itr,repul              0.0             2.0        222.02083969
+       3
+ Si C 
+    8    8
+      250.26523304
+ symm-introduction:mutation   83
+       1 itr,repul              0.0             1.0        250.06250668
+       1
+ Si C 
+   32   32
+      251.59523392
+ symm-introduction:mutation  130
+       1 itr,repul              0.0             1.0        224.12788296
+       1
+ Si C 
+   32   32
+      257.43761444
+ symm-introduction:mutation   70
+       1 itr,repul              0.0             1.0        237.30111980
+       1
+ Si C 
+   48   32
+      249.31655216
+ symm-introduction:mutation  142
+       1 itr,repul              0.0             1.0        232.81048679
+       1
+ Si C 
+   12   12
+      223.67636490
+ symm-introduction:mutation   21
+       1 itr,repul              0.0             2.0        217.16836739
+       2
+ Si C 
+    9    6
+      216.37857628
+ symm-introduction:mutation  154
+       1 itr,repul              0.0             2.0        251.42290306
+       1
+ Si C 
+    8   12
+      217.63879681
+ symm-introduction:mutation   71
+       1 itr,repul              0.0             1.0        225.15522480
+       2
+ Si C 
+   24   72
+      229.11601067
+ symm-introduction:mutation  221
+       1 itr,repul              0.0             1.0        261.09936905
+       2
+ Si C 
+   32   32
+      244.33516216
+ symm-introduction:mutation  126
+       1 itr,repul              0.0             1.0        251.08208942
+       1
+ Si C 
+   12   20
+      246.32591343
+ symm-introduction:mutation  108
+       1 itr,repul              0.0             1.0        235.32624435
+       1
+ Si C 
+   16    8
+      232.55800724
+ symm-introduction:mutation  130
+       1 itr,repul              0.0             1.0        248.78460503
+       2
+ Si C 
+    8    5
+      234.57863903
+ symm-introduction:mutation  150
+       1 itr,repul              0.0             3.0        246.17213917
+       1
+ Si C 
+  256  256
+      226.71369839
+ symm-introduction:mutation  228
+       1 itr,repul              0.0             1.0        251.79105377
+       2
+ Si C 
+    3    2
+      235.94352436
+ symm-introduction:mutation    3
+       1 itr,repul              0.0             1.0        230.66778374
+       1
+ Si C 
+   24   24
+      254.72093010
+ symm-introduction:mutation  192
+       1 itr,repul              0.0             1.0        229.06618309
+       1
+ Si C 
+   24   10
+      256.46042919
+ symm-introduction:mutation  182
+       1 itr,repul              0.0             1.0        262.09920788
+       1
+ Si C 
+   12    8
+      237.76070023
+ symm-introduction:mutation   95
+       1 itr,repul              0.0             1.0        245.74523735
+       2
+ Si C 
+   12   12
+      227.81486034
+ symm-introduction:mutation  152
+       1 itr,repul              0.0             1.0        247.93836594
+       1
+ Si C 
+    8   12
+      259.78587055
+ symm-introduction:mutation   55
+       1 itr,repul              0.0             1.0        228.95252609
+       1
+ Si C 
+    8    8
+      228.44700623
+ symm-introduction:mutation   27
+       1 itr,repul              0.0             1.0        218.49686337
+       1
+ Si C 
+   32   32
+      226.82428551
+ symm-introduction:mutation   63
+       1 itr,repul              0.0             1.0        258.75940704
+       2
+ Si C 
+   18   18
+      263.43407822
+ symm-introduction:mutation  178
+       1 itr,repul              0.0             1.0        226.88915920
+       2
+ Si C 
+    8    8
+      241.27883148
+ symm-introduction:mutation   55
+       1 itr,repul              0.0             1.0        240.60290051
+       2
+ Si C 
+   10   12
+      250.23305225
+ symm-introduction:mutation  176
+       1 itr,repul              0.0             1.0        235.81744480
+       1
+ Si C 
+    8   12
+      243.32034588
+ symm-introduction:mutation   55
+       1 itr,repul              0.0             2.0        243.87762737
+       1
+ Si C 
+   16    8
+      242.61706924
+ symm-introduction:mutation   44
+       1 itr,repul              0.0             1.0        259.26027203
+       1
+ Si C 
+   18   18
+      259.92170334
+ symm-introduction:mutation  181
+       1 itr,repul              0.0             1.0        230.46271706
+       1
+ Si C 
+   32   32
+      246.68322086
+ symm-introduction:mutation   42
+       1 itr,repul              0.0             1.0        233.69533539
+       1
+ Si C 
+   12   16
+      233.36282444
+ symm-introduction:mutation  136
+       1 itr,repul              0.0             1.0        253.11992741
+       1
+ Si C 
+    4    6
+      233.07009029
+ symm-introduction:mutation   27
+       1 itr,repul              0.0             1.0        234.01368999
+       1
+ Si C 
+   16    8
+      231.87312126
+ symm-introduction:mutation  163
+       1 itr,repul              0.0             1.0        246.19485855
+       2
+ Si C 
+    6    8
+      219.55562496
+ symm-introduction:mutation   10
+       1 itr,repul              0.0             1.0        244.31916904
+       1
+ Si C 
+   48   48
+      251.65896320
+ symm-introduction:mutation  141
+       1 itr,repul              0.0             1.0        261.57475662
+       2
+ Si C 
+   24   32
+      231.85853004
+ symm-introduction:mutation   98
+       1 itr,repul              0.0             1.0        219.35221481
+       1
+ Si C 
+   48   20
+      222.62753677
+ symm-introduction:mutation  213
+       1 itr,repul              0.0             1.0        251.85288048
+       1
+ Si C 
+   64   64
+      230.67368889
+ symm-introduction:mutation  142
+       1 itr,repul              0.0             1.0        255.48135281
+       1
+ Si C 
+    8   24
+      253.76992035
+ symm-introduction:mutation   71
+       1 itr,repul              0.0             1.0        248.91246700
+       1
+ Si C 
+   24   16
+      260.07134342
+ symm-introduction:mutation  135
+        9.64773002  davg
+ iterative,davg_r,davg   33.1510918465513        9.64773001627933     
+    -0.283284970000E+02  objective functions in the first bank
+ -0.2833E+02 -0.2833E+02 -0.2813E+02 -0.2811E+02 -0.2811E+02 -0.2811E+02 -0.2811E+02 -0.2811E+02 -0.2811E+02 -0.2811E+02
+ -0.2811E+02 -0.2811E+02 -0.2811E+02 -0.2794E+02 -0.2637E+02 -0.2637E+02 -0.2637E+02 -0.2637E+02 -0.2634E+02 -0.2634E+02
+ -0.2634E+02 -0.2616E+02 -0.2614E+02 -0.2614E+02 -0.2614E+02 -0.2614E+02 -0.2612E+02 -0.2595E+02 -0.2590E+02 -0.2576E+02
+ -0.2569E+02 -0.2569E+02 -0.2566E+02 -0.2541E+02 -0.2538E+02 -0.2538E+02 -0.2538E+02 -0.2538E+02 -0.2538E+02 -0.2538E+02
+ -0.2538E+02 -0.2538E+02 -0.2538E+02 -0.2538E+02 -0.2522E+02 -0.2509E+02 -0.2499E+02 -0.2499E+02 -0.2474E+02 -0.2473E+02
+
+   16.5755459232757       dcut, ievol           0
+mkdir: cannot create directory `0001': File exists
+mkdir: cannot create directory `0002': File exists
+mkdir: cannot create directory `0003': File exists
+mkdir: cannot create directory `0004': File exists
+mkdir: cannot create directory `0005': File exists
+mkdir: cannot create directory `0006': File exists
+mkdir: cannot create directory `0007': File exists
+mkdir: cannot create directory `0008': File exists
+mkdir: cannot create directory `0009': File exists
+mkdir: cannot create directory `0010': File exists
+mkdir: cannot create directory `0011': File exists
+mkdir: cannot create directory `0012': File exists
+mkdir: cannot create directory `0013': File exists
+mkdir: cannot create directory `0014': File exists
+mkdir: cannot create directory `0015': File exists
+mkdir: cannot create directory `0016': File exists
+mkdir: cannot create directory `0017': File exists
+mkdir: cannot create directory `0018': File exists
+mkdir: cannot create directory `0019': File exists
+mkdir: cannot create directory `0020': File exists
+mkdir: cannot create directory `0021': File exists
+mkdir: cannot create directory `0022': File exists
+mkdir: cannot create directory `0023': File exists
+mkdir: cannot create directory `0024': File exists
+mkdir: cannot create directory `0025': File exists
+mkdir: cannot create directory `0026': File exists
+mkdir: cannot create directory `0027': File exists
+mkdir: cannot create directory `0028': File exists
+mkdir: cannot create directory `0029': File exists
+mkdir: cannot create directory `0030': File exists
+mkdir: cannot create directory `0031': File exists
+mkdir: cannot create directory `0032': File exists
+mkdir: cannot create directory `0033': File exists
+mkdir: cannot create directory `0034': File exists
+mkdir: cannot create directory `0035': File exists
+mkdir: cannot create directory `0036': File exists
+mkdir: cannot create directory `0037': File exists
+mkdir: cannot create directory `0038': File exists
+mkdir: cannot create directory `0039': File exists
+mkdir: cannot create directory `0040': File exists
+mkdir: cannot create directory `0041': File exists
+mkdir: cannot create directory `0042': File exists
+mkdir: cannot create directory `0043': File exists
+mkdir: cannot create directory `0044': File exists
+mkdir: cannot create directory `0045': File exists
+mkdir: cannot create directory `0046': File exists
+mkdir: cannot create directory `0047': File exists
+mkdir: cannot create directory `0048': File exists
+mkdir: cannot create directory `0049': File exists
+mkdir: cannot create directory `0050': File exists
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   17   50    -0.263696420000E+02   -0.247309920000E+02 jparents      1
+       1 itr,repul              0.0             1.0        237.23682117
+77705.master.hpc
+  114  jtr    code=2
+   39    4    -0.253777240000E+02   -0.281105840000E+02 jparents      2
+       1 itr,repul              0.0             1.0        242.53434775
+77706.master.hpc
+  128  jtr    code=2
+   13   47    -0.281100950000E+02   -0.249854470000E+02 jparents      3
+       1 itr,repul              0.0             1.0        250.52615031
+77707.master.hpc
+   47    -0.249854470000E+02 jmutation,jparents      4
+       1 itr,repul              0.0             1.0        223.08983054
+77708.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   30    -0.257563010000E+02 jmutation,jparents      5
+       1 itr,repul              0.0             1.0        229.70451164
+77709.master.hpc
+    6    -0.281104370000E+02 jmutation,jparents      6
+       1 itr,repul              0.0             1.0        217.53335652
+77710.master.hpc
+   35    -0.253777400000E+02 jmutation,jparents      7
+       1 itr,repul              0.0             1.0        259.60472641
+77711.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   17  -32    -0.263696420000E+02   -0.253118290000E+02 jparents      8
+       1 itr,repul              0.0             1.0        227.94423580
+77712.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   14    -0.283284970000E+02   -0.279445780000E+02 jparents      9
+       1 itr,repul              0.0             2.0        230.98851585
+77713.master.hpc
+  115  jtr    code=2
+    6   -5    -0.281104370000E+02   -0.281101770000E+02 jparents     10
+       1 itr,repul              0.0             2.0        216.62619166
+77714.master.hpc
+  135  jtr    code=2
+    9   37    -0.281101850000E+02   -0.253777280000E+02 jparents     11
+       1 itr,repul              0.0             1.0        244.76112122
+77715.master.hpc
+   25    -0.261439570000E+02 jmutation,jparents     12
+       1 itr,repul              0.0             3.0        260.25886004
+77716.master.hpc
+  -26    -0.253777270000E+02 jmutation,jparents     13
+       1 itr,repul              0.0             1.0        222.65623021
+77717.master.hpc
+  173  jtr-   code=1
+  -34    -0.251723940000E+02 jmutation,jparents     14
+       1 itr,repul              0.0             3.0        241.47817689
+77718.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    3    1    -0.281309030000E+02   -0.283284970000E+02 jparents     15
+       1 itr,repul              0.0             1.0        247.79018211
+77719.master.hpc
+  226  jtr    code=2
+   38   14    -0.253777270000E+02   -0.279445780000E+02 jparents     16
+       1 itr,repul              0.0             1.0        237.11432973
+77720.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   32    1    -0.256870060000E+02   -0.283284970000E+02 jparents     17
+       1 itr,repul              0.0             2.0        234.69442463
+77721.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   45  -44    -0.252162540000E+02   -0.245753340000E+02 jparents     18
+       1 itr,repul              0.0             1.0        222.29446507
+77722.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   16   -7    -0.263697390000E+02   -0.281101620000E+02 jparents     19
+       1 itr,repul              0.0             1.0        245.73604202
+77723.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    9    -0.281101850000E+02 jmutation,jparents     20
+       1 itr,repul              0.0             1.0        252.84417057
+77724.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    8   17    -0.281101920000E+02   -0.263696420000E+02 jparents     21
+       1 itr,repul              0.0             1.0        240.77953434
+77725.master.hpc
+  121  jtr    code=2
+    4    5    -0.281105840000E+02   -0.281104950000E+02 jparents     22
+       1 itr,repul              0.0             1.0        238.72185883
+77726.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   10    5    -0.281101770000E+02   -0.281104950000E+02 jparents     23
+       1 itr,repul              0.0             1.0        262.63334942
+77727.master.hpc
+  116  jtr    code=2
+   13   47    -0.281100950000E+02   -0.249854470000E+02 jparents     24
+       1 itr,repul              0.0             1.0        235.00720522
+77728.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   50    -0.247309920000E+02 jmutation,jparents     25
+       1 itr,repul              0.0             1.0        223.66103268
+77729.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1    3    -0.283284970000E+02   -0.281309030000E+02 jparents     26
+       1 itr,repul              0.0             1.0        258.70141411
+77730.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    1    -0.283284970000E+02 jmutation,jparents     27
+       1 itr,repul              0.0             1.0        248.28171158
+77731.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   48   49    -0.249851000000E+02   -0.247376940000E+02 jparents     28
+       1 itr,repul              0.0             1.0        236.13056374
+77732.master.hpc
+  163  jtr    code=2
+    7   21    -0.281102270000E+02   -0.263379780000E+02 jparents     29
+       1 itr,repul              0.0             1.0        223.65974619
+77733.master.hpc
+  159  jtr    code=2
+   38    4    -0.253777270000E+02   -0.281105840000E+02 jparents     30
+       1 itr,repul              0.0             1.0        221.13601166
+77734.master.hpc
+  112  jtr    code=2
+   50   27    -0.247309920000E+02   -0.261236610000E+02 jparents     31
+       1 itr,repul              0.0             1.0        252.41573054
+77736.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    3    -0.281309030000E+02 jmutation,jparents     32
+       1 itr,repul              0.0             1.0        218.21274662
+77737.master.hpc
+  108  jtr    code=2
+   19   42    -0.263402210000E+02   -0.253776660000E+02 jparents     33
+       1 itr,repul              0.0             1.0        239.44896058
+77738.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   11   38    -0.281101760000E+02   -0.253777270000E+02 jparents     34
+       1 itr,repul              0.0             1.0        224.50278282
+77739.master.hpc
+  110  jtr    code=2
+   36   43    -0.253777360000E+02   -0.253776360000E+02 jparents     35
+       1 itr,repul              0.0             1.0        240.66363573
+77740.master.hpc
+   21   24    -0.263379780000E+02   -0.261440320000E+02 jparents     36
+       1 itr,repul              0.0             1.0        218.77309747
+77741.master.hpc
+  220  jtr    code=2
+   42   21    -0.253776660000E+02   -0.263379780000E+02 jparents     37
+       1 itr,repul              0.0             3.0        220.94101063
+77742.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    9    2    -0.281101850000E+02   -0.283284910000E+02 jparents     38
+       1 itr,repul              0.0             1.0        251.87892723
+77743.master.hpc
+  120  jtr    code=2
+    8   26    -0.281101920000E+02   -0.261425370000E+02 jparents     39
+       1 itr,repul              0.0             1.0        248.50118103
+77744.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   29   12    -0.258963270000E+02   -0.281101620000E+02 jparents     40
+       1 itr,repul              0.0             1.0        226.99196148
+77745.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12    3    -0.281101620000E+02   -0.281309030000E+02 jparents     41
+       1 itr,repul              0.0             2.0        227.38240528
+77746.master.hpc
+  109  jtr    code=2
+   44   22    -0.253776310000E+02   -0.261639030000E+02 jparents     42
+       1 itr,repul              0.0             2.0        241.35540253
+77747.master.hpc
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    9    -0.281101850000E+02 jmutation,jparents     43
+       1 itr,repul              0.0             1.0        252.84417057
+77748.master.hpc
+  124  jtr    code=2
+   19    6    -0.263402210000E+02   -0.281104370000E+02 jparents     44
+       1 itr,repul              0.0             1.0        237.64183548
+77749.master.hpc
+  159  jtr    code=2
+   13   27    -0.281100950000E+02   -0.261236610000E+02 jparents     45
+       1 itr,repul              0.0             1.0        222.19798932
+77750.master.hpc
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    3   29    -0.281309030000E+02   -0.258963270000E+02 jparents     46
+       1 itr,repul              0.0             1.0        250.30606270
+77751.master.hpc
+  104  jtr    code=2
+   30   25    -0.257563010000E+02   -0.261439570000E+02 jparents     47
+       1 itr,repul              0.0             1.0        216.83198183
+77752.master.hpc
+  124  jtr    code=2
+    7   35    -0.281102270000E+02   -0.253777400000E+02 jparents     48
+       1 itr,repul              0.0             1.0        252.62721631
+77753.master.hpc
+  113  jtr    code=2
+   22    2    -0.261639030000E+02   -0.283284910000E+02 jparents     49
+       1 itr,repul              0.0             1.0        233.78791950
+77754.master.hpc
+  194  jtr    code=2
+   18    4    -0.263696380000E+02   -0.281105840000E+02 jparents     50
+       1 itr,repul              0.0             3.0        229.88223558
+77755.master.hpc
+    1    242.121      -25.2110650 outcar       4.0471      4.0473     17.0555      91.6774     91.6909     60.1335
+     -0.2521106500E+02  obj ftn
+ old type, replaced        -0.25211065E+02     -0.24985100E+02     -0.22596500E+00
+  116  jtr    code=2
+    7    6    -0.281102270000E+02   -0.281104370000E+02 jparents     51
+       1 itr,repul              0.0             1.0        243.29435221
+77813.master.hpc
+    4    229.369      -24.9856320 outcar       5.2819      4.4467     15.4327      92.1926     90.4496     39.3189
+     -0.2498563200E+02  obj ftn
+ old type, replaced        -0.24985632E+02     -0.24985447E+02     -0.18500000E-03
+  111  jtr    code=2
+   26   13    -0.261425370000E+02   -0.281100950000E+02 jparents     52
+       1 itr,repul              0.0             1.0        239.28676092
+77815.master.hpc
+    7    224.911      -25.6957470 outcar       4.3606      4.3608     11.9028      94.2547     87.0900     94.0650
+     -0.2569574700E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   33    -0.256550760000E+02 jmutation,jparents     53
+       1 itr,repul              0.0             1.0        220.60410404
+77817.master.hpc
+    9    227.951      -25.3776220 outcar       4.4122      3.8950     14.2729      89.8678     86.9292     68.5638
+     -0.2537762200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    9   10    -0.281101850000E+02   -0.281101770000E+02 jparents     54
+       1 itr,repul              0.0             1.0        257.25985909
+77819.master.hpc
+   16    243.347      -25.3776650 outcar       3.8982      4.4129     15.2234      90.4169     89.6607     68.3263
+     -0.2537766500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2    8    -0.283284910000E+02   -0.281101920000E+02 jparents     55
+       1 itr,repul              0.0             2.0        217.67589569
+77822.master.hpc
+   12    233.218      -25.3777030 outcar       4.4122      3.8966     14.9705      78.2152     89.4882    111.6242
+     -0.2537770300E+02  obj ftn
+ old type, replaced        -0.25377703E+02     -0.25377666E+02     -0.37000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   20   28    -0.263380650000E+02   -0.259527430000E+02 jparents     56
+       1 itr,repul              0.0             1.0        228.07058144
+77823.master.hpc
+   15    237.937      -26.1236700 outcar       4.0280      4.6934     12.5881      91.0790     89.9997     90.0000
+     -0.2612367000E+02  obj ftn
+ old type, replaced        -0.26123670E+02     -0.26123661E+02     -0.90000000E-05
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2    1    -0.283284910000E+02   -0.283284970000E+02 jparents     57
+       1 itr,repul              0.0             1.0        233.98801231
+77824.master.hpc
+   18    249.248      -25.3775390 outcar       4.4115      3.8953     15.6051      89.4503     90.5291     68.3715
+     -0.2537753900E+02  obj ftn
+  115  jtr    code=2
+    9  -26    -0.281101850000E+02   -0.253777270000E+02 jparents     58
+       1 itr,repul              0.0             2.0        260.80810762
+77825.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  107  jtr    code=2
+   23   31    -0.261440490000E+02   -0.256886710000E+02 jparents     59
+       1 itr,repul              0.0             1.0        220.18374801
+77826.master.hpc
+   21    216.890      -25.3777420 outcar       3.8982      4.4126     13.5836      87.4252     90.2351    111.6779
+     -0.2537774200E+02  obj ftn
+ old type, replaced        -0.25377742E+02     -0.25377727E+02     -0.15000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   21    2    -0.263379780000E+02   -0.283284910000E+02 jparents     60
+       1 itr,repul              0.0             1.0        249.24472618
+77828.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  136  jtr    code=2
+   28    4    -0.259527430000E+02   -0.281105840000E+02 jparents     61
+       1 itr,repul              0.0             1.0        234.38669321
+77832.master.hpc
+   11    250.558      -28.1101930 outcar       3.0959      5.3626     15.4808      84.9699     78.1842     90.0015
+     -0.2811019300E+02  obj ftn
+ old type, replaced        -0.28110193E+02     -0.28110192E+02     -0.10000000E-05
+  107  jtr    code=2
+   44    7    -0.253776310000E+02   -0.281102270000E+02 jparents     62
+       1 itr,repul              0.0             1.0        254.85733703
+77834.master.hpc
+   26    216.203      -25.3777390 outcar       4.4126      3.8991     13.5559      91.4272     85.8379    111.6528
+     -0.2537773900E+02  obj ftn
+  111  jtr    code=2
+    4   12    -0.281105840000E+02   -0.281101620000E+02 jparents     63
+       1 itr,repul              0.0             1.0        254.28634522
+77835.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  136  jtr    code=2
+   22    3    -0.261639030000E+02   -0.281309030000E+02 jparents     64
+       1 itr,repul              0.0             1.0        217.98087614
+77836.master.hpc
+    6    251.175      -26.8548720 outcar       5.5517      6.3663     14.5341      90.4192     88.4562     29.3477
+     -0.2685487200E+02  obj ftn
+  114  jtr    code=2
+   47   -9    -0.250916890000E+02   -0.263402210000E+02 jparents     65
+       1 itr,repul              0.0             2.0        221.83212200
+77837.master.hpc
+   23    227.397      -26.1440480 outcar       4.0431      4.7665     11.9350      92.2221     98.3385     89.9898
+     -0.2614404800E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7   -8    -0.281102270000E+02   -0.281100950000E+02 jparents     66
+       1 itr,repul              0.0             1.0        225.36293221
+77838.master.hpc
+   33    258.392      -25.3776720 outcar       4.6793      3.8980     16.1790      89.7809     90.4303    118.8814
+     -0.2537767200E+02  obj ftn
+   27    -0.261236700000E+02 jmutation,jparents     67
+       1 itr,repul              0.0             3.0        240.88466121
+77842.master.hpc
+   29    258.097      -25.9523740 outcar       4.4115      3.0834     20.5699      89.4926     90.4098    112.7102
+     -0.2595237400E+02  obj ftn
+  104  jtr    code=2
+    5   27    -0.281104950000E+02   -0.261236700000E+02 jparents     68
+       1 itr,repul              0.0             1.0        224.44944274
+77845.master.hpc
+   25    255.085      -25.2656910 outcar       2.7652      4.3528     21.1979      90.0273     91.2601     90.0000
+     -0.2526569100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12   10    -0.281101620000E+02   -0.281101770000E+02 jparents     69
+       1 itr,repul              0.0             1.0        259.17076492
+77846.master.hpc
+   24    235.811      -25.3777370 outcar       6.8820      4.4128     14.7846      86.2225     87.0596     31.7600
+     -0.2537773700E+02  obj ftn
+   39   23    -0.253777240000E+02   -0.261440490000E+02 jparents     70
+       1 itr,repul              0.0             2.0        260.10032302
+77847.master.hpc
+   20    249.015      -28.1104080 outcar       3.0973      5.3647     16.1784     111.9428     87.2370     89.9993
+     -0.2811040800E+02  obj ftn
+ old type, replaced        -0.28110408E+02     -0.28110176E+02     -0.23200000E-03
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7   12    -0.281104080000E+02   -0.281101620000E+02 jparents     71
+       1 itr,repul              0.0             2.0        225.21396446
+77848.master.hpc
+   10    225.507      -24.5770860 outcar       4.2022      7.1210     15.0806      92.7524     93.8274     30.0612
+     -0.2457708600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   11   18    -0.281101770000E+02   -0.263696380000E+02 jparents     72
+       1 itr,repul              0.0             1.0        253.10420895
+77849.master.hpc
+   32    217.556      -24.9850800 outcar       4.4392      3.3665     14.8217      96.0600     97.2981     84.0242
+     -0.2498508000E+02  obj ftn
+  108  jtr    code=2
+   27    2    -0.261236700000E+02   -0.283284910000E+02 jparents     73
+       1 itr,repul              0.0             2.0        222.26286643
+77850.master.hpc
+   14    262.574      -25.0915290 outcar       3.1146      6.2678     18.5424      92.3152     88.3532    133.4502
+     -0.2509152900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   16   33    -0.263697390000E+02   -0.256550760000E+02 jparents     74
+       1 itr,repul              0.0             1.0        255.73375511
+77851.master.hpc
+   22    248.559      -26.8550290 outcar       6.3665      5.5534     14.3694      91.3442     89.7016     29.3445
+     -0.2685502900E+02  obj ftn
+   24   37    -0.261440320000E+02   -0.253777360000E+02 jparents     75
+       1 itr,repul              0.0             2.0        216.51105155
+77852.master.hpc
+    3    241.594      -26.3699780 outcar       4.8745      3.2046     20.5485      92.8031     91.3624     48.9051
+     -0.2636997800E+02  obj ftn
+ old type, replaced        -0.26369978E+02     -0.26369743E+02     -0.23500000E-03
+  210  jtr    code=2
+   35    2    -0.253777420000E+02   -0.283284910000E+02 jparents     76
+       1 itr,repul              0.0             2.0        237.16931618
+77853.master.hpc
+   37    249.652      -25.1337520 outcar       5.2055      4.3410     12.3727      99.7728     82.0130    114.6736
+     -0.2513375200E+02  obj ftn
+  137  jtr    code=2
+    6    2    -0.281104370000E+02   -0.283284910000E+02 jparents     77
+       1 itr,repul              0.0             1.0        255.92297956
+77854.master.hpc
+   38    235.939      -24.5746040 outcar       4.2101      4.0757     15.7147      90.0778     89.8722    118.9563
+     -0.2457460400E+02  obj ftn
+  167  jtr    code=2
+   33   38    -0.256550760000E+02   -0.253777280000E+02 jparents     78
+       1 itr,repul              0.0             2.0        219.92378033
+77855.master.hpc
+   43    249.015      -26.8467210 outcar       3.1147      5.5641     14.3684      90.0512     89.9986     90.0086
+     -0.2684672100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   13    -0.283284970000E+02   -0.281100950000E+02 jparents     79
+       1 itr,repul              0.0             1.0        220.24011898
+77857.master.hpc
+   30    238.091      -26.8549790 outcar       6.3692      5.5545     13.7687      91.5056     89.5502     29.3357
+     -0.2685497900E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   34    -0.254143080000E+02 jmutation,jparents     80
+       1 itr,repul              0.0             2.0        218.70570946
+77859.master.hpc
+   36    255.523      -26.3695140 outcar       3.6717      3.2088     21.6904      89.9503     89.1535     89.9958
+     -0.2636951400E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   14   13    -0.279445780000E+02   -0.281100950000E+02 jparents     81
+       1 itr,repul              0.0             1.0        259.42796516
+77860.master.hpc
+   35    229.627      -25.9524940 outcar       4.4100      4.2957     18.6756      93.0754     94.8375    138.5594
+     -0.2595249400E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7   18    -0.281104080000E+02   -0.263696380000E+02 jparents     82
+       1 itr,repul              0.0             3.0        239.21866608
+77861.master.hpc
+   41    220.711      -25.2173800 outcar       4.0544      3.9892     15.8587      91.3647     89.9765    120.5943
+     -0.2521738000E+02  obj ftn
+ old type, replaced        -0.25217380E+02     -0.25211065E+02     -0.63150000E-02
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+  -13    -0.263134700000E+02 jmutation,jparents     83
+       1 itr,repul              0.0             1.0        263.86723709
+77863.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   13    -0.281100950000E+02 jmutation,jparents     84
+       1 itr,repul              0.0             1.0        254.91794586
+77864.master.hpc
+   39    227.409      -26.1701110 outcar       4.0373      6.2438     11.8301      87.8213     88.8642     49.7421
+     -0.2617011100E+02  obj ftn
+ old type, replaced        -0.26170111E+02     -0.26142537E+02     -0.27574000E-01
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   16    -0.263697390000E+02 jmutation,jparents     85
+       1 itr,repul              0.0             1.0        251.34712315
+77865.master.hpc
+   31    263.142      -25.4040480 outcar       4.3638      2.5652     23.8745      89.2527     89.0227     99.9729
+     -0.2540404800E+02  obj ftn
+    6    4    -0.281104370000E+02   -0.281105840000E+02 jparents     86
+       1 itr,repul              0.0             1.0        236.37642334
+77866.master.hpc
+   48    236.609      -25.3776780 outcar       4.4119      3.8968     14.8239      92.6370     89.8821    111.6408
+     -0.2537767800E+02  obj ftn
+   22   27    -0.261701110000E+02   -0.261236700000E+02 jparents     87
+       1 itr,repul              0.0             1.0        238.48532223
+77868.master.hpc
+   45    255.315      -25.3776230 outcar       3.8991      4.4125     15.9908      93.0873     90.5137     68.3484
+     -0.2537762300E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    9    2    -0.281101930000E+02   -0.283284910000E+02 jparents     88
+       1 itr,repul              0.0             1.0        220.00520897
+77870.master.hpc
+   40    223.285      -25.2186620 outcar       3.9348      3.9261     16.3660      89.7769     89.7179     62.0264
+     -0.2521866200E+02  obj ftn
+  110  jtr    code=2
+   22    7    -0.261701110000E+02   -0.281104080000E+02 jparents     89
+       1 itr,repul              0.0             1.0        260.02783863
+77872.master.hpc
+    2    244.989      -26.8549370 outcar       5.5533      6.3671     15.2253      70.4581     68.2607     29.3463
+     -0.2685493700E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   32    -0.256870060000E+02 jmutation,jparents     90
+       1 itr,repul              0.0             1.0        248.28171158
+77873.master.hpc
+    8    231.449      -26.3297290 outcar       4.1278      4.1269     20.5028      86.2055     97.0076     43.2895
+     -0.2632972900E+02  obj ftn
+   38    -0.253777280000E+02 jmutation,jparents     91
+       1 itr,repul              0.0             2.0        232.89777042
+77874.master.hpc
+   47    258.564      -25.3775870 outcar       4.4129      3.8979     16.7559      92.1762     76.7524     68.4564
+     -0.2537758700E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   15    -0.263699780000E+02 jmutation,jparents     92
+       1 itr,repul              0.0             2.0        241.59372572
+77875.master.hpc
+   13    248.087      -24.5131550 outcar       3.9147      2.6967     23.5229      92.2879     90.9931     90.0030
+     -0.2451315500E+02  obj ftn
+  106  jtr    code=2
+   10    4    -0.281101850000E+02   -0.281105840000E+02 jparents     93
+       1 itr,repul              0.0             3.0        241.45729906
+77876.master.hpc
+   42    217.581      -28.3284670 outcar       3.1575      3.1582     26.1619      76.2221    103.2110    119.9950
+     -0.2832846700E+02  obj ftn
+  106  jtr    code=2
+   11    4    -0.281101770000E+02   -0.281105840000E+02 jparents     94
+       1 itr,repul              0.0             1.0        234.16955205
+77877.master.hpc
+   19    259.165      -24.6229580 outcar       4.3064      3.2444     24.7781      89.7080     90.0084    131.5272
+     -0.2462295800E+02  obj ftn
+  104  jtr    code=2
+    4   26    -0.281105840000E+02   -0.261439570000E+02 jparents     95
+       1 itr,repul              0.0             3.0        250.63288694
+77879.master.hpc
+   49    237.536      -24.7348820 outcar       3.9085      4.7127     16.2231      90.3280     85.8725    127.0736
+     -0.2473488200E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    2    -0.283284910000E+02 jmutation,jparents     96
+       1 itr,repul              0.0             1.0        217.26693821
+77886.master.hpc
+   44    260.633      -26.3296700 outcar       6.8338      6.8341     15.9483      89.8006     91.0883     20.5258
+     -0.2632967000E+02  obj ftn
+   41   24    -0.253777030000E+02   -0.261440490000E+02 jparents     97
+       1 itr,repul              0.0             2.0        245.01810530
+77898.master.hpc
+   51    250.935      -28.1105640 outcar       5.3629      6.1914     15.1128      89.9990     89.9994     30.0044
+     -0.2811056400E+02  obj ftn
+ old type, replaced        -0.28110564E+02     -0.28110437E+02     -0.12700000E-03
+   44    -0.253776310000E+02 jmutation,jparents     98
+       1 itr,repul              0.0             1.0        240.51063951
+77923.master.hpc
+   52    236.631      -26.1425410 outcar       4.0351      6.1882     12.4937      88.9703     89.5242     49.3453
+     -0.2614254100E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+       1
+ Si C 
+    8    8
+      249.84667969
+ symm-introduction:mutation   11
+   17    -0.263696420000E+02 jmutation,jparents     99
+       1 itr,repul              0.0             1.0        249.84667969
+77927.master.hpc
+   53    251.250      -26.8466870 outcar       3.1148      5.5642     14.4978      90.6778     90.0245     90.0043
+     -0.2684668700E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    8    1    -0.281102270000E+02   -0.283284970000E+02 jparents    100
+       1 itr,repul              0.0             1.0        261.06147194
+77930.master.hpc
+   50    236.664      -28.1305320 outcar       5.3641      3.0969     28.5611      86.8767     88.4854     29.9984
+     -0.2813053200E+02  obj ftn
+ old type, replaced        -0.28130532E+02     -0.27944578E+02     -0.18595400E+00
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   13    3    -0.281101620000E+02   -0.281309030000E+02 jparents    101
+       1 itr,repul              0.0             1.0        234.41420460
+77932.master.hpc
+   54    254.130      -26.1204990 outcar       3.4595      3.4536     21.2701      90.0062     89.9771     90.0031
+     -0.2612049900E+02  obj ftn
+  127  jtr    code=2
+    5   45    -0.281105840000E+02   -0.252173800000E+02 jparents    102
+       1 itr,repul              0.0             1.0        237.95014275
+77933.master.hpc
+   55    256.060      -24.5716010 outcar       4.2079      4.2079     17.0690      90.4313     89.6379    122.0839
+     -0.2457160100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   47    4    -0.250916890000E+02   -0.281305320000E+02 jparents    103
+       1 itr,repul              0.0             1.0        256.05142593
+77935.master.hpc
+   57    257.072      -26.1236300 outcar       4.6908      4.0273     13.6095      89.9990     89.1823     90.0001
+     -0.2612363000E+02  obj ftn
+  118  jtr    code=2
+   26   20    -0.261439570000E+02   -0.263380650000E+02 jparents    104
+       1 itr,repul              0.0             1.0        263.49212437
+77937.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  108  jtr    code=2
+   31   44    -0.256886710000E+02   -0.253776310000E+02 jparents    105
+       1 itr,repul              0.0             1.0        223.56647035
+77939.master.hpc
+   60    260.702      -26.8466770 outcar       5.5620      3.1138     15.0530      90.0001     90.0000     89.9953
+     -0.2684667700E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12    2    -0.281101770000E+02   -0.283284910000E+02 jparents    106
+       1 itr,repul              0.0             1.0        247.70284653
+77940.master.hpc
+   56    230.605      -24.7891340 outcar       6.9054      2.5575     13.3706      89.8776     77.5852     90.0107
+     -0.2478913400E+02  obj ftn
+  160  jtr    code=2
+   35   16    -0.253777420000E+02   -0.263697390000E+02 jparents    107
+       1 itr,repul              0.0             2.0        222.01224838
+77947.master.hpc
+   61    255.888      -28.1105320 outcar       6.1929      5.3623     15.4063      90.0004     90.0004     30.0106
+     -0.2811053200E+02  obj ftn
+  121  jtr    code=2
+   13   26    -0.281101620000E+02   -0.261439570000E+02 jparents    108
+       1 itr,repul              0.0             1.0        258.33109443
+77950.master.hpc
+   65    261.077      -24.5709240 outcar       4.2076      4.2057     17.4110      90.2516     90.1130    122.0731
+     -0.2457092400E+02  obj ftn
+  105  jtr    code=2
+   19   23    -0.263402210000E+02   -0.261639030000E+02 jparents    109
+       1 itr,repul              0.0             2.0        232.94554014
+77951.master.hpc
+   66    248.610      -25.6958160 outcar       4.3616      4.3616     13.1043      91.0007     91.0318     86.0003
+     -0.2569581600E+02  obj ftn
+  107  jtr    code=2
+   19   40    -0.263402210000E+02   -0.253777180000E+02 jparents    110
+       1 itr,repul              0.0             1.0        220.42129153
+77952.master.hpc
+   68    236.546      -24.5919180 outcar       4.0145      5.0275     12.7847      90.0055     89.9888    113.5490
+     -0.2459191800E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12  -44    -0.281101770000E+02   -0.245753340000E+02 jparents    111
+       1 itr,repul              0.0             1.0        248.84797382
+77956.master.hpc
+   67    237.347      -26.3696290 outcar       3.6734      3.2054     20.2068      94.0016     89.8360     89.9987
+     -0.2636962900E+02  obj ftn
+  174  jtr    code=2
+   17    5    -0.263696420000E+02   -0.281105840000E+02 jparents    112
+       1 itr,repul              0.0             1.0        227.02157643
+77959.master.hpc
+   71    239.923      -26.1440480 outcar       4.0430      4.7691     12.4438      89.6267     89.5751     90.0110
+     -0.2614404800E+02  obj ftn
+ old type, replaced        -0.26144048E+02     -0.26144032E+02     -0.16000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    4   32    -0.281305320000E+02   -0.256870060000E+02 jparents    113
+       1 itr,repul              0.0             1.0        254.24578285
+77965.master.hpc
+   73    261.035      -24.5709200 outcar       4.2044      4.2071     17.4109      88.9994     89.0064     57.9688
+     -0.2457092000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   10   12    -0.281101930000E+02   -0.281101770000E+02 jparents    114
+       1 itr,repul              0.0             1.0        233.99152851
+77966.master.hpc
+   62    250.332      -23.0228500 outcar       2.5292      5.0476     22.5369      89.9834     89.6760    119.5311
+     -0.2302285000E+02  obj ftn
+   32    -0.256870060000E+02 jmutation,jparents    115
+       1 itr,repul              0.0             1.0        252.34630602
+77967.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  108  jtr    code=2
+   46    5    -0.252162540000E+02   -0.281105840000E+02 jparents    116
+       1 itr,repul              0.0             1.0        233.88826929
+77968.master.hpc
+   76    262.505      -25.3776350 outcar       4.6787      4.4125     16.4428      91.0341     89.7762    129.3345
+     -0.2537763500E+02  obj ftn
+   46   25    -0.252162540000E+02   -0.261440480000E+02 jparents    117
+       1 itr,repul              0.0             1.0        241.20202348
+77969.master.hpc
+   46    240.175      -25.9272810 outcar       4.3479      3.5481     26.9055      88.4718     84.6410     35.6819
+     -0.2592728100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    4   47    -0.281305320000E+02   -0.250916890000E+02 jparents    118
+       1 itr,repul              0.0             1.0        220.17956829
+77970.master.hpc
+   75    252.879      -26.1701030 outcar       6.2391      4.0372     13.2650      97.5815     95.6302     49.7840
+     -0.2617010300E+02  obj ftn
+   12    -0.281101770000E+02 jmutation,jparents    119
+       1 itr,repul              0.0             2.0        236.88636942
+77971.master.hpc
+   78    248.769      -25.3776600 outcar       3.8995      4.4126     15.5657      88.2473     89.8470    111.6676
+     -0.2537766000E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    9    -0.281102270000E+02 jmutation,jparents    120
+       1 itr,repul              0.0             3.0        216.65487385
+77973.master.hpc
+   64    241.315      -26.3379060 outcar       4.1267      4.1267     20.5844      92.2092     88.4007    136.4558
+     -0.2633790600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   32    7    -0.256870060000E+02   -0.281104950000E+02 jparents    121
+       1 itr,repul              0.0             1.0        249.42491055
+77974.master.hpc
+   70    245.942      -24.7332140 outcar       2.6771      2.8067     32.7413      89.2270     91.0901     89.6090
+     -0.2473321400E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   17    -0.283284970000E+02   -0.263696420000E+02 jparents    122
+       1 itr,repul              0.0             4.0        225.63187408
+77975.master.hpc
+   59    237.728      -26.3354380 outcar       5.9821      4.1287     20.3499      86.6182     87.8998     28.2980
+     -0.2633543800E+02  obj ftn
+  104  jtr    code=2
+    6   13    -0.281105640000E+02   -0.281101620000E+02 jparents    123
+       1 itr,repul              0.0             1.0        244.96850953
+77976.master.hpc
+   80    218.535      -24.2550300 outcar       2.8048      5.1089     15.2538      89.9565     89.9451     88.9281
+     -0.2425503000E+02  obj ftn
+  110  jtr    code=2
+   30   24    -0.257563010000E+02   -0.261440490000E+02 jparents    124
+       1 itr,repul              0.0             1.0        250.46148592
+77977.master.hpc
+   79    220.573      -25.2169980 outcar       4.0066      4.0555     15.7517      89.9780     91.2604    120.4504
+     -0.2521699800E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12   -5    -0.281101770000E+02   -0.281101770000E+02 jparents    125
+       1 itr,repul              0.0             1.0        226.02505875
+77978.master.hpc
+   81    239.891      -25.3776900 outcar       4.6905      4.4129     14.9951      89.8320     89.8793     50.6146
+     -0.2537769000E+02  obj ftn
+ old type, replaced        -0.25377690E+02     -0.25377636E+02     -0.54000000E-04
+  120  jtr    code=2
+   13    4    -0.281101620000E+02   -0.281305320000E+02 jparents    126
+       1 itr,repul              0.0             1.0        226.54350993
+77979.master.hpc
+   63    245.798      -24.0332750 outcar       7.4313      6.9134     13.8959      86.6771     87.7957     20.1970
+     -0.2403327500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    3   33    -0.281309030000E+02   -0.256550760000E+02 jparents    127
+       1 itr,repul              0.0             1.0        237.39115906
+77982.master.hpc
+   87    219.612      -24.1605140 outcar       3.1630      4.7586     14.5989      88.6845     91.3459     89.5888
+     -0.2416051400E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   20   50    -0.263380650000E+02   -0.247309920000E+02 jparents    128
+       1 itr,repul              0.0             2.0        226.04391861
+77984.master.hpc
+   85    245.891      -25.3775440 outcar       4.4117      6.8871     15.4165      91.8999     92.0811     31.6884
+     -0.2537754400E+02  obj ftn
+  110  jtr    code=2
+    5    3    -0.281105840000E+02   -0.281309030000E+02 jparents    129
+       1 itr,repul              0.0             1.0        221.68618362
+77985.master.hpc
+   88    233.084      -25.3115550 outcar       3.9747      4.0464     15.9790      90.0058     89.9050    114.9095
+     -0.2531155500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   18  -21    -0.263696380000E+02   -0.256870060000E+02 jparents    130
+       1 itr,repul              0.0             1.0        237.03728485
+77987.master.hpc
+   69    233.333      -26.1124070 outcar       3.2315      3.0938     26.8262      90.8906     97.1635     61.3994
+     -0.2611240700E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   20   12    -0.263380650000E+02   -0.281101770000E+02 jparents    131
+       1 itr,repul              0.0             1.0        249.10592079
+77988.master.hpc
+   83    235.404      -26.1701360 outcar       4.0379      6.2389     12.2434      88.6761     90.1823     49.7858
+     -0.2617013600E+02  obj ftn
+ old type, replaced        -0.26170136E+02     -0.26170111E+02     -0.25000000E-04
+  301  jtr    code=2
+   29    6    -0.258963270000E+02   -0.281105640000E+02 jparents    132
+       1 itr,repul              0.0             2.0        251.16495716
+77989.master.hpc
+   72    221.408      -25.3006220 outcar       4.7884      3.9383     20.5686      90.7710     89.8809     34.8207
+     -0.2530062200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   29   13    -0.258963270000E+02   -0.281101620000E+02 jparents    133
+       1 itr,repul              0.0             1.0        244.39314365
+77991.master.hpc
+   90    244.085      -25.2035150 outcar       4.3309      4.3310     15.6796      87.5875     87.5947     56.1877
+     -0.2520351500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7   12    -0.281104950000E+02   -0.281101770000E+02 jparents    134
+       1 itr,repul              0.0             2.0        247.51666832
+77992.master.hpc
+   89    263.976      -24.5705420 outcar       4.2075      4.2092     17.7786      82.0117     92.0596    122.0631
+     -0.2457054200E+02  obj ftn
+  110  jtr    code=2
+   15   24    -0.263699780000E+02   -0.261440490000E+02 jparents    135
+       1 itr,repul              0.0             2.0        223.78064704
+77993.master.hpc
+   95    230.936      -25.3776830 outcar       3.8959      4.4125     14.4619      92.6625     89.6597    111.5680
+     -0.2537768300E+02  obj ftn
+  128  jtr    code=2
+   36   14    -0.253777400000E+02   -0.281100950000E+02 jparents    136
+       1 itr,repul              0.0             1.0        228.84229039
+77995.master.hpc
+   91    256.148      -26.1439920 outcar       4.7681      4.0425     13.5848      80.7074     82.5381     90.1097
+     -0.2614399200E+02  obj ftn
+ old type, replaced        -0.26143992E+02     -0.26143957E+02     -0.35000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   21   11    -0.263379780000E+02   -0.281101850000E+02 jparents    137
+       1 itr,repul              0.0             1.0        216.60997009
+77997.master.hpc
+   92    255.341      -25.3775320 outcar       4.6672      3.8944     16.1462      88.8812     83.4247     61.2290
+     -0.2537753200E+02  obj ftn
+   18    -0.263696380000E+02 jmutation,jparents    138
+       1 itr,repul              0.0             3.0        219.65031132
+78000.master.hpc
+   82    224.575      -28.1105750 outcar       5.3621      6.1908     13.6408      89.5147     85.9269     30.0029
+     -0.2811057500E+02  obj ftn
+  101  jtr    code=2
+    3    5    -0.281309030000E+02   -0.281105840000E+02 jparents    139
+       1 itr,repul              0.0             1.0        244.55106767
+78003.master.hpc
+    5    242.839      -26.8467090 outcar       3.1145      5.5645     14.0155      91.2773     90.0250     89.9972
+     -0.2684670900E+02  obj ftn
+   29    -0.258963270000E+02 jmutation,jparents    140
+       1 itr,repul              0.0             1.0        244.27091747
+78004.master.hpc
+   77    237.272      -25.5905900 outcar       2.8794      4.0473     28.6686      89.8237     89.7062     45.2504
+     -0.2559059000E+02  obj ftn
+ old type, replaced        -0.25590590E+02     -0.25217380E+02     -0.37321000E+00
+  116  jtr    code=2
+    8   15    -0.281104080000E+02   -0.263699780000E+02 jparents    141
+       1 itr,repul              0.0             2.0        245.10646472
+78009.master.hpc
+   96    240.460      -24.1539190 outcar       5.4081      5.4195     14.7060      89.0416     89.9699     33.9259
+     -0.2415391900E+02  obj ftn
+  114  jtr    code=2
+   11   23    -0.281101850000E+02   -0.261639030000E+02 jparents    142
+       1 itr,repul              0.0             1.0        230.32470019
+78013.master.hpc
+   93    252.198      -24.4169240 outcar       6.1949      4.5888     13.5734      96.4917     94.5967     41.1362
+     -0.2441692400E+02  obj ftn
+  102  jtr    code=2
+    4   11    -0.281305320000E+02   -0.281101850000E+02 jparents    143
+       1 itr,repul              0.0             1.0        228.75056232
+78014.master.hpc
+   94    260.020      -23.5082640 outcar       5.7586      5.0319     18.3053      91.0044     90.9463     29.3587
+     -0.2350826400E+02  obj ftn
+  194  jtr    code=2
+   36   12    -0.253777420000E+02   -0.281101770000E+02 jparents    144
+       1 itr,repul              0.0             2.0        261.79915080
+78023.master.hpc
+   98    235.151      -26.3405000 outcar       4.1292      3.0728     19.9769      88.2984     91.4963    111.8349
+     -0.2634050000E+02  obj ftn
+ old type, replaced        -0.26340500E+02     -0.25896327E+02     -0.44417300E+00
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    4    -0.281305320000E+02 jmutation,jparents    145
+       1 itr,repul              0.0             1.0        237.76172637
+78045.master.hpc
+   86    248.811      -24.4672790 outcar       3.9191      4.7599     23.6104      89.4614     89.3442     34.3995
+     -0.2446727900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    9    1    -0.281102270000E+02   -0.283284970000E+02 jparents    146
+       1 itr,repul              0.0             1.0        257.70259094
+78050.master.hpc
+   99    222.844      -24.2759460 outcar       2.8069      5.0451     15.7470      92.1306     89.9475     89.9679
+     -0.2427594600E+02  obj ftn
+  166  jtr    code=2
+   36    4    -0.253777420000E+02   -0.281305320000E+02 jparents    147
+       1 itr,repul              0.0             1.0        257.11815977
+78051.master.hpc
+  100    250.956      -26.1440470 outcar       4.7686      4.0428     13.0184      89.9945     89.3018     89.9998
+     -0.2614404700E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2   49    -0.283284910000E+02   -0.247376940000E+02 jparents    148
+       1 itr,repul              0.0             1.0        216.93588352
+78068.master.hpc
+  103    246.901      -26.1440410 outcar       4.0430      4.7687     12.8065      89.6370     89.9618     90.0018
+     -0.2614404100E+02  obj ftn
+  111  jtr    code=2
+    7    6    -0.281104950000E+02   -0.281105640000E+02 jparents    149
+       1 itr,repul              0.0             1.0        259.07054158
+78073.master.hpc
+  104    258.472      -25.3775280 outcar       4.4125      3.8978     16.6752      81.7895     82.3463    111.6093
+     -0.2537752800E+02  obj ftn
+  114  jtr    code=2
+   12    4    -0.281101770000E+02   -0.281305320000E+02 jparents    150
+       1 itr,repul              0.0             3.0        219.50878250
+78074.master.hpc
+  101    257.599      -26.1701050 outcar       4.0370      6.2383     13.4244      92.2985     93.9264     49.7964
+     -0.2617010500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2    8    -0.283284910000E+02   -0.281104080000E+02 jparents    151
+       1 itr,repul              0.0             3.0        252.31627178
+78077.master.hpc
+  102    258.927      -26.8549290 outcar       6.3698      5.5543     14.9524      89.5146     90.7407     29.3333
+     -0.2685492900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   11   -8    -0.281101850000E+02   -0.281100950000E+02 jparents    152
+       1 itr,repul              0.0             2.0        245.92819118
+78080.master.hpc
+  105    257.267      -25.2472880 outcar       7.2349      5.9470     15.3225      91.4106     90.9756     22.9790
+     -0.2524728800E+02  obj ftn
+   26    9    -0.261440480000E+02   -0.281102270000E+02 jparents    153
+       1 itr,repul              0.0             2.0        239.92955871
+78084.master.hpc
+  110    246.120      -26.1236650 outcar       4.0286      4.6918     13.1307      89.7164     82.6039     89.9947
+     -0.2612366500E+02  obj ftn
+   27    -0.261439920000E+02 jmutation,jparents    154
+       1 itr,repul              0.0             1.0        245.51734835
+78086.master.hpc
+  108    222.951      -28.1105430 outcar       3.0964      3.0962     26.8581      89.6456     89.9806    120.0147
+     -0.2811054300E+02  obj ftn
+ old type, replaced        -0.28110543E+02     -0.28110495E+02     -0.48000000E-04
+   19    -0.263405000000E+02 jmutation,jparents    155
+       1 itr,repul              0.0             1.0        255.07483737
+78092.master.hpc
+  109    220.265      -25.7358760 outcar       4.3646      6.3747     11.6970      94.7812     90.2586     42.9634
+     -0.2573587600E+02  obj ftn
+  119  jtr    code=2
+   13   45    -0.281101620000E+02   -0.253776310000E+02 jparents    156
+       1 itr,repul              0.0             2.0        244.00263088
+78094.master.hpc
+  107    227.555      -24.4611560 outcar       4.7291      2.6884     21.5901      90.4162     90.1817    123.9977
+     -0.2446115600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   32   -4    -0.256870060000E+02   -0.281101850000E+02 jparents    157
+       1 itr,repul              0.0             1.0        260.98370934
+78097.master.hpc
+  113    248.253      -26.1236230 outcar       4.0309      4.6958     13.3918      84.9527    100.4808     90.0064
+     -0.2612362300E+02  obj ftn
+  104  jtr    code=2
+   12   39    -0.281101770000E+02   -0.253777280000E+02 jparents    158
+       1 itr,repul              0.0             2.0        262.26460977
+78099.master.hpc
+  114    232.749      -25.3777150 outcar       3.8942      4.4108     15.1191      77.4975     93.4821     68.3217
+     -0.2537771500E+02  obj ftn
+  104  jtr    code=2
+   24    9    -0.261639030000E+02   -0.281102270000E+02 jparents    159
+       1 itr,repul              0.0             1.0        242.36097511
+78104.master.hpc
+  118    227.599      -24.8155350 outcar       5.4158      2.7317     15.3845      90.0000     90.0000     90.0000
+     -0.2481553500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7    9    -0.281105430000E+02   -0.281102270000E+02 jparents    160
+       1 itr,repul              0.0             1.0        234.90412617
+78106.master.hpc
+  120    249.024      -24.7025640 outcar       2.7972      5.6320     15.8074      90.1065     90.0204     89.9881
+     -0.2470256400E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2   12    -0.283284910000E+02   -0.281101770000E+02 jparents    161
+       1 itr,repul              0.0             1.0        261.72976398
+78110.master.hpc
+  106    249.178      -26.8549430 outcar       6.3678      5.5536     14.4105      93.7303     86.7276    150.6598
+     -0.2685494300E+02  obj ftn
+  119  jtr    code=2
+   46   13    -0.252162540000E+02   -0.281101620000E+02 jparents    162
+       1 itr,repul              0.0             2.0        218.61529438
+78111.master.hpc
+  119    261.149      -28.1105470 outcar       6.1918      5.3625     15.7294      90.0000     90.0001     30.0015
+     -0.2811054700E+02  obj ftn
+  198  jtr    code=2
+   41   11    -0.253777180000E+02   -0.281101850000E+02 jparents    163
+       1 itr,repul              0.0             3.0        237.47009515
+78112.master.hpc
+   84    249.043      -28.1101830 outcar       5.3618      3.0964     15.7990      90.4784    108.2840     89.9943
+     -0.2811018300E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12    3    -0.281101770000E+02   -0.281309030000E+02 jparents    164
+       1 itr,repul              0.0             1.0        263.22738075
+78121.master.hpc
+  116    243.283      -26.8550300 outcar       6.3691      5.5555     14.0342      90.5093     91.1554     29.3471
+     -0.2685503000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   11    8    -0.281101850000E+02   -0.281104080000E+02 jparents    165
+       1 itr,repul              0.0             1.0        253.89553642
+78123.master.hpc
+  121    225.352      -26.1440510 outcar       4.0439      4.7689     11.6858      90.4643     89.9773     89.9982
+     -0.2614405100E+02  obj ftn
+ old type, replaced        -0.26144051E+02     -0.26144048E+02     -0.30000000E-05
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2    9    -0.283284910000E+02   -0.281102270000E+02 jparents    166
+       1 itr,repul              0.0             1.0        248.52162552
+78127.master.hpc
+  117    261.922      -25.2656220 outcar       2.7622      4.3512     21.7970      89.9981     88.8347     89.9999
+     -0.2526562200E+02  obj ftn
+  104  jtr    code=2
+   24   25    -0.261639030000E+02   -0.261440510000E+02 jparents    167
+       1 itr,repul              0.0             3.0        221.47250486
+78134.master.hpc
+  122    239.530      -25.3776000 outcar       3.8958      4.4120     15.1118      95.5374     87.8812     68.3338
+     -0.2537760000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   20   29    -0.263402210000E+02   -0.259527430000E+02 jparents    168
+       1 itr,repul              0.0             1.0        217.65487289
+78135.master.hpc
+  126    220.632      -28.1105830 outcar       5.3620      6.1915     13.2919      90.0324     90.0027     29.9991
+     -0.2811058300E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2   29    -0.283284910000E+02   -0.259527430000E+02 jparents    169
+       1 itr,repul              0.0             1.0        250.77893829
+78138.master.hpc
+  127    223.487      -26.3696610 outcar       3.6748      3.2071     19.0189      86.0815     88.0014     89.9835
+     -0.2636966100E+02  obj ftn
+ old type, replaced        -0.26369661E+02     -0.26369638E+02     -0.23000000E-04
+   27    -0.261439920000E+02 jmutation,jparents    170
+       1 itr,repul              0.0             1.0        254.08653579
+78139.master.hpc
+  115    251.354      -26.1328010 outcar       6.1765      4.0296     13.6192      80.9489     86.5428    129.7919
+     -0.2613280100E+02  obj ftn
+  114  jtr    code=2
+   26    1    -0.261440490000E+02   -0.283284970000E+02 jparents    171
+       1 itr,repul              0.0             2.0        238.27878328
+78142.master.hpc
+   87    225.768      -24.6681220 outcar       3.1046      4.3821     16.5952      89.7931     90.0329     89.9504
+     -0.2466812200E+02  obj ftn
+  107  jtr    code=2
+    6   19    -0.281105640000E+02   -0.263405000000E+02 jparents    172
+       1 itr,repul              0.0             2.0        227.83023493
+78143.master.hpc
+  129    231.665      -28.1105580 outcar       5.3628      6.1921     13.9523      90.0020     90.0010     30.0010
+     -0.2811055800E+02  obj ftn
+  151  jtr    code=2
+    3   24    -0.281309030000E+02   -0.261639030000E+02 jparents    173
+       1 itr,repul              0.0             2.0        224.80406911
+78144.master.hpc
+  124    226.020      -25.6079850 outcar       2.9973      4.3970     18.3553      91.6077     83.6491    109.9230
+     -0.2560798500E+02  obj ftn
+  174  jtr    code=2
+    9  -27    -0.281102270000E+02   -0.253777180000E+02 jparents    174
+       1 itr,repul              0.0             2.0        247.07856868
+78147.master.hpc
+  112    246.806      -24.6212320 outcar       5.5689      5.2579     17.3418      92.6439     99.5707     30.1820
+     -0.2462123200E+02  obj ftn
+  126  jtr    code=2
+   31   25    -0.256886710000E+02   -0.261440510000E+02 jparents    175
+       1 itr,repul              0.0             1.0        242.64852715
+78148.master.hpc
+  125    251.160      -26.3697490 outcar       3.6754      4.8773     21.3242      90.1774     88.9326     41.1005
+     -0.2636974900E+02  obj ftn
+ old type, replaced        -0.26369749E+02     -0.26369739E+02     -0.10000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   16  -33    -0.263697490000E+02   -0.252659160000E+02 jparents    176
+       1 itr,repul              0.0             1.0        248.36367130
+78151.master.hpc
+  133    234.996      -24.9850420 outcar       3.3671      4.4397     15.8196      88.3472     91.9395     95.9638
+     -0.2498504200E+02  obj ftn
+  228  jtr    code=2
+   39   16    -0.253777280000E+02   -0.263697490000E+02 jparents    177
+       1 itr,repul              0.0             2.0        229.00134943
+78153.master.hpc
+  136    257.932      -25.6958280 outcar       4.3608      4.3610     13.5979      89.4895     90.6606     94.0235
+     -0.2569582800E+02  obj ftn
+       1
+ Si C 
+   18    6
+      250.31919193
+ symm-introduction:mutation  184
+   29    -0.259527430000E+02 jmutation,jparents    178
+       1 itr,repul              0.0             1.0        250.31919193
+78154.master.hpc
+  130    249.174      -26.3696520 outcar       3.2067      3.6740     21.1498      89.9615     90.0571     89.9993
+     -0.2636965200E+02  obj ftn
+ old type, replaced        -0.26369652E+02     -0.26369642E+02     -0.10000000E-04
+  103  jtr    code=2
+   39   24    -0.253777280000E+02   -0.261639030000E+02 jparents    179
+       1 itr,repul              0.0             1.0        242.94757128
+78155.master.hpc
+  138    255.474      -24.5716200 outcar       4.0744      4.2049     17.0434      87.8602     91.5046    118.8879
+     -0.2457162000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   21   32    -0.263380650000E+02   -0.256870060000E+02 jparents    180
+       1 itr,repul              0.0             1.0        230.01439190
+78156.master.hpc
+  132    252.462      -26.8551090 outcar       5.5542      6.3634     14.5643      90.0027     90.0018     29.3702
+     -0.2685510900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    8   37    -0.281104080000E+02   -0.253777400000E+02 jparents    181
+       1 itr,repul              0.0             1.0        260.21810532
+78157.master.hpc
+  135    225.908      -25.7562680 outcar       2.8915      4.0433     19.3558      90.0671     86.6475     89.9822
+     -0.2575626800E+02  obj ftn
+  103  jtr    code=2
+   24    4    -0.261639030000E+02   -0.281305320000E+02 jparents    182
+       1 itr,repul              0.0             1.0        225.30894041
+78158.master.hpc
+  123    224.627      -23.5107480 outcar       5.0315      5.7601     15.8125      90.2653     90.1198     29.3517
+     -0.2351074800E+02  obj ftn
+  109  jtr    code=2
+    8   42    -0.281104080000E+02   -0.253777030000E+02 jparents    183
+       1 itr,repul              0.0             3.0        262.71862107
+78159.master.hpc
+  131    250.044      -25.7202520 outcar       4.3613      5.9483     13.1968      93.0684     87.9647    132.9951
+     -0.2572025200E+02  obj ftn
+  102  jtr    code=2
+   31   44    -0.256886710000E+02   -0.253776900000E+02 jparents    184
+       1 itr,repul              0.0             1.0        251.62503981
+78162.master.hpc
+  134    218.613      -25.7562470 outcar       4.0416      2.8854     18.8102      85.2852     90.0251     89.9969
+     -0.2575624700E+02  obj ftn
+   19    -0.263405000000E+02 jmutation,jparents    185
+       1 itr,repul              0.0             1.0        219.07132228
+78163.master.hpc
+   97    228.175      -25.6957630 outcar       4.3605      4.3604     12.1177      89.9769     83.1408     94.0434
+     -0.2569576300E+02  obj ftn
+  127  jtr    code=2
+   30   25    -0.257563010000E+02   -0.261440510000E+02 jparents    186
+       1 itr,repul              0.0             2.0        218.84450921
+78168.master.hpc
+  185    219.843      -26.3697600 outcar       3.6755      4.8782     18.6520      89.9975     89.9961     41.1006
+     -0.2636976000E+02  obj ftn
+ old type, replaced        -0.26369760E+02     -0.26369749E+02     -0.11000000E-04
+  114  jtr    code=2
+   25   47    -0.261440510000E+02   -0.250916890000E+02 jparents    187
+       1 itr,repul              0.0             1.0        249.74140335
+78174.master.hpc
+  142    237.184      -24.9855900 outcar       4.4699      5.2852     15.8823      90.1577     88.1989    140.7425
+     -0.2498559000E+02  obj ftn
+   26   17    -0.261440490000E+02   -0.263696610000E+02 jparents    188
+       1 itr,repul              0.0             2.0        223.85783682
+78177.master.hpc
+  187    261.099      -24.5919360 outcar       4.0136      5.0260     14.1167      89.9922     90.0230    113.5236
+     -0.2459193600E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   28    -0.261236700000E+02 jmutation,jparents    189
+       1 itr,repul              0.0             2.0        217.26693821
+78181.master.hpc
+  141    254.936      -26.1638700 outcar       4.7636      6.2386     13.3149      94.6628     91.5173     40.3449
+     -0.2616387000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    4   14    -0.281305320000E+02   -0.281100950000E+02 jparents    190
+       1 itr,repul              0.0             1.0        219.88365555
+78182.master.hpc
+  188    229.444      -25.3776820 outcar       3.8946      4.4122     14.3761      92.6049     88.8919    111.6031
+     -0.2537768200E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   36    -0.253777420000E+02 jmutation,jparents    191
+       1 itr,repul              0.0             5.0        260.94738293
+78187.master.hpc
+  144    230.237      -26.1701300 outcar       4.0372      6.2402     12.0902      96.4434     82.1391    130.2321
+     -0.2617013000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1    4    -0.283284970000E+02   -0.281305320000E+02 jparents    192
+       1 itr,repul              0.0             1.0        253.97953606
+78192.master.hpc
+  139    251.333      -27.1064930 outcar       5.7743      5.7728     18.3047      88.4734     90.4527     24.4126
+     -0.2710649300E+02  obj ftn
+  115  jtr    code=2
+   27   -1    -0.261439920000E+02   -0.281309030000E+02 jparents    193
+       1 itr,repul              0.0             2.0        244.91783748
+78195.master.hpc
+  189    254.773      -28.1105310 outcar       5.3608      6.1906     15.8986      92.4966     99.5792     30.0135
+     -0.2811053100E+02  obj ftn
+   28   13    -0.261236700000E+02   -0.281101620000E+02 jparents    194
+       1 itr,repul              0.0             2.0        237.67967508
+78204.master.hpc
+  143    221.524      -25.2330330 outcar       5.9544      5.9512     13.1240      84.8486     85.1338     28.5747
+     -0.2523303300E+02  obj ftn
+  232  jtr    code=2
+   42    7    -0.253777030000E+02   -0.281105430000E+02 jparents    195
+       1 itr,repul              0.0             4.0        233.55536160
+78208.master.hpc
+  194    233.563      -25.0912690 outcar       3.1151      4.7031     16.6291      84.6548     86.1311    104.7117
+     -0.2509126900E+02  obj ftn
+  147  jtr    code=2
+   20   38    -0.263402210000E+02   -0.253777360000E+02 jparents    196
+       1 itr,repul              0.0             1.0        256.73457866
+78212.master.hpc
+  140    239.122      -24.9139620 outcar       6.5094      5.9567     15.9345      96.6981    102.1736     23.7998
+     -0.2491396200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   46    4    -0.252162540000E+02   -0.281305320000E+02 jparents    197
+       1 itr,repul              0.0             1.0        234.83214569
+78214.master.hpc
+  196    246.232      -25.3776600 outcar       4.4117      4.6802     15.4210      90.9872     90.6742     50.6648
+     -0.2537766000E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    1    -0.283284970000E+02 jmutation,jparents    198
+       1 itr,repul              0.0             1.0        248.28171158
+78221.master.hpc
+  145    253.109      -25.3774720 outcar       4.6851      4.4119     15.8610      90.8659     88.4067    129.4364
+     -0.2537747200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   11    -0.283284970000E+02   -0.281101850000E+02 jparents    199
+       1 itr,repul              0.0             2.0        217.88219833
+78246.master.hpc
+  197    255.567      -25.0049430 outcar       4.2662      2.8708     22.1149      86.6860     91.5848    109.0544
+     -0.2500494300E+02  obj ftn
+  102  jtr    code=2
+    5   38    -0.281105840000E+02   -0.253777360000E+02 jparents    200
+       1 itr,repul              0.0             2.0        227.44093278
+78247.master.hpc
+  198    233.349      -22.9243100 outcar       4.1759      3.0475     24.8721      89.9014     90.0698     47.4958
+     -0.2292431000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   17    -0.283284970000E+02   -0.263696610000E+02 jparents    201
+       1 itr,repul              0.0             1.0        219.31242943
+78251.master.hpc
+  199    260.649      -26.1440320 outcar       4.7682      4.0423     13.5499      93.5000     89.0865     89.9922
+     -0.2614403200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   13   11    -0.281101620000E+02   -0.281101850000E+02 jparents    202
+       1 itr,repul              0.0             1.0        233.06605339
+78257.master.hpc
+  201    242.184      -25.3776770 outcar       3.8976      4.4129     15.1519      88.7727     89.6328     68.3602
+     -0.2537767700E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    4    -0.281305320000E+02 jmutation,jparents    203
+       1 itr,repul              0.0             1.0        236.66438700
+78258.master.hpc
+  147    226.684      -26.3405960 outcar       4.1317      3.0751     19.2354      91.7545     88.0548    111.8358
+     -0.2634059600E+02  obj ftn
+ old type, replaced        -0.26340596E+02     -0.26340500E+02     -0.96000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   14   40    -0.281100950000E+02   -0.253777240000E+02 jparents    204
+       1 itr,repul              0.0             1.0        234.75700665
+78260.master.hpc
+  148    231.613      -25.6957690 outcar       4.3616      4.3615     12.2391      86.7658     86.9632     86.0128
+     -0.2569576900E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+  -17    -0.259524200000E+02 jmutation,jparents    205
+       1 itr,repul              0.0             1.0        251.24146843
+78261.master.hpc
+  203    224.471      -24.5774210 outcar       7.3634      4.2091     14.9670      89.7541     89.7121     28.9413
+     -0.2457742100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12    7    -0.281101770000E+02   -0.281105430000E+02 jparents    206
+       1 itr,repul              0.0             2.0        218.61997032
+78264.master.hpc
+  146    258.298      -26.3405790 outcar       4.1307      3.0755     21.9085      89.5059     88.9238     68.1564
+     -0.2634057900E+02  obj ftn
+  140  jtr    code=2
+    7   -5    -0.281105430000E+02   -0.281101770000E+02 jparents    207
+       1 itr,repul              0.0             1.0        224.70228894
+78265.master.hpc
+  204    244.491      -25.9524890 outcar       4.4104      3.0826     19.5768      87.2876     93.1284     67.2957
+     -0.2595248900E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    2    -0.283284910000E+02 jmutation,jparents    208
+       1 itr,repul              0.0             1.0        229.70451164
+78267.master.hpc
+  202    225.800      -19.9138630 outcar       2.7001      2.7015     30.9568      89.6236     90.3743     90.0002
+     -0.1991386300E+02  obj ftn
+  119  jtr    code=2
+   24    1    -0.261639030000E+02   -0.283284970000E+02 jparents    209
+       1 itr,repul              0.0             1.0        235.86240239
+78269.master.hpc
+  200    236.061      -25.2320280 outcar       5.9290      5.9348     14.0663      92.3190     92.1438     28.5108
+     -0.2523202800E+02  obj ftn
+  120  jtr    code=2
+    2    5    -0.283284910000E+02   -0.281105840000E+02 jparents    210
+       1 itr,repul              0.0             2.0        257.44307419
+78271.master.hpc
+  205    219.227      -25.3777640 outcar       3.8995      4.6810     13.7203      90.2158     88.9919    118.8961
+     -0.2537776400E+02  obj ftn
+ old type, replaced        -0.25377764E+02     -0.25377724E+02     -0.40000000E-04
+   20    9    -0.263402210000E+02   -0.281102270000E+02 jparents    211
+       1 itr,repul              0.0             1.0        221.16847851
+78273.master.hpc
+  210    237.138      -22.5821790 outcar       5.9280      5.3540     15.0672      90.0601     90.0660     29.7285
+     -0.2258217900E+02  obj ftn
+  110  jtr    code=2
+   21  -10    -0.263380650000E+02   -0.263380650000E+02 jparents    212
+       1 itr,repul              0.0             4.0        242.72486978
+78276.master.hpc
+  208    237.150      -24.8205170 outcar       3.9254      4.2585     14.7689      86.6607     91.5856     74.4053
+     -0.2482051700E+02  obj ftn
+   21   37    -0.263380650000E+02   -0.253777420000E+02 jparents    213
+       1 itr,repul              0.0             1.0        229.68142611
+78277.master.hpc
+  151    250.070      -25.3776450 outcar       3.8962      4.4123     15.6737      87.3110     90.8361    111.7054
+     -0.2537764500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    3   11    -0.281309030000E+02   -0.281101850000E+02 jparents    214
+       1 itr,repul              0.0             1.0        241.98964977
+78278.master.hpc
+  209    247.471      -28.1105510 outcar       5.3625      6.1922     14.9061      90.0169     89.9832    150.0016
+     -0.2811055100E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2    9    -0.283284910000E+02   -0.281102270000E+02 jparents    215
+       1 itr,repul              0.0             1.0        253.34547901
+78280.master.hpc
+  150    226.986      -28.1105750 outcar       6.1928      5.3630     13.6692      90.0002     89.9961     29.9994
+     -0.2811057500E+02  obj ftn
+ old type, replaced        -0.28110575E+02     -0.28110564E+02     -0.11000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    7   43    -0.281105430000E+02   -0.253776930000E+02 jparents    216
+       1 itr,repul              0.0             1.0        220.22216892
+78281.master.hpc
+  212    234.465      -26.1236650 outcar       4.6927      4.0286     12.6945     101.3642     94.6889     90.0043
+     -0.2612366500E+02  obj ftn
+  -20    -0.256957890000E+02 jmutation,jparents    217
+       1 itr,repul              0.0             1.0        233.12946744
+78288.master.hpc
+  152    259.094      -24.4230360 outcar       4.5972      4.0808     13.8132      90.0045     91.0900     90.0201
+     -0.2442303600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   32   17    -0.256870060000E+02   -0.263696610000E+02 jparents    218
+       1 itr,repul              0.0             1.0        261.85836124
+78291.master.hpc
+  213    253.911      -26.1440080 outcar       4.7678      4.0430     13.4750      80.7541     97.8260     89.9187
+     -0.2614400800E+02  obj ftn
+ old type, replaced        -0.26144008E+02     -0.26143992E+02     -0.16000000E-04
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   12   18    -0.281101770000E+02   -0.263696520000E+02 jparents    219
+       1 itr,repul              0.0             2.0        226.52078819
+78292.master.hpc
+  211    254.212      -26.1236480 outcar       4.6937      4.0288     13.4446      89.9902     89.2656     90.0001
+     -0.2612364800E+02  obj ftn
+  111  jtr    code=2
+    8    6    -0.281104080000E+02   -0.281105750000E+02 jparents    220
+       1 itr,repul              0.0             1.0        263.03294621
+78294.master.hpc
+  149    263.085      -25.1338110 outcar       5.2021      8.0442     12.9043      93.3361     90.1154     29.3702
+     -0.2513381100E+02  obj ftn
+  179  jtr    code=2
+    4  -23    -0.281305320000E+02   -0.253777400000E+02 jparents    221
+       1 itr,repul              0.0             1.0        258.64768883
+78302.master.hpc
+  155    261.916      -25.0915500 outcar       3.1149      4.7041     18.5169      92.6503     91.6527    104.7151
+     -0.2509155000E+02  obj ftn
+  114  jtr    code=2
+    5   13    -0.281105840000E+02   -0.281101620000E+02 jparents    222
+       1 itr,repul              0.0             3.0        247.02108417
+78306.master.hpc
+  154    256.251      -25.0915600 outcar       3.1151      4.7042     18.1349      92.7747     92.6765    104.7146
+     -0.2509156000E+02  obj ftn
+   24   20    -0.261639030000E+02   -0.263402210000E+02 jparents    223
+       1 itr,repul              0.0             1.0        231.97598281
+78308.master.hpc
+  156    234.118      -24.9850670 outcar       3.3656      4.4426     15.7540      91.6159     90.3963     83.8926
+     -0.2498506700E+02  obj ftn
+    5    -0.281105840000E+02 jmutation,jparents    224
+       1 itr,repul              0.0             1.0        244.67319753
+78310.master.hpc
+  157    232.071      -26.3696530 outcar       3.2070      3.6741     19.6959      90.0003     90.0301     90.0000
+     -0.2636965300E+02  obj ftn
+ old type, replaced        -0.26369653E+02     -0.26369652E+02     -0.10000000E-05
+  126  jtr    code=2
+    2    6    -0.283284910000E+02   -0.281105750000E+02 jparents    225
+       1 itr,repul              0.0             1.0        223.04859775
+78314.master.hpc
+  158    248.887      -28.1101940 outcar       3.0959      5.3628     14.9909      90.0021     90.0086     89.9931
+     -0.2811019400E+02  obj ftn
+ old type, replaced        -0.28110194E+02     -0.28110177E+02     -0.17000000E-04
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   -8    -0.281100950000E+02 jmutation,jparents    226
+       1 itr,repul              0.0             1.0        254.91794586
+78317.master.hpc
+  220    242.756      -28.1105630 outcar       6.1921      5.3624     14.6220      89.9999     89.9998     29.9997
+     -0.2811056300E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    4   19    -0.281305320000E+02   -0.263405960000E+02 jparents    227
+       1 itr,repul              0.0             1.0        242.52888966
+78318.master.hpc
+  219    262.780      -24.6228500 outcar       3.2443      4.3075     25.0905      90.1039     89.3553    131.4515
+     -0.2462285000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   21   22    -0.263380650000E+02   -0.263379780000E+02 jparents    228
+       1 itr,repul              0.0             1.0        254.39436150
+78319.master.hpc
+  153    240.528      -25.3776590 outcar       4.4116      3.8952     16.4254      96.1937    108.3498    111.7942
+     -0.2537765900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   22   15    -0.263379780000E+02   -0.263699780000E+02 jparents    229
+       1 itr,repul              0.0             1.0        261.79776192
+78322.master.hpc
+  160    252.664      -24.5641220 outcar       3.7003      4.4492     15.3469      90.0674     90.0397     90.0020
+     -0.2456412200E+02  obj ftn
+  -25    -0.253777280000E+02 jmutation,jparents    230
+       1 itr,repul              0.0             1.0        216.72635275
+78324.master.hpc
+  159    263.768      -25.3776120 outcar       4.4124      4.6931     16.5060      90.5257     88.2158    129.4525
+     -0.2537761200E+02  obj ftn
+  140  jtr    code=2
+   13   27    -0.281101620000E+02   -0.261440080000E+02 jparents    231
+       1 itr,repul              0.0             2.0        239.75041508
+78325.master.hpc
+  228    258.484      -25.3773950 outcar       4.4108      3.8974     16.2107      89.8209     87.3532     68.2251
+     -0.2537739500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   13    3    -0.281101620000E+02   -0.281309030000E+02 jparents    232
+       1 itr,repul              0.0             1.0        249.18699360
+78333.master.hpc
+  165    238.037      -25.3775860 outcar       3.8945      4.4119     14.9202      92.7083     89.8318    111.6152
+     -0.2537758600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   18   32    -0.263696530000E+02   -0.256870060000E+02 jparents    233
+       1 itr,repul              0.0             1.0        247.21140003
+78336.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+    8    -0.281104080000E+02 jmutation,jparents    234
+       1 itr,repul              0.0             1.0        216.16064358
+78339.master.hpc
+  163    251.282      -26.1440380 outcar       4.0429      4.7690     13.0427      89.0122     91.9680     90.0448
+     -0.2614403800E+02  obj ftn
+   27   18    -0.261440080000E+02   -0.263696530000E+02 jparents    235
+       1 itr,repul              0.0             1.0        259.74536477
+78342.master.hpc
+  111    233.036      -26.1236520 outcar       4.0277      4.6933     12.3824      90.1898     84.6292     90.0059
+     -0.2612365200E+02  obj ftn
+  115  jtr    code=2
+   25    2    -0.261440510000E+02   -0.283284910000E+02 jparents    236
+       1 itr,repul              0.0             2.0        217.36173898
+78345.master.hpc
+  232    223.673      -25.0915760 outcar       4.6990      3.1146     16.0307      95.9525     95.9071    104.6935
+     -0.2509157600E+02  obj ftn
+    6    -0.281105750000E+02 jmutation,jparents    237
+       1 itr,repul              0.0             1.0        217.91285404
+78346.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  101  jtr    code=2
+   38  -24    -0.253777400000E+02   -0.253777360000E+02 jparents    238
+       1 itr,repul              0.0             1.0        262.92475675
+78348.master.hpc
+  167    254.460      -26.3696570 outcar       3.6747      3.2061     21.6021      91.1138     90.1696     89.9853
+     -0.2636965700E+02  obj ftn
+ old type, replaced        -0.26369657E+02     -0.26369653E+02     -0.40000000E-05
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    8   14    -0.281104080000E+02   -0.281100950000E+02 jparents    239
+       1 itr,repul              0.0             1.0        225.82906437
+78349.master.hpc
+  166    233.870      -26.1236740 outcar       4.0286      4.6929     12.7467      97.4108    101.7654     89.9970
+     -0.2612367400E+02  obj ftn
+ old type, replaced        -0.26123674E+02     -0.26123670E+02     -0.40000000E-05
+  200  jtr    code=2
+   29   37    -0.259527430000E+02   -0.253777420000E+02 jparents    240
+       1 itr,repul              0.0             2.0        225.03850211
+78355.master.hpc
+  237    260.212      -26.1440230 outcar       4.0437      4.7692     13.5253      89.5763     86.0620     90.0091
+     -0.2614402300E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   13   30    -0.281101620000E+02   -0.257563010000E+02 jparents    241
+       1 itr,repul              0.0             1.0        236.53549004
+78357.master.hpc
+  171    221.973      -25.0915880 outcar       3.1150      4.7023     15.7564      84.2420     90.5887     75.3116
+     -0.2509158800E+02  obj ftn
+  140  jtr    code=2
+   27    4    -0.261440080000E+02   -0.281305320000E+02 jparents    242
+       1 itr,repul              0.0             1.0        239.31524176
+78358.master.hpc
+  168    223.266      -25.7563110 outcar       2.8880      4.0431     19.1240      89.9854     89.0006     89.9965
+     -0.2575631100E+02  obj ftn
+ old type, replaced        -0.25756311E+02     -0.25756301E+02     -0.10000000E-04
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   30    -0.257563110000E+02 jmutation,jparents    243
+       1 itr,repul              0.0             5.0        216.68047428
+78360.master.hpc
+  239    243.102      -25.6957870 outcar       4.3609      4.3608     12.8152      89.6988     89.6691     85.9846
+     -0.2569578700E+02  obj ftn
+  110  jtr    code=2
+    8    4    -0.281104080000E+02   -0.281305320000E+02 jparents    244
+       1 itr,repul              0.0             1.0        233.15654955
+78365.master.hpc
+  170    243.192      -26.1236590 outcar       4.0290      4.6929     13.1212      95.3262    100.0536     89.9957
+     -0.2612365900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    2   46    -0.283284910000E+02   -0.252162540000E+02 jparents    245
+       1 itr,repul              0.0             1.0        262.22353649
+78366.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+  101  jtr    code=2
+   23   29    -0.261701360000E+02   -0.259527430000E+02 jparents    246
+       1 itr,repul              0.0             1.0        222.08428077
+78367.master.hpc
+  174    236.668      -26.1440510 outcar       4.0434      4.7692     12.2820      90.9057     88.0048     89.9988
+     -0.2614405100E+02  obj ftn
+  147  jtr    code=2
+   16   -5    -0.263697600000E+02   -0.281101770000E+02 jparents    247
+       1 itr,repul              0.0             1.0        250.58782037
+78368.master.hpc
+  176    253.960      -25.3774900 outcar       4.6784      3.8969     15.9108      89.2556     89.1644     61.1180
+     -0.2537749000E+02  obj ftn
+   13    -0.281101620000E+02 jmutation,jparents    248
+       1 itr,repul              0.0             1.0        229.83501511
+78369.master.hpc
+  177    230.345      -25.3775860 outcar       3.8980      4.7030     14.3753      89.6446     89.7593     60.9349
+     -0.2537758600E+02  obj ftn
+   28   13    -0.261236740000E+02   -0.281101620000E+02 jparents    249
+       1 itr,repul              0.0             1.0        240.71661741
+78376.master.hpc
+  181    237.754      -25.3776790 outcar       4.4126      3.8983     14.8749      90.4466     89.1017     68.3392
+     -0.2537767900E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   20    -0.283284970000E+02   -0.263402210000E+02 jparents    250
+       1 itr,repul              0.0             1.0        220.43898296
+78378.master.hpc
+  172    232.512      -25.0914640 outcar       4.7043      4.9383     16.4362      90.9675     88.7053     37.5955
+     -0.2509146400E+02  obj ftn
+  142  jtr    code=2
+    5   -1    -0.281105840000E+02   -0.281309030000E+02 jparents    251
+       1 itr,repul              0.0             2.0        220.64043919
+78379.master.hpc
+  238    257.003      -25.2656520 outcar       2.7614      4.3491     21.4086      90.3148     91.5824     89.9991
+     -0.2526565200E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   30   11    -0.257563110000E+02   -0.281101930000E+02 jparents    252
+       1 itr,repul              0.0             2.0        236.77119541
+78381.master.hpc
+  180    232.149      -25.3777110 outcar       4.6768      3.8974     14.5431      90.5581     89.9685    118.8586
+     -0.2537771100E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+   36    -0.253777640000E+02 jmutation,jparents    253
+       1 itr,repul              0.0             1.0        218.70570946
+78382.master.hpc
+  224    248.361      -23.6844060 outcar       2.6925      5.5264     18.8024      92.2172     93.5707     62.8097
+     -0.2368440600E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+       1
+ Si C 
+   12   12
+      243.23227787
+ symm-introduction:mutation  169
+   14    -0.281100950000E+02 jmutation,jparents    254
+       1 itr,repul              0.0             1.0        243.23227787
+78384.master.hpc
+  241    227.312      -25.3776180 outcar       3.8950      4.4131     14.8573      78.8392     82.2441    111.3897
+     -0.2537761800E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   18    8    -0.263696570000E+02   -0.281104080000E+02 jparents    255
+       1 itr,repul              0.0             1.0        232.30038643
+78386.master.hpc
+ there is a fault sign from stdout.log
+ there is a falut, we discard this conformation
+      0.1000000000E+20  obj ftn
+       1
+ Si C 
+   20    8
+      248.68230343
+ symm-introduction:mutation   65
+   10    -0.281101940000E+02 jmutation,jparents    256
+       1 itr,repul              0.0             1.0        248.68230343
+78388.master.hpc
+  179    260.578      -26.1700880 outcar       4.0364      6.2389     13.5515      89.4581     90.9634    130.2097
+     -0.2617008800E+02  obj ftn
+  103  jtr    code=2
+   50   31    -0.247309920000E+02   -0.256886710000E+02 jparents    257
+       1 itr,repul              0.0             2.0        243.45910948
+78392.master.hpc
+  169    216.749      -24.6075960 outcar       3.2489      3.2489     20.7531      93.6273     86.3571     96.7749
+     -0.2460759600E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   21   42    -0.263380650000E+02   -0.253777030000E+02 jparents    258
+       1 itr,repul              0.0             3.0        244.25937366
+78393.master.hpc
+  186    228.557      -25.0914720 outcar       3.1154      4.7037     16.2511      95.7698     92.4375    104.7449
+     -0.2509147200E+02  obj ftn
+  128  jtr    code=2
+   32   40    -0.256870060000E+02   -0.253777280000E+02 jparents    259
+       1 itr,repul              0.0             1.0        233.52994662
+78394.master.hpc
+  184    247.201      -25.7201760 outcar       4.3596      5.9434     13.0436      89.7197     88.7856     47.0257
+     -0.2572017600E+02  obj ftn
+  154  jtr    code=2
+    3   38    -0.281309030000E+02   -0.253777400000E+02 jparents    260
+       1 itr,repul              0.0             2.0        236.07436407
+78396.master.hpc
+  178    220.402      -28.3284850 outcar       3.1572      3.1574     25.5367      90.3092     90.0125    120.0223
+     -0.2832848500E+02  obj ftn
+  135  jtr    code=2
+   36    2    -0.253777640000E+02   -0.283284910000E+02 jparents    261
+       1 itr,repul              0.0             1.0        255.61293477
+78397.master.hpc
+  175    240.066      -24.9854870 outcar       7.6527      5.2839     16.0889      90.2874     91.6945     21.7062
+     -0.2498548700E+02  obj ftn
+  181  jtr    code=2
+    2   45    -0.283284910000E+02   -0.253776310000E+02 jparents    262
+       1 itr,repul              0.0             2.0        225.73528532
+78400.master.hpc
+  190    233.275      -25.3776710 outcar       4.4111      3.8954     14.6216      89.7836     92.8263    111.6091
+     -0.2537767100E+02  obj ftn
+  112  jtr    code=2
+   48   25    -0.249856320000E+02   -0.261440510000E+02 jparents    263
+       1 itr,repul              0.0             3.0        236.34920236
+78401.master.hpc
+  191    230.648      -25.0915880 outcar       4.7027      3.1147     16.3108      86.5945     91.3519    104.7289
+     -0.2509158800E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+       1
+ Si C 
+    8    8
+      219.44296074
+ symm-introduction:mutation  112
+   38    -0.253777400000E+02 jmutation,jparents    264
+       1 itr,repul              0.0             1.0        219.44296074
+78404.master.hpc
+  182    246.513      -25.3776900 outcar       4.4127      6.8783     15.5063      91.8919     85.2997    148.2091
+     -0.2537769000E+02  obj ftn
+  106  jtr    code=2
+    6   19    -0.281105750000E+02   -0.263405960000E+02 jparents    265
+       1 itr,repul              0.0             2.0        240.54532364
+78406.master.hpc
+  193    244.736      -25.3777110 outcar       4.6807      3.8985     15.3205      89.9234     90.4329    118.9012
+     -0.2537771100E+02  obj ftn
+  111  jtr    code=2
+    6    2    -0.281105750000E+02   -0.283284910000E+02 jparents    266
+       1 itr,repul              0.0             1.0        234.10462249
+78407.master.hpc
+  183    259.332      -25.5976440 outcar       2.9809      4.3939     21.1203      88.0031     88.6964    110.1716
+     -0.2559764400E+02  obj ftn
+  105  jtr    code=2
+    6   25    -0.281105750000E+02   -0.261440510000E+02 jparents    267
+       1 itr,repul              0.0             1.0        241.09590865
+78409.master.hpc
+  251    223.325      -26.1639150 outcar       6.2409      4.7653     11.9757      81.8002     88.6947    139.6610
+     -0.2616391500E+02  obj ftn
+ old type, replaced        -0.26163915E+02     -0.26163903E+02     -0.12000000E-04
+       4
+ Si C 
+   45   72
+      240.52608776
+ symm-introduction:mutation  166
+    9    -0.281102270000E+02 jmutation,jparents    268
+       1 itr,repul              0.0             1.0        240.52608776
+78410.master.hpc
+  195    221.357      -26.1236480 outcar       4.6949      4.0286     11.7937      96.8762     91.7697     89.9947
+     -0.2612364800E+02  obj ftn
+  108  jtr    code=2
+   30   28    -0.257563110000E+02   -0.261236740000E+02 jparents    269
+       1 itr,repul              0.0             2.0        253.15963310
+78411.master.hpc
+  227    261.597      -24.5708260 outcar       4.0748      4.2065     17.5218      95.4496     86.5261    118.9447
+     -0.2457082600E+02  obj ftn
+  103  jtr    code=2
+   43   27    -0.253776930000E+02   -0.261440080000E+02 jparents    270
+       1 itr,repul              0.0             1.0        246.25851926
+78412.master.hpc
+  259    262.232      -25.2655800 outcar       2.7624      4.3482     21.8357      90.2503     88.9136     89.9999
+     -0.2526558000E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+    1   15    -0.283284970000E+02   -0.263699780000E+02 jparents    271
+       1 itr,repul              0.0             2.0        236.81160450
+78414.master.hpc
+  250    230.060      -28.1109000 outcar       3.0973      3.0965     27.7120      90.6868     91.3276     59.9788
+     -0.2811090000E+02  obj ftn
+ old type, replaced        -0.28110900E+02     -0.28110543E+02     -0.35700000E-03
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   17   46    -0.263696610000E+02   -0.252162540000E+02 jparents    272
+       1 itr,repul              0.0             1.0        226.93519306
+78415.master.hpc
+  256    251.409      -28.1105400 outcar       5.3619      6.1914     15.1540      90.5892     91.3925     30.0006
+     -0.2811054000E+02  obj ftn
+ we have trouble with lattice variations 300
+  301  jtr-   code=1
+       2
+ Si C 
+   48   32
+      219.25378418
+ symm-introduction:mutation  141
+   16    -0.263697600000E+02 jmutation,jparents    273
+       1 itr,repul              0.0             1.0        219.25378418
+78416.master.hpc
+  137    231.434      -26.1236700 outcar       4.0279      4.6919     12.2463      90.4264     90.0008     89.9997
+     -0.2612367000E+02  obj ftn
+  153  jtr    code=2
+   22    6    -0.263379780000E+02   -0.281105840000E+02 jparents    274
+       1 itr,repul              0.0             1.0        246.76530595
+78419.master.hpc
+  192    229.789      -25.9524850 outcar       4.4103      4.2961     18.5538      87.6223     86.0447    138.5591
+     -0.2595248500E+02  obj ftn
+ we have trouble with ii,jj 400 : new lattice vector
+  401  jtr    code=2
+   14    5    -0.281100950000E+02   -0.281109000000E+02 jparents    275
+       1 itr,repul              0.0             1.0        251.94097137
+78420.master.hpc

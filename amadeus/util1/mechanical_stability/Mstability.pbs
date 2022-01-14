@@ -1,0 +1,82 @@
+#!/bin/bash
+#SBATCH --partition=g3
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=12
+##
+#SBATCH -J "Mstability"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+
+#python make_potcar.py
+variable=`awk -v line=6 'NR==line' POSCAR`
+echo $variable
+number=0
+for element in $variable ;do
+echo $element
+number=`expr $number + 1`
+if [ $number -eq 1 ];then
+cat /TGM/Apps/VASP/POTCAR/1.POTPAW.LDA.54.RECOMMEND/$element/POTCAR  > ./POTCAR
+#cat /TGM/Apps/VASP/POTCAR/2.POTPAW.PBE.54.RECOMMEND/$element/POTCAR  > ./POTCAR
+else
+cat /TGM/Apps/VASP/POTCAR/1.POTPAW.LDA.54.RECOMMEND/$element/POTCAR  >> ./POTCAR
+#cat /TGM/Apps/VASP/POTCAR/1.POTPAW.PBE.54.RECOMMEND/$element/POTCAR  >> ./POTCAR
+fi
+done
+
+if false; then
+cp INCAR_rlx  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp CONTCAR POSCAR
+
+cp INCAR_rlxall  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp CONTCAR POSCAR
+
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp CONTCAR POSCAR
+
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp CONTCAR  POSCAR
+sleep 0.5
+mv OUTCAR OUTCAR_
+cp CONTCAR  POSCAR_
+fi
+
+if true; then
+cp /home/ihlee/csa_vasp/util1/mechanical_stability/INCAR_mechanical_stability    INCAR
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=orthorhombic > output_mech
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=monoclinic > output_mech
+python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D > output_mech
+fi
+
+if false; then
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+cp POSCAR_  POSCAR
+cp INCAR_rlxall0  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+cp INCAR_bs  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+/home/ihlee/csa_vasp/util1/egap_test/a.out > direct_test
+fi

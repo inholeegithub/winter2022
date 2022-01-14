@@ -1,0 +1,46 @@
+#!/bin/sh
+#PBS -l nodes=1:ppn=12
+#PBS -q g4
+#PBS -N w-wo-soc
+                                                                                
+NPROCS=`wc -l < $PBS_NODEFILE`
+
+hostname
+date
+
+cd $PBS_O_WORKDIR
+cp $PBS_NODEFILE nodefile
+touch $PBS_JOBID
+
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+
+if false; then
+cp INCAR_bs_pre  INCAR
+sleep 0.5
+mpirun -np $NPROCS /GRAPE/Apps/VASP/bin/5.4.1/NORMAL/vasp_5.4.1_GRP7_NORMAL_p13082016.x > stdout.log
+
+cp INCAR_bs_decomp    INCAR
+cp KPOINTS_bs  KPOINTS
+sleep 0.5
+mpirun -np $NPROCS /GRAPE/Apps/VASP/bin/5.4.1/NORMAL/vasp_5.4.1_GRP7_NORMAL_p13082016.x > stdout.log
+fi
+
+if true; then
+cp INCAR_bs_pre  INCAR
+echo " LSORBIT = .TRUE."  >> INCAR
+echo " LMAXMIX = 4" >>       INCAR
+sleep 0.5
+mpirun -np $NPROCS /GRAPE/Apps/VASP/bin/5.4.1/NORMAL/vasp_5.4.1_GRP7_NORMAL_p13082016_NCL.x > stdout.log
+
+cp INCAR_bs_decomp    INCAR
+echo " LSORBIT = .TRUE."  >> INCAR
+echo " LMAXMIX = 4" >>       INCAR
+cp KPOINTS_bs    KPOINTS
+sleep 0.5
+mpirun -np $NPROCS /GRAPE/Apps/VASP/bin/5.4.1/NORMAL/vasp_5.4.1_GRP7_NORMAL_p13082016_NCL.x > stdout.log
+fi

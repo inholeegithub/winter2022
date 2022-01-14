@@ -1,0 +1,40 @@
+all: batch4cdiff.x batch4cdiffold.x batch4cdiffqlab.x  poscar2xyz.x  poscar2ext.x  poscar2prdf.x  cdiff.x  xsf2poscar.x  poscar2xsf.x       
+
+batch4cdiff.x: batch4cdiff.f90
+	/usr/local/impi-4.1/bin/ifort -o batch4cdiff.x strings.f90 numeral.f batch4cdiff.f90  -CB -check all -warn interface -assume realloc_lhs
+
+batch4cdiffold.x: batch4cdiffold.f90
+	/usr/local/impi-4.1/bin/ifort -o batch4cdiffold.x strings.f90 numeral.f batch4cdiffold.f90  -CB -check all -warn interface -assume realloc_lhs
+
+batch4cdiffqlab.x: batch4cdiffqlab.f90
+	/usr/local/impi-4.1/bin/ifort -o batch4cdiffqlab.x strings.f90 numeral.f batch4cdiffqlab.f90 sphhar.f90 -CB -check all -warn interface -assume realloc_lhs
+
+poscar2xyz.x: poscar2xyz.f90  
+	/usr/local/impi-4.1/bin/ifort -o poscar2xyz.x strings.f90 poscar2xyz.f90  -CB -check all -warn interface -assume realloc_lhs
+
+poscar2ext.x: poscar2ext.f90  
+	/usr/local/impi-4.1/bin/ifort -o poscar2ext.x strings.f90 poscar2ext.f90  -CB -check all -warn interface -assume realloc_lhs
+
+poscar2prdf.x: poscar2prdf.f90 
+	/usr/local/impi-4.1/bin/ifort -o poscar2prdf.x strings.f90 poscar2prdf.f90  -CB -check all -warn interface -assume realloc_lhs
+
+cdiff.x: cdiff.f90
+	/usr/local/impi-4.1/bin/ifort -o cdiff.x strings.f90 cdiff.f90  -CB -check all -warn interface -assume realloc_lhs
+
+xsf2poscar.x: xsf2poscar.f90
+	/usr/local/impi-4.1/bin/ifort -o xsf2poscar.x strings.f90 xsf2poscar.f90  -CB -check all -warn interface -assume realloc_lhs
+
+poscar2xsf.x: poscar2xsf.f90
+	/usr/local/impi-4.1/bin/ifort -o poscar2xsf.x strings.f90 poscar2xsf.f90  -CB -check all -warn interface -assume realloc_lhs
+
+clean: 
+	rm -f  *.x  *.o  *.mod  *.M  core*  *.ps  *.ps~  *~  *__genmod.f90
+rmo: 
+	rm -f *.o *.mod *.M core*  *.ps~  *__genmod.f90
+touch: 
+	touch *.f90 *.i makefile ; chmod 600 *.f90 *.i makefile ; ls -l *.f90 *.i makefile
+lsl: 
+	ls -l *.f90 makefile *.i
+a2ps: 
+	a2ps -o batch4cdiff.ps batch4cdiff.f90 --prologue=color ; a2ps -o poscar2xyz.ps poscar2xyz.f90 --prologue=color ; a2ps -o poscar2ext.ps poscar2ext.f90 --prologue=color ; a2ps -o poscar2prdf.ps poscar2prdf.f90 --prologue=color ; a2ps -o cdiff.ps cdiff.f90 --prologue=color ; a2ps -o xsf2poscar.ps xsf2poscar.f90 --prologue=color ; a2ps -o poscar2xsf.ps poscar2xsf.f90 --prologue=color ; a2ps -o batch4cdiffold.ps batch4cdiffold.f90 --prologue=color ; a2ps -o batch4cdiffqlab.ps batch4cdiffqlab.f90 --prologue=color
+

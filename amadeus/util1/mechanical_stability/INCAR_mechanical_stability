@@ -1,0 +1,20 @@
+system = Si-227 
+#PREC = High
+PREC = Accurate
+ENCUT = 500.
+NELMIN = 8 
+NELM = 100 
+EDIFF = 1E-07 
+ISIF = 3 
+LREAL = .FALSE. 
+NSW = 1 
+ISMEAR = 1
+SIGMA = 0.03
+IBRION = 6
+POTIM = 0.015
+NFREE = 2
+
+ISTART = 0 
+KSPACING = 0.20
+KGAMMA = .TRUE.
+SYMPREC = 1.d-5

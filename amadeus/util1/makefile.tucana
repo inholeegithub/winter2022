@@ -1,0 +1,28 @@
+cmpl=ifort
+segl=ifort
+#OPT = -fast
+#OPT = -check all
+OPT = 
+OPT = -CB -check all -warn interface -assume realloc_lhs
+FFLAGS = -c ${OPT}
+FFLAGSc = -c 
+
+FILES= toposcar.o numeral.o
+
+/home/ihlee/csa_vasp/readfort1.x: $(FILES)	 
+	$(segl) -o /home/ihlee/csa_vasp/readfort1.x $(FILES)
+toposcar.o:toposcar.f90
+	$(cmpl) $(FFLAGS) toposcar.f90
+numeral.o:numeral.f
+	$(cmpl) $(FFLAGS) numeral.f
+
+clean:
+	rm -f *.x *.o *.mod *.M core*  *.ps  *.ps~  *__genmod.f90  *~
+touch:
+	touch *.f90 *.i makefile ; chmod 600 *.f90 *.i makefile ; ls -l *.f90 *.i makefile
+rmo:
+	rm -f *.o *.mod *.M core*  *.ps~  *__genmod.f90  *~
+lsl:
+	ls -l *.f90 makefile *.i
+a2ps:
+	a2ps -o toposcar.ps toposcar.f90 --prologue=color 

@@ -1,0 +1,52 @@
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+
+sleep 0.5
+STAMP=$(date +%Y%m%d_%H%M%S)_$RANDOM
+echo $STAMP
+cp CONTCAR    ../deposit/CONTCAR_$STAMP
+cp OUTCAR     ../deposit/OUTCAR_$STAMP
+cp EIGENVAL   ../deposit/EIGENVAL_$STAMP
+cp DOSCAR     ../deposit/DOSCAR_$STAMP
+
+nohup nice ~/csa_vasp/csa_vasp.x <csa.in &> csa.out &
+cp fort.1 fort.1.back
+~/csa_vasp/readfort1.x <csa.in
+diff fort.1 fort.1.back
+
+ls -ltr 00??/stdout.log
+ls -ltr 00??/OUTCAR
+rm ./00??/csa_soldBP18.e*
+rm ./00??/csa_soldBP18.o*
+
+tail -n1 ./00??/STATUS
+
+grep car csa.out
+grep car csa.out |wc
+
+ps -u ihlee|awk '/vasp/ {print "kill -9 " $1}' | sh -x
+
+qstat -a|grep ihlee |grep Q |awk '{split($0,a,"."); print "qhold ", a[1]}' |sh -x
+
+qstat -a|grep ihlee |grep H |awk '{split($0,a,"."); print "qrls  ", a[1]}' |sh -x
+
+kill -9 29861; rm 29861; qstat -a| grep SiC18 |awk '{split($0,a,"."); print "qdel  ",a[1]}' |sh -x
+kill -9 22705; rm 22705; qstat -a| grep BP10  |awk '{split($0,a,"."); print "qdel  ",a[1]}' |sh -x
+
+awk 'BEGIN{min=100000.; mint=" "; t=-100000.} {if( ($3 > t) && ($3 < min) ) {min=$3; mint=$1}}END {print mint, min}' csa.out
+
+awk 'NR>6 {print ($1-6.1917), $2}' DOSCAR >g1
+
+awk 'NR>6 {print ($1-6.1917), -$3}' DOSCAR >g2
+
+awk '{if(NR ==1) {print "some", $0} else { print }}' POSCAR
+
+awk '{if(NR ==1) {print "12.34", $0} else { print }}' POSCAR
+
+awk '{if(NF <3) {print}}' g1>g2
+

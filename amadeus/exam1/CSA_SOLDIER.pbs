@@ -1,0 +1,83 @@
+#!/bin/sh
+#PBS -l nodes=1:quad:ppn=8
+#PBS -N csa_sold_exam1
+#PBS -p -1023
+                                                                                
+NPROCS=`wc -l < $PBS_NODEFILE`
+
+hostname
+date
+
+cd $PBS_O_WORKDIR
+touch $PBS_JOBID
+
+if [ "$(ls CSA_SOLDIER.pbs.e* | wc -l)" -ge "1" ]; then
+rm CSA_SOLDIER.pbs.e*
+rm CSA_SOLDIER.pbs.o*
+fi
+
+# do not change file names, e.g., stdout.log, STOP, STATUS
+# normal 
+cp INCAR_rlx    INCAR
+sleep 0.5
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+# accurate   400 eV
+number=1
+while [ $number -lt 6 ]
+do
+cp CONTCAR      POSCAR
+cp INCAR_rlxall INCAR
+if [ $number -lt 3 ]; then
+sed -i 's/ISIF = 3/ISIF = 4/g' INCAR
+fi
+sleep 0.5
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+cp OUTCAR out.out_$number
+sleep 0.5
+number=`expr $number + 1`
+done
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+#head -1 CONTCAR  > ztmp
+#/usr/local/findSpaceGroup/build/findSpg CONTCAR |grep spg >> ztmp
+#cat ztmp |awk 'ORS=NR%2?FS:RS' | awk '{print $1, $2, $3, $5}' > zhead
+#tail -n +2 CONTCAR >> zhead
+#mv zhead CONTCAR 
+#rm ztmp
+
+# accurate   400 eV
+if true; then
+cp INCAR_bs     INCAR
+cp CONTCAR      POSCAR
+mv CONTCAR      CONTCAR_
+sleep 0.5
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+mv CONTCAR_     CONTCAR
+fi
+
+mv OSZICAR     OSZICAR_
+sleep 0.5
+STAMP=$(date +%Y%m%d_%H%M%S)_$RANDOM
+echo $STAMP
+cp CONTCAR    ../deposit/CONTCAR_$STAMP
+cp OUTCAR     ../deposit/OUTCAR_$STAMP
+#cp EIGENVAL  ../deposit/EIGENVAL_$STAMP
+#cp DOSCAR    ../deposit/DOSCAR_$STAMP
+
+sleep 0.5
+touch STOP
+echo "DONE" >> STATUS

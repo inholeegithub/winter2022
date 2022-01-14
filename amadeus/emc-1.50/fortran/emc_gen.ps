@@ -1,0 +1,1257 @@
+%!PS-Adobe-3.0
+%%Title: emc_gen.f90
+%%For: 
+%%Creator: a2ps version 4.14
+%%CreationDate: Mon Jun 13 08:04:59 2016
+%%BoundingBox: 24 24 571 818
+%%DocumentData: Clean7Bit
+%%Orientation: Landscape
+%%Pages: 2
+%%PageOrder: Ascend
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-BoldOblique
+%%+ font Courier-Oblique
+%%+ font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Symbol
+%%+ font Times-Bold
+%%+ font Times-Roman
+%%DocumentProcessColors: Black 
+%%DocumentSuppliedResources: procset a2ps-a2ps-hdr
+%%+ procset a2ps-black+white-Prolog
+%%+ encoding ISO-8859-1Encoding
+%%EndComments
+/a2psdict 200 dict def
+a2psdict begin
+%%BeginProlog
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+
+% EPSF import as in the Red Book
+/BeginInclude {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack 
+  userdict begin
+    0 setgray 0 setlinecap
+    1 setlinewidth 0 setlinejoin
+    10 setmiterlimit [ ] 0 setdash newpath
+    gs_languagelevel 1 ne {
+      false setstrokeadjust false setoverprint 
+    } if
+} bind def
+
+/EndInclude {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+/BeginEPSF {
+  BeginInclude
+  /showpage { } def
+} bind def
+
+/EndEPSF {
+  EndInclude
+} bind def
+
+% Page prefeed
+/page_prefeed {         % bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} bind def
+
+/deffont {
+  findfont exch scalefont def
+} bind def
+
+/reencode_font {
+  findfont reencode 2 copy definefont pop def
+} bind def
+
+% Function c-show (str => -)
+% centers text only according to x axis.
+/c-show { 
+  dup stringwidth pop
+  2 div neg 0 rmoveto
+  show
+} bind def
+
+% Function l-show (str => -)
+% prints texts so that it ends at currentpoint
+/l-show {
+  dup stringwidth pop neg 
+  0 
+  rmoveto show
+} bind def
+
+% center-fit show (str w => -)
+% show centered, and scale currentfont so that the width is less than w
+/cfshow {
+  exch dup stringwidth pop
+  % If the title is too big, try to make it smaller
+  3 2 roll 2 copy
+  gt
+  { % if, i.e. too big
+    exch div
+    currentfont exch scalefont setfont
+  } { % ifelse
+    pop pop 
+  }
+  ifelse
+  c-show			% center title
+} bind def
+
+% Return the y size of the current font
+% - => fontsize
+/currentfontsize {
+  currentfont /FontMatrix get 3 get 1000 mul
+} bind def
+
+% reencode the font
+% <encoding-vector> <fontdict> -> <newfontdict>
+/reencode { %def
+  dup length 5 add dict begin
+    { %forall
+      % <vector> <key> <val>
+      1 index /FID ne 
+      { def }{ pop pop } ifelse
+    } forall
+    /Encoding exch def % -
+
+    % Use the font's bounding box to determine the ascent, descent,
+    % and overall height; don't forget that these values have to be
+    % transformed using the font's matrix.
+    % We use `load' because sometimes BBox is executable, sometimes not.
+    % Since we need 4 numbers an not an array avoid BBox from being executed
+    /FontBBox load aload pop
+    FontMatrix transform /Ascent exch def pop
+    FontMatrix transform /Descent exch def pop
+    /FontHeight Ascent Descent sub def
+
+    % Get the underline position and thickness if they're defined.
+    % Use 1 if they are not defined.
+    currentdict /FontInfo 2 copy known
+    { get
+      /UnderlinePosition 2 copy % <FontInfo> /UP <FontInfo> /UP
+      2 copy known
+      { get }{ pop pop 1 } ifelse
+      0 exch FontMatrix transform exch pop
+      def % <FontInfo>
+
+      /UnderlineThickness 2 copy % <FontInfo> /UT <FontInfo> /UT
+      2 copy known
+      { get }{ pop pop 1 } ifelse
+      0 exch FontMatrix transform exch pop
+      def % <FontInfo>
+      pop % -
+    }{ pop pop
+    } ifelse
+
+    currentdict
+  end 
+} bind def
+
+% Function print line number (<string> # -)
+/# {
+  gsave
+    sx cw mul neg 2 div 0 rmoveto
+    f# setfont
+    c-show
+  grestore
+} bind def
+
+% -------- Some routines to enlight plain b/w printings ---------
+
+% Underline
+% width --
+/dounderline {
+  currentpoint
+  gsave
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    0 rlineto
+    stroke
+  grestore
+} bind def
+
+% Underline a string
+% string --
+/dounderlinestring {
+  stringwidth pop
+  dounderline
+} bind def
+
+/UL {
+  /ul exch store
+} bind def
+
+% Draw a box of WIDTH wrt current font
+% width --
+/dobox {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  grestore
+} bind def
+
+/BX {
+  /bx exch store
+} bind def
+
+% Box a string
+% string --
+/doboxstring {
+  stringwidth pop
+  dobox
+} bind def
+
+%
+% ------------- Color routines ---------------
+%
+/FG /setrgbcolor load def
+
+% Draw the background
+% width --
+/dobackground {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    bgcolor aload pop setrgbcolor
+    fill
+  grestore
+} bind def
+
+% Draw bg for a string
+% string --
+/dobackgroundstring {
+  stringwidth pop
+  dobackground
+} bind def
+
+
+/BG {
+  dup /bg exch store
+  { mark 4 1 roll ] /bgcolor exch store } if
+} bind def
+
+
+/Show {
+  bg { dup dobackgroundstring } if
+  ul { dup dounderlinestring } if
+  bx { dup doboxstring } if
+  show
+} bind def
+
+% Function T(ab), jumps to the n-th tabulation in the current line
+/T {
+  cw mul x0 add
+  bg { dup currentpoint pop sub dobackground } if
+  ul { dup currentpoint pop sub dounderline } if
+  bx { dup currentpoint pop sub dobox } if
+  y0 moveto
+} bind def
+
+% Function n: move to the next line
+/n {
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+% Function N: show and move to the next line
+/N {
+  Show
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+/S {
+  Show
+} bind def
+
+%%BeginResource: procset a2ps-a2ps-hdr 2.0 2
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Function title: prints page header.
+% <ct> <rt> <lt> are passed as argument
+/title { 
+  % 1. Draw the background
+  x v get y v get moveto
+  gsave
+    0 th 2 div neg rmoveto 
+    th setlinewidth
+    0.95 setgray
+    pw 0 rlineto stroke
+  grestore
+  % 2. Border it
+  gsave
+    0.7 setlinewidth
+    pw 0 rlineto
+    0 th neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+  % stk: ct rt lt
+  x v get y v get th sub 1 add moveto
+%%IncludeResource: font Helvetica
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  % 3. The left title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    fnfs 0.8 mul hm rmoveto
+    show			% left title
+  grestore
+  exch
+  % stk: ct ltw rt
+  % 4. the right title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    dup
+    pw exch stringwidth pop fnfs 0.8 mul add sub
+    hm
+    rmoveto
+    show			% right title
+  grestore
+  % stk: ct ltw rtw
+  % 5. the center title
+  gsave
+    pw 3 1 roll
+    % stk: ct pw ltw rtw
+    3 copy 
+    % Move to the center of the left room
+    sub add 2 div hm rmoveto
+    % What is the available space in here?
+    add sub fnfs 0.8 mul sub fnfs 0.8 mul sub
+    % stk: ct space_left
+%%IncludeResource: font Helvetica-Bold
+  fHelvetica-Bold fnfs scalefont setfont
+    cfshow
+  grestore
+} bind def
+
+% Function border: prints virtual page border
+/border { %def
+  gsave				% print four sides
+    0 setgray
+    x v get y v get moveto
+    0.7 setlinewidth		% of the square
+    pw 0 rlineto
+    0 ph neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+} bind def
+
+% Function water: prints a water mark in background
+/water { %def
+  gsave
+    scx scy moveto rotate
+%%IncludeResource: font Times-Bold
+  fTimes-Bold 100 scalefont setfont
+    .97 setgray
+    dup stringwidth pop 2 div neg -50 rmoveto
+    show
+  grestore
+} bind def
+
+% Function rhead: prints the right header
+/rhead {  %def
+  lx ly moveto
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  l-show
+} bind def
+
+% Function footer (cf rf lf -> -)
+/footer {
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  dx dy moveto
+  show
+
+  snx sny moveto
+  l-show
+  
+  fnx fny moveto
+  c-show
+} bind def
+%%EndResource
+%%BeginResource: procset a2ps-black+white-Prolog 2.0 1
+
+% Function T(ab), jumps to the n-th tabulation in the current line
+/T { 
+  cw mul x0 add y0 moveto
+} bind def
+
+% Function n: move to the next line
+/n { %def
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+% Function N: show and move to the next line
+/N {
+  Show
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+}  bind def
+
+/S {
+  Show
+} bind def
+
+/p {
+  false UL
+  false BX
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/sy {
+  false UL
+  false BX
+  fSymbol bfs scalefont setfont
+  Show
+} bind def
+
+/k {
+  false UL
+  false BX
+  fCourier-Oblique bfs scalefont setfont
+  Show
+} bind def
+
+/K {
+  false UL
+  false BX
+  fCourier-Bold bfs scalefont setfont
+  Show
+} bind def
+
+/c {
+  false UL
+  false BX
+  fCourier-Oblique bfs scalefont setfont
+  Show
+} bind def
+
+/C {
+  false UL
+  false BX
+  fCourier-BoldOblique bfs scalefont setfont
+  Show 
+} bind def
+
+/l {
+  false UL
+  false BX
+  fHelvetica bfs scalefont setfont
+  Show
+} bind def
+
+/L {
+  false UL
+  false BX
+  fHelvetica-Bold bfs scalefont setfont
+  Show 
+} bind def
+
+/str{
+  false UL
+  false BX
+  fTimes-Roman bfs scalefont setfont
+  Show
+} bind def
+
+/e{
+  false UL
+  true BX
+  fHelvetica-Bold bfs scalefont setfont
+  Show
+} bind def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier
+%%IncludeResource: font Courier-Oblique
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Symbol
+%%IncludeResource: font Courier-BoldOblique
+%%BeginResource: encoding ISO-8859-1Encoding
+/ISO-8859-1Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section 
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron 
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /bullet 
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown 
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla 
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply 
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls 
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla 
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis 
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide 
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis 
+] def
+%%EndResource
+% Initialize page description variables.
+/sh 595 def
+/sw 842 def
+/llx 24 def
+/urx 818 def
+/ury 571 def
+/lly 24 def
+/#copies 1 def
+/th 15.000000 def
+/fnfs 11 def
+/bfs 8.005733 def
+/cw 4.803440 def
+
+% Dictionary for ISO-8859-1 support
+/iso1dict 8 dict begin
+  /fCourier ISO-8859-1Encoding /Courier reencode_font
+  /fCourier-Bold ISO-8859-1Encoding /Courier-Bold reencode_font
+  /fCourier-BoldOblique ISO-8859-1Encoding /Courier-BoldOblique reencode_font
+  /fCourier-Oblique ISO-8859-1Encoding /Courier-Oblique reencode_font
+  /fHelvetica ISO-8859-1Encoding /Helvetica reencode_font
+  /fHelvetica-Bold ISO-8859-1Encoding /Helvetica-Bold reencode_font
+  /fTimes-Bold ISO-8859-1Encoding /Times-Bold reencode_font
+  /fTimes-Roman ISO-8859-1Encoding /Times-Roman reencode_font
+currentdict end def
+/bgcolor [ 0 0 0 ] def
+/bg false def
+/ul false def
+/bx false def
+% The font for line numbering
+/f# /Helvetica findfont bfs .6 mul scalefont def
+/fSymbol /Symbol findfont def
+/hm fnfs 0.25 mul def
+/pw
+   cw 81.400000 mul
+def
+/ph
+   501.959430 th add
+def
+/pmw urx llx sub pw 2 mul sub 1 div def
+/pmh 0 def
+/v 0 def
+/x [
+  0
+  dup pmw add pw add
+] def
+/y [
+  pmh ph add 0 mul ph add
+  dup
+] def
+/scx sw 2 div def
+/scy sh 2 div def
+/snx urx def
+/sny lly 2 add def
+/dx llx def
+/dy sny def
+/fnx scx def
+/fny dy def
+/lx snx def
+/ly ury fnfs 0.8 mul sub def
+/sx 0 def
+/tab 8 def
+/x0 0 def
+/y0 0 def
+%%EndSetup
+
+%%Page: (1-2) 1
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(! Copyright \(c\) "2012, Alexandr Fonari) c n
+(!                URL: https://github.com/alexandr-fonari/emc) N
+(!                License: MIT License") N
+() p n
+(program) K
+( ) p
+(emc_gen) L
+( ) p
+(! version 1.0) c n
+(use) K
+( ) p
+(emc_functions) l n
+(implicit) K
+( ) p
+(none) K n
+(real) S
+(\() p
+(kind) K
+(=8\), ) p
+(parameter) K
+( :: b2a = 0.52917721092d0) p n
+(real) K
+(\() p
+(kind) K
+(=8\), ) p
+(parameter) K
+( :: pi = 4.d0*) p
+(DATAN) K
+(\(1.d0\)) p n
+(integer) K
+(\() p
+(kind) K
+(=4\), ) p
+(parameter) K
+( :: nkpoints = 61) p n
+(integer) K
+(\() p
+(kind) K
+(=4\), ) p
+(parameter) K
+( :: iunt = 10, ilog = 11, w = 1 ) p
+(! k point weight for V) c n
+(ASP) N
+(character) K
+(\() p
+(len) K
+(=8\), ) p
+(parameter) K
+( :: version_number = ') p
+(1.5f) str
+(') p n
+() N
+(real) K
+(\() p
+(kind) K
+(=8\) :: kp\(3\), kpc\(3\), dk, E\(-2:2,-2:2,-2:2\), A\(4\), f\(3,3\), g\(3,3\)) p n
+(integer) K
+(\() p
+(kind) K
+(=4\) :: i, i1, j, j1, band) p n
+(character) K
+( prg) p n
+(real) K
+(\() p
+(kind) K
+(=8\) :: a1\(3\),a2\(3\),a3\(3\),b1\(3\),b2\(3\),b3\(3\),omega,xkpc\(3\)) p n
+() N
+(open) K
+(\() p
+(unit) k
+(=ilog,file=') p
+(emc_gen.log) str
+(',form=') p
+(formatted) str
+('\)) p n
+(write) K
+(\(ilog,*\) ") p
+(Effective Mass Calculator generator ) str
+(", version_number) p n
+(call) K
+( ) p
+(print_time) l
+(\(ilog\)) p n
+(write) K
+(\(ilog,*\)) p n
+() N
+(open) K
+(\() p
+(unit) k
+(=iunt,file=') p
+(inp) str
+(',form=') p
+(formatted) str
+('\)) p n
+(    ) S
+(read) K
+(\(iunt,) p
+(fmt) K
+(=*\) \(kp\(i\),i=1,) p
+(size) K
+(\(kp\)\)) p n
+(    ) S
+(read) K
+(\(iunt,) p
+(fmt) K
+(=*\) dk) p n
+(    ) S
+(read) K
+(\(iunt,) p
+(fmt) K
+(=*\) band) p n
+(    ) S
+(read) K
+(\(iunt,) p
+(fmt) K
+(=*\) prg) p n
+(    ) S
+(read) K
+(\(iunt,*\) \(\(f\(i,j\),j=1,3\),i=1,3\)) p n
+(close) K
+(\(iunt\)) p n
+() N
+(write) K
+(\(ilog,") p
+(\(A10,I5,F12.6\)) str
+("\) ") p
+(band, dk: ) str
+(", band, dk) p n
+() N
+(if) K
+(\(prg ) p
+(.eq.) K
+( ') p
+(V) str
+('\) ) p
+(then) K n
+(    dk = dk/\(2.0D0*pi*b2a\)) p n
+(    ) S
+(write) K
+(\(ilog,") p
+(\(A44,F12.6\)) str
+("\) ") p
+(dk will be converted to VASP units \(2Pi/A\): ) str
+(", dk) p n
+(end) K
+( ) p
+(if) K n
+(write) S
+(\(ilog,*\)) p n
+() N
+() N
+(! g = inverse\(transpose\(f\)\), will do it in two steps) c n
+(g=f) p n
+(g=) S
+(transpose) K
+(\(g\)) p n
+(call) K
+( ) p
+(inverse) l
+(\(g, 3\)) p n
+(g=g*2.d0*pi) N
+(!234567890) c n
+(       i=1) p n
+(       i=0) N
+(       ) S
+(if) K
+(\(i == 1\)) p
+(then) K n
+(       a1\(:\)=f\(1,:\) ; a2\(:\)=f\(2,:\) ; a3\(:\)=f\(3,:\)) p n
+(       ) S
+(call) K
+( ) p
+(cross3) l
+(\(a2,a3,b1\) ; ) p
+(call) K
+( ) p
+(cross3) l
+(\(a3,a1,b2\) ; ) p
+(call) K
+( ) p
+(cross3) l
+(\(a1,a2,b3\)) p n
+(       omega=) S
+(abs) K
+(\() p
+(dot_product) K
+(\(b1,a1\)\)) p n
+(       b1=b1*\(2.d0*pi/omega\) ; b2=b2*\(2.d0*pi/omega\) ; b3=b3*\(2.d0*pi/omega\)) N
+(       ) S
+(write) K
+(\(6,*\) ) p
+(maxval) K
+(\() p
+(abs) K
+(\(g\(1,:\)-b1\(:\)\)\),') p
+( should be zero) str
+(') p n
+(       ) S
+(write) K
+(\(6,*\) ) p
+(maxval) K
+(\() p
+(abs) K
+(\(g\(2,:\)-b2\(:\)\)\),') p
+( should be zero) str
+(') p n
+(       ) S
+(write) K
+(\(6,*\) ) p
+(maxval) K
+(\() p
+(abs) K
+(\(g\(3,:\)-b3\(:\)\)\),') p
+( should be zero) str
+(') p n
+(                 ) S
+(endif) K n
+(!234567890) c n
+(write) K
+(\(ilog,*\) ") p
+(direct lattice vectors              reciprocal lattice vectors) str
+(") p n
+(do) K
+( i=1,3) p n
+(    ) S
+(write) K
+(\(ilog,") p
+(\(3F10.6,A5,3F10.6\)) str
+("\) , \(f\(i,j\), j=1,3\), ") p
+(     ) str
+(", \(g\(i,j\), j=1,3\)) p n
+(emc_gen.f90) (Page 1/3) (May 22, 16 19:49) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(end) K
+( ) p
+(do) K n
+(write) S
+(\(ilog,*\)) p n
+() N
+(kpc = pureDEGMV\(g, kp, ') S
+(T) str
+('\)) p n
+(!234567890) c n
+(       i=1) p n
+(       i=0) N
+(       ) S
+(if) K
+(\(i == 1\)) p
+(then) K n
+(       xkpc\(:\)=kp\(1\)*b1\(:\)+kp\(2\)*b2\(:\)+kp\(3\)*b3\(:\)) p n
+(       ) S
+(write) K
+(\(6,*\) kpc) p n
+(       ) S
+(write) K
+(\(6,*\) xkpc) p n
+(       ) S
+(write) K
+(\(6,*\) ) p
+(maxval) K
+(\() p
+(abs) K
+(\(xkpc\(:\)-kpc\(:\)\)\),') p
+( should be zero) str
+(') p n
+(                 ) S
+(endif) K n
+(!234567890) c n
+(write) K
+(\(ilog,*\) ") p
+(k-point in: reciprocal space       reciprocal Cartesian space) str
+(") p n
+(write) K
+(\(ilog,") p
+(\(3F10.6,A5,3F10.6\)) str
+("\) \(kp\(j\), j=1,3\), ") p
+(     ) str
+(", \(kpc\(j\), j=1,3\)) p n
+() N
+(! write KPOINTS file ###########################################) c n
+() p n
+(open) K
+(\() p
+(unit) k
+(=iunt,file=') p
+(KPOINTS) str
+(',form=') p
+(formatted) str
+('\)) p n
+() N
+(write) K
+(\() p
+(unit) k
+(=iunt,) p
+(fmt) K
+(=') p
+(\(A5,F9.4,F9.4,F9.4,A6,F9.5\)) str
+('\) ') p
+(kpc: ) str
+(', \(kpc\(j\), j=1,3\), ') p
+(, dk: ) str
+(', dk) p n
+(write) K
+(\() p
+(unit) k
+(=iunt,) p
+(fmt) K
+(=') p
+(\(I5\)) str
+('\) nkpoints) p n
+(if) K
+(\(prg ) p
+(.eq.) K
+( ') p
+(C) str
+('\) ) p
+(then) K n
+(    ) p
+(write) K
+(\() p
+(unit) k
+(=iunt,) p
+(fmt) K
+(=') p
+(\(A\)) str
+('\) ') p
+(Reciprocal) str
+(') p n
+(else) K n
+(    ) p
+(write) K
+(\() p
+(unit) k
+(=iunt,) p
+(fmt) K
+(=') p
+(\(A\)) str
+('\) ') p
+(Cartesian) str
+(') p n
+(end) K
+( ) p
+(if) K n
+(!) c n
+() p n
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, 0, 0, 0, w, dk, prg\) ) p
+(! 0 0 0) c n
+() p n
+(! http://stackoverflow.com/questions/9791001/loop-in-fortran-from-a-list) c n
+(A = \(/ -2, -1, 1, 2 /\)) p n
+(! x) c n
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, i1, 0, 0, w, dk, prg\)) p n
+(end) K
+( ) p
+(do) K n
+() p n
+(! y) c n
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, 0, i1, 0, w, dk, prg\)) p n
+(end) K
+( ) p
+(do) K n
+() p n
+(! z) c n
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, 0, 0, i1, w, dk, prg\)) p n
+(end) K
+( ) p
+(do) K n
+() p n
+(! xy) c n
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(do) K
+( j=1, ) p
+(size) K
+(\(A\)) p n
+(        j1 = A\(j\)) N
+(        ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, j1, i1, 0, w, dk, prg\)) p n
+(    ) S
+(end) K
+( ) p
+(do) K n
+(end) S
+( ) p
+(do) K n
+() p n
+(! xz) c n
+(emc_gen.f90) (Page 2/3) (May 22, 16 19:49) title
+border
+grestore
+(Printed by ) rhead
+(emc_gen.f90) (1/2) (Monday June 13, 2016) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3) 2
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(do) K
+( j=1, ) p
+(size) K
+(\(A\)) p n
+(        j1 = A\(j\)) N
+(        ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, j1, 0, i1, w, dk, prg\)) p n
+(    ) S
+(end) K
+( ) p
+(do) K n
+(end) S
+( ) p
+(do) K n
+() p n
+(! yz) c n
+(do) K
+( i = 1, ) p
+(size) K
+(\(A\)) p n
+(    i1 = A\(i\)) N
+(    ) S
+(do) K
+( j=1, ) p
+(size) K
+(\(A\)) p n
+(        j1 = A\(j\)) N
+(        ) S
+(call) K
+( ) p
+(set_next_eigeval) l
+(\(iunt, g, kpc, 0, j1, i1, w, dk, prg\)) p n
+(    ) S
+(end) K
+( ) p
+(do) K n
+(end) S
+( ) p
+(do) K n
+() p n
+(close) K
+(\(iunt\)) p n
+(end) K
+( program) p n
+() N
+(subroutine) K
+( ) p
+(set_next_eigeval) L
+(\(iunt, g, kp, i, j, k, w, dk, prg\)) p n
+(    ) S
+(use) K
+( ) p
+(emc_functions) l n
+(    ) p
+(implicit) K
+( ) p
+(none) K n
+(    ) p
+(integer) K
+(\() p
+(kind) K
+(=4\), ) p
+(intent) K
+(\() p
+(in) k
+(\) :: iunt, i, j, k, w) p n
+(    ) S
+(real) K
+(\() p
+(kind) K
+(=8\), ) p
+(intent) K
+(\() p
+(in) k
+(\) :: g\(3,3\), kp\(3\), dk) p n
+(    ) S
+(character) K
+(, ) p
+(intent) K
+(\() p
+(in) k
+(\) :: prg) p n
+(    ) S
+(real) K
+(\() p
+(kind) K
+(=8\) :: kp1\(3\)) p n
+() N
+(    kp1\(1\) = kp\(1\)+) S
+(dble) K
+(\(i\)*dk) p n
+(    kp1\(2\) = kp\(2\)+) S
+(dble) K
+(\(j\)*dk) p n
+(    kp1\(3\) = kp\(3\)+) S
+(dble) K
+(\(k\)*dk) p n
+() N
+(    ) S
+(if) K
+(\(prg ) p
+(.eq.) K
+( ') p
+(C) str
+('\) ) p
+(then) K n
+(        kp1 = pureDGESV\(g, kp1, ') p
+(T) str
+('\) ) p
+(! get reciprocal coords) c n
+(    ) p
+(end) K
+( ) p
+(if) K n
+(    ) p n
+(    ) S
+(write) K
+(\() p
+(unit) k
+(=iunt,) p
+(fmt) K
+(=') p
+(\(F22.12,F22.12,F22.12,2x,F12.8\)) str
+('\) kp1\(1\), kp1\(2\), kp1\(3\), ) p
+(dble) K
+(\() p n
+(w\)) N
+(    ) S
+(! write\(unit=iunt,fmt='\(I5,I5,I5\)'\) i, j, k) c n
+(    ) p
+(return) K n
+(end) S
+( subroutine) p n
+(!234567890) c n
+(!      Written by In-Ho Lee, KRISS, September 11, 2013.) N
+(       ) p
+(subroutine) K
+( ) p
+(cross3) L
+(\(a,b,c\)) p n
+(       ) S
+(implicit) K
+( ) p
+(none) K n
+(       ) p
+(real) K
+(\() p
+(kind) K
+(=8\), ) p
+(intent) K
+(\() p
+(in) k
+(\) ::  a\(3\),b\(3\)) p n
+(       ) S
+(real) K
+(\() p
+(kind) K
+(=8\), ) p
+(intent) K
+(\() p
+(out) k
+(\) :: c\(3\)) p n
+() N
+(       c\(1\)=a\(2\)*b\(3\)-a\(3\)*b\(2\)) N
+(       c\(2\)=a\(3\)*b\(1\)-a\(1\)*b\(3\)) N
+(       c\(3\)=a\(1\)*b\(2\)-a\(2\)*b\(1\)) N
+(       ) S
+(return) K n
+(       ) p
+(end) K n
+(!234567890) c n
+(emc_gen.f90) (Page 3/3) (May 22, 16 19:49) title
+border
+grestore
+(Printed by ) rhead
+(emc_gen.f90) (2/2) (Monday June 13, 2016) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF

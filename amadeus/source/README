@@ -1,0 +1,70 @@
+See csa.in
+
+input file : csa.in and fort.1
+in case of the first calculation, it is true that you don't have fort.1
+
+cd source0
+vi makefile
+make
+make a2ps (only for program analysis)
+
+cd util1
+vi makefile
+make
+make a2ps (only for program analysis)
+
+cd util2
+vi makefile
+make
+make a2ps (only for program analysis)
+
+cd primitive_test
+vi makefile
+make
+make a2ps (only for program analysis)
+
+example folders
+exam0 --> enthalpy optimization for a given external pressure (e.g., PSTRESS = 400. in INCAR_*)
+exam1 --> direct band gap crystal structures
+exam2 --> quasi two dimensional crystal structures
+
+Reference computer programs for generating random symmetric structures
+See http://elk.sourceforge.net/spacegroup.pdf
+
+evince csa_vasp.ps
+in vi/vim you can use
+:syntax off
+:syntax on
+
+Linux/Unix commands:
+/usr/local/bin/a2ps ( https://www.gnu.org/software/a2ps/ )
+/opt/intel/Compiler/12.1.6/bin/intel64/ifort
+/usr/bin/evince
+/usr/bin/make
+/usr/bin/vim
+/usr/bin/nohup
+/bin/nice
+
+In-Ho Lee: ihlee@kriss.re.kr
+!      Conformational Space Annealing (CSA) with First Principles Electronic Structure Calculations
+!      Atomic positions and six lattice parameters (a,b,c, alpha, beta, gamma) are dynamical variables for the CSA.
+!      References: Phys. Rev. Lett. 91, 080201 (2003); Phys. Rev. B 90, 115209 (2014);
+!      Sci. Rep. 5, 18086 (2015); Phys. Rev. B 93, 085201 (2016); Comput. Phys. Commun. 203, 110 (2016).
+!
+!       ######   ######     ###            ##     ##    ###     ######  ########  
+!      ##    ## ##    ##   ## ##           ##     ##   ## ##   ##    ## ##     ## 
+!      ##       ##        ##   ##          ##     ##  ##   ##  ##       ##     ## 
+!      ##        ######  ##     ## ####### ##     ## ##     ##  ######  ########  
+!      ##             ## #########          ##   ##  #########       ## ##        
+!      ##    ## ##    ## ##     ##           ## ##   ##     ## ##    ## ##        
+!       ######   ######  ##     ##            ###    ##     ##  ######  ##        
+!           
+!               #     #     #     #     ######   #######  #     #   #####   
+!              # #    ##   ##    # #    #     #  #        #     #  #     #  
+!             #   #   # # # #   #   #   #     #  #        #     #  #        
+!            #     #  #  #  #  #     #  #     #  #####    #     #   #####   
+!            #######  #     #  #######  #     #  #        #     #        #         
+!            #     #  #     #  #     #  #     #  #        #     #  #     #  
+!            #     #  #     #  #     #  ######   #######   #####    #####   
+!                        Ab initio MAterials DEsign Using cSa               
+!

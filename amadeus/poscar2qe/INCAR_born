@@ -1,0 +1,17 @@
+  PREC = Accurate
+  IBRION = -1
+  NELMIN = 5
+   ENCUT = 500
+   EDIFF = 1.000000e-08
+  ISMEAR = 0
+   SIGMA = 1.000000e-02
+   IALGO = 38
+   LREAL = .FALSE.
+   LWAVE = .FALSE.
+  LCHARG = .FALSE.
+LEPSILON = .TRUE.
+#  LCALCEPS = .TRUE.
+  KSPACING = 0.25
+  KGAMMA = .TRUE.
+# sometimes you need to increase NBANDS to avoid the error
+# NBANDS =

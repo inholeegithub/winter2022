@@ -1,0 +1,62 @@
+cmpl=ifort
+segl=ifort
+#OPT = -fast
+#OPT = -check all
+OPT = 
+OPT = -CB -check all -warn interface -assume realloc_lhs
+FFLAGS = -c ${OPT}
+FFLAGSc = -c 
+
+FILES= csa_vasp.o crystdiff.o rcrystal.o rwycpos.o spgrp_sites.o spglattice.o object.o egap.o softmutation.o onedprint10.o sphhar.o strings.o timestamp.o init_seed.o rmarin.o sortnr.o diagc.o numeral.o zeroin.o 
+
+/home/ihlee/csa_vasp/csa_vasp.x: $(FILES)	 
+	$(segl) -o /home/ihlee/csa_vasp/csa_vasp.x $(FILES)
+csa_vasp.o:csa_vasp.f90 strings.o crystdiff.o
+	$(cmpl) $(FFLAGS) csa_vasp.f90
+rcrystal.o:rcrystal.f90 spgrp_sites.o
+	$(cmpl) $(FFLAGS) rcrystal.f90
+rwycpos.o:rwycpos.f90 
+	$(cmpl) $(FFLAGS) rwycpos.f90
+spgrp_sites.o:spgrp_sites.f90 
+	$(cmpl) $(FFLAGS) spgrp_sites.f90
+object.o:object.f90 
+	$(cmpl) $(FFLAGS) object.f90
+egap.o:egap.f90 
+	$(cmpl) $(FFLAGS) egap.f90
+spglattice.o:spglattice.f90 
+	$(cmpl) $(FFLAGS) spglattice.f90
+softmutation.o:softmutation.f90
+	$(cmpl) $(FFLAGS) softmutation.f90
+onedprint10.o:onedprint10.f90
+	$(cmpl) $(FFLAGS) onedprint10.f90
+crystdiff.o:crystdiff.f90
+	$(cmpl) $(FFLAGS) crystdiff.f90
+sphhar.o:sphhar.f90
+	$(cmpl) $(FFLAGS) sphhar.f90
+timestamp.o:timestamp.f90
+	$(cmpl) $(FFLAGS) timestamp.f90
+rmarin.o:rmarin.f90 
+	$(cmpl) $(FFLAGS) rmarin.f90
+init_seed.o:init_seed.f90 
+	$(cmpl) $(FFLAGS) init_seed.f90
+sortnr.o:sortnr.f90
+	$(cmpl) $(FFLAGS) sortnr.f90
+strings.o:strings.f90
+	$(cmpl) $(FFLAGS) strings.f90
+diagc.o:diagc.f90
+	$(cmpl) $(FFLAGS) diagc.f90
+numeral.o:numeral.f
+	$(cmpl) $(FFLAGS) numeral.f
+zeroin.o:zeroin.f
+	$(cmpl) $(FFLAGS) zeroin.f
+
+clean:
+	rm -f *.x *.o *.mod *.M core*  *.ps  *.ps~  *__genmod.f90  *~
+touch:
+	touch *.f90 *.i makefile ; chmod 600 *.f90 *.i makefile ; ls -l *.f90 *.i makefile
+rmo:
+	rm -f *.o *.mod *.M core*  *.ps~  *__genmod.f90  *~
+lsl:
+	ls -l *.f90 makefile *.i
+a2ps:
+	a2ps -o csa_vasp.ps csa_vasp.f90 --prologue=color ; a2ps -o spglattice.ps spglattice.f90 --prologue=color ; a2ps -o egap.ps egap.f90 --prologue=color ; a2ps -o object.ps object.f90 --prologue=color ; a2ps -o softmutation.ps softmutation.f90 --prologue=color ; a2ps -o rcrystal.ps rcrystal.f90 --prologue=color ; a2ps -o rwycpos.ps rwycpos.f90 --prologue=color ; a2ps -o spgrp_sites.ps spgrp_sites.f90 --prologue=color ; a2ps -o strings.ps strings.f90 --prologue=color ; a2ps -o diagc.ps diagc.f90 --prologue=color ; a2ps -o sortnr.ps sortnr.f90 --prologue=color ; a2ps -o onedprint10.ps  onedprint10.f90 --prologue=color ; a2ps -o crystdiff.ps  crystdiff.f90 --prologue=color 

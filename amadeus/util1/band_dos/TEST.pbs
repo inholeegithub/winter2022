@@ -1,0 +1,72 @@
+#!/bin/bash
+#SBATCH --partition=g2
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+##
+#SBATCH -J "TEST"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 20:00:00  # The job can take at most 20 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+
+# do not change file names, e.g., stdout.log, STOP, STATUS
+# we can specifiy the KPOINTS file by using cp command as shown below
+# otherwise, we can use KSPACING, KGAMMA parameters in the INCAR, in addition, you have to use the following commands
+#if [ -f  KPOINTS  ] ;  then
+#rm KPOINTS
+#fi
+rm   TEST.pbs.[eo]*   STDERR.*.err   STDOUT.*.out
+
+if true; then
+# normal 
+cp INCAR_rlx    INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp CONTCAR      POSCAR
+#cp INCAR_rlxall INCAR
+#mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+# accurate   500 eV
+number=1
+while [ $number -lt 4 ]
+do
+cp INCAR_rlxall INCAR
+cp CONTCAR      POSCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp OUTCAR out.out_$number
+sleep 0.5
+#
+number=`expr $number + 1`
+done
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1 
+awk 'ORS=NR%2?FS:RS' z1 > z2 
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+if [ -f  out.out_1  ] ;  then
+rm out.out_1
+fi
+if [ -f  out.out_2  ] ;  then
+rm out.out_2
+fi
+if [ -f  out.out_3  ] ;  then
+rm out.out_3
+fi
+fi
+
+# accurate   500 eV
+if false; then
+cp CONTCAR      POSCAR
+cp INCAR_bs_pre    INCAR
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp INCAR_bs     INCAR
+cp KPOINTS_lines    KPOINTS
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+fi

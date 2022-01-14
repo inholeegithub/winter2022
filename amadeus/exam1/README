@@ -1,0 +1,49 @@
+exam1
+This example shows how to do structure prediction with direct band gap
+when you know the external pressure and the chemical composition.
+
+for given chemical compositions (csa.in) and external pressure (INCAR_rlx, INCAR_rlxall, INCAR_bs)
+crystal structure optimization (enthalpy optimization)
+band structure calculation
+direct band gap
+unit cell must be a primitive one, as a separate work  
+additional checks are required with a higher accuracy (phonon dispersion, molecular dynamics)
+
+file KPOINTS will not be used
+INCAR_rlx (low accuracy, e.g., default), INCAR_rlxall (high accuracy, Change parameters)
+
+  ISIF = 3
+  KSPACING = 0.50
+  KGAMMA = .TRUE.
+
+Especially, INCAR_bs is required
+  KSPACING = 0.07
+  KGAMMA = .TRUE. 
+
+do not change file naems for an AMADEUS run : INCAR_bs, INCAR_rlx, INCAR_rlxall, and CSA_SOLDIER.pbs
+(they are waiting to be copied.)
+POTCAR file should be consistent with the contents in file csa.in
+
+In-Ho Lee: ihlee@kriss.re.kr
+!      Conformational Space Annealing (CSA) with First Principles Electronic Structure Calculations
+!      Atomic positions and six lattice parameters (a,b,c, alpha, beta, gamma) are dynamical variables for the CSA.
+!      References: Phys. Rev. Lett. 91, 080201 (2003); Phys. Rev. B 90, 115209 (2014);
+!      Sci. Rep. 5, 18086 (2015); Phys. Rev. B 93, 085201 (2016); Comput. Phys. Commun. 203, 110 (2016).
+!
+!       ######   ######     ###            ##     ##    ###     ######  ########  
+!      ##    ## ##    ##   ## ##           ##     ##   ## ##   ##    ## ##     ## 
+!      ##       ##        ##   ##          ##     ##  ##   ##  ##       ##     ## 
+!      ##        ######  ##     ## ####### ##     ## ##     ##  ######  ########  
+!      ##             ## #########          ##   ##  #########       ## ##        
+!      ##    ## ##    ## ##     ##           ## ##   ##     ## ##    ## ##        
+!       ######   ######  ##     ##            ###    ##     ##  ######  ##        
+!           
+!               #     #     #     #     ######   #######  #     #   #####   
+!              # #    ##   ##    # #    #     #  #        #     #  #     #  
+!             #   #   # # # #   #   #   #     #  #        #     #  #        
+!            #     #  #  #  #  #     #  #     #  #####    #     #   #####   
+!            #######  #     #  #######  #     #  #        #     #        #         
+!            #     #  #     #  #     #  #     #  #        #     #  #     #  
+!            #     #  #     #  #     #  ######   #######   #####    #####   
+!                        Ab initio MAterials DEsign Using cSa               
+!

@@ -1,0 +1,16 @@
+       integer ne0,nk0,nbandi0,ibvbm0,kvbm0,ibcbm0,kcbm0
+       real*8 ef0,a10(3),a20(3),a30(3),rkptv1,rkptv2,rkptv3,rkptc1,rkptc2,rkptc3,evbm0,ecbm0
+       real*8 gapsize
+
+!      i=len_trim(fname) ; fname=trim(fname(1:i-8))//'els_info' ; fname=trim(fname)
+       fname='els_info' ; fname=trim(fname)
+       open(77,file=trim(fname),form='formatted')
+       read(77,*) ne0,nk0,nbandi0
+       read(77,*) ef0
+       read(77,*) ibvbm0,kvbm0,rkptv1,rkptv2,rkptv3,evbm0
+       read(77,*) ibcbm0,kcbm0,rkptc1,rkptc2,rkptc3,ecbm0
+       read(77,*) a10(1),a10(2),a10(3)
+       read(77,*) a20(1),a20(2),a20(3)
+       read(77,*) a30(1),a30(2),a30(3)
+       close(77)
+       gapsize=ecbm0-evbm0

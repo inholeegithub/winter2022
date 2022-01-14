@@ -1,0 +1,10 @@
+    1                                                nspecies
+    Si                                               symbl(:)
+    8                                                nelements(:)
+ 184.000000         0.100d0                          cellvol0(A^3), voltol
+    1.8                                              sigmamatrix(1,1), sigmamatrix(1,2), ...... in Angstrom unit
+ .true.     .true.                                   lvcs, lpbc
+ /home/ihlee/rdfsearch/fingerprintdiff/example1      directory name
+ 8.                                                  rcut   
+ 200                                                 ngrid
+  112.0                                              ehighcut

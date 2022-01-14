@@ -1,0 +1,48 @@
+SYSTEM =  alpha_B    ! System Name
+
+   ICHARG = 11
+   ISTART = 0        ! start jab 0-new if WAVECAR exists 1-cont
+   NELMIN = 4         ! the minimum number of selfconsistency step
+   ENCUT = 500 ! energy cutoff
+
+   LREAL  = .FALSE.  !  auto or .FALSE.    auto for larger supercell
+   LWAVE  = .TRUE.   ! create WAVECAR   wavefunction
+   LCHARG = .FALSE.   ! create CHGCAR    total charge density file
+   LVTOT  = .FALSE.  ! create LOCPOT     local electrostatic potential
+   LELF = .FALSE.
+
+ Ionic Relaxation
+   NSW    = 0        ! number of steps for inoic relaxation
+   ISIF   = 2       ! tag for cell and ionic dynamics
+   IBRION = 2        ! atomic relaxation method default=0:MD, 2:conjugate gradient algorithm
+   POTIM  = 0.5      ! IBRION=1,2,3 scaling constant for the forces
+   EDIFFG = -0.01    ! break condition for the ionic relaxation loop
+
+ DOS related values:
+  ISMEAR = 0       ! determine how the partial occupancies are set for each wavefunction
+  SIGMA  = 0.05      ! width of the smearing in eV
+  EMIN  = -30     !  energy min of DOS
+  EMAX  = 30      !  energy max of DOS
+  NEDOS = 6001       ! number of grid for DOS
+  LORBIT = 11 ! DOSCAR and lm decomposed PROCAR_phase_factor 
+
+
+ #HSE06
+  LHFCALC = .TRUE.
+  HFSCREEN = 0.2
+  #NBANDS = 18 !number of occupied bands
+  ALGO = All ; TIME = 0.4
+  PRECFOCK  = Fast  ! used PRECFOCK = Normal for high quality calculations
+  #NKRED     = 2     ! omit flag for high quality calculations
+  AEXX = 0.25
+  AGGAX = 0.75
+  AGGAC = 1
+  ALDAC = 1
+
+#LVDW=.TRUE.
+#NPAR=3
+
+# cat IBZKPT  > ztmp
+# cat EIGENVAL |awk 'NF == 4 {print $1, $2, $3, 0.0}' |  tail -n +2 >> ztmp
+# and then change the number of k-points.
+# mv ztmp KPOINTS

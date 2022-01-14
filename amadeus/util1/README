@@ -1,0 +1,49 @@
+vi makefile
+make
+make a2ps
+/home/ihlee/csa_vasp/readfort1.x < csa.in
+
+this procedure generates many POSCAR files, such as POSCAR_0001, POSCAR_0002, POSCAR_0003, ....
+
+the number of files is the number of population in the CSA run
+
+grep 'ifort ' *.f90
+toposcar.f90:!      ifort toposcar.f90 numeral.f cmds.f
+
+evince toposcar.ps
+in vi/vim you can use
+:syntax off
+:syntax on
+
+Linux/Unix commands:
+/usr/local/bin/a2ps ( https://www.gnu.org/software/a2ps/ )
+/opt/intel/Compiler/12.1.6/bin/intel64/ifort
+/usr/bin/evince
+/usr/bin/make
+/usr/bin/vim
+/usr/bin/nohup
+/bin/nice
+
+In-Ho Lee: ihlee@kriss.re.kr
+!      Conformational Space Annealing (CSA) with First Principles Electronic Structure Calculations
+!      Atomic positions and six lattice parameters (a,b,c, alpha, beta, gamma) are dynamical variables for the CSA.
+!      References: Phys. Rev. Lett. 91, 080201 (2003); Phys. Rev. B 90, 115209 (2014);
+!      Sci. Rep. 5, 18086 (2015); Phys. Rev. B 93, 085201 (2016); Comput. Phys. Commun. 203, 110 (2016).
+!
+!       ######   ######     ###            ##     ##    ###     ######  ########  
+!      ##    ## ##    ##   ## ##           ##     ##   ## ##   ##    ## ##     ## 
+!      ##       ##        ##   ##          ##     ##  ##   ##  ##       ##     ## 
+!      ##        ######  ##     ## ####### ##     ## ##     ##  ######  ########  
+!      ##             ## #########          ##   ##  #########       ## ##        
+!      ##    ## ##    ## ##     ##           ## ##   ##     ## ##    ## ##        
+!       ######   ######  ##     ##            ###    ##     ##  ######  ##        
+!           
+!               #     #     #     #     ######   #######  #     #   #####   
+!              # #    ##   ##    # #    #     #  #        #     #  #     #  
+!             #   #   # # # #   #   #   #     #  #        #     #  #        
+!            #     #  #  #  #  #     #  #     #  #####    #     #   #####   
+!            #######  #     #  #######  #     #  #        #     #        #         
+!            #     #  #     #  #     #  #     #  #        #     #  #     #  
+!            #     #  #     #  #     #  ######   #######   #####    #####   
+!                        Ab initio MAterials DEsign Using cSa               
+!

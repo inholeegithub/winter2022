@@ -1,0 +1,82 @@
+#!/bin/bash
+#SBATCH --partition=g4
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=12
+##
+#SBATCH -J "CSH"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if [ "$(ls CSA_SOLDIER.pbs.e* | wc -l)" -ge "1" ]; then
+rm CSA_SOLDIER.pbs.e*
+rm CSA_SOLDIER.pbs.o*
+fi
+
+# do not change file names, e.g., stdout.log, STOP, STATUS
+# we can specifiy the KPOINTS file by using cp command as shown below
+# otherwise, we can use KSPACING, KGAMMA parameters in the INCAR, in addition, you have to use the following commands
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+# normal 
+cp INCAR_rlx    INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+## accurate   500 eV
+number=1
+while [ $number -lt 4 ]
+do
+cp INCAR_rlxall INCAR
+cp CONTCAR      POSCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp OUTCAR out.out_$number
+sleep 0.5
+if true; then
+lvar=$(grep sigma OUTCAR |awk '/py=/ {print $7}' |tail -n1 | awk '{ if ($0 <  -0.000000  ) {print "Yes"} else {print "No"}}')
+if [ $lvar == "No" ] ;  then
+      break
+fi
+fi
+number=`expr $number + 1`
+done
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+
+## accurate   500 eV
+if false; then
+cp INCAR_bs  INCAR
+cp CONTCAR  POSCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+fi
+
+sleep 0.5
+STAMP=$(date +%Y%m%d_%H%M%S)_$RANDOM
+echo $STAMP
+cp CONTCAR    ../deposit/CONTCAR_$STAMP
+#cp OUTCAR     ../deposit/OUTCAR_$STAMP
+#cp EIGENVAL   ../deposit/EIGENVAL_$STAMP
+#cp DOSCAR     ../deposit/DOSCAR_$STAMP
+
+sleep 0.5
+touch STOP
+echo "DONE" >> STATUS
+# grep car csa.out 
+# grep car csa.out |wc
+# grep type csa.out 
+# find . -type f -name 'CSA_SOLDIER.pbs' |xargs sed -i 's/ -0.000000 / -0.000000 /g'
+# rm ./00??/out.out_? ./00??/TEST.pbs.e* ./00??/TEST.pbs.o*

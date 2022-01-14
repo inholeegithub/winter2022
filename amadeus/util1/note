@@ -1,0 +1,5 @@
+phonopy --tolerance 0.01 --symmetry -c POSCAR >/dev/null
+head -n 1 POSCAR >z1
+sed -e 1d PPOSCAR >>z1
+rm BPOSCAR PPOSCAR
+mv z1 POSCAR

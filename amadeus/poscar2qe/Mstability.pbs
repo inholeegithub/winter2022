@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --partition=g1
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=8
+##
+#SBATCH -J "rdfSERIAL"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_mechanical_stability    INCAR
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=orthorhombic > output_mech
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=monoclinic > output_mech
+python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D > output_mech

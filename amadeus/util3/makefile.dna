@@ -1,0 +1,30 @@
+cmpl=/usr/local/impi-4.1/bin/ifort
+segl=/usr/local/impi-4.1/bin/ifort
+#OPT = -fast
+#OPT = -check all
+OPT = 
+OPT = -CB -check all -warn interface -assume realloc_lhs
+FFLAGS = -c ${OPT}
+FFLAGSc = -c 
+
+FILES= egapmass.o strings.o sortnr.o
+
+/home/ihlee/csa_vasp/egapmass.x: $(FILES)	 
+	$(segl) -o /home/ihlee/csa_vasp/egapmass.x $(FILES)
+egapmass.o:egapmass.f90 strings.o
+	$(cmpl) $(FFLAGS) egapmass.f90
+strings.o:strings.f90
+	$(cmpl) $(FFLAGS) strings.f90
+sortnr.o:sortnr.f90 
+	$(cmpl) $(FFLAGS) sortnr.f90
+
+clean:
+	rm -f *.x *.o *.mod *.M core*  *.ps  *.ps~  *__genmod.f90  *~
+touch:
+	touch *.f90 *.i makefile ; chmod 600 *.f90 *.i makefile ; ls -l *.f90 *.i makefile
+rmo:
+	rm -f *.o *.mod *.M core*  *.ps~  *__genmod.f90  *~
+lsl:
+	ls -l *.f90 makefile *.i
+a2ps:
+	a2ps -o egapmass.ps  egapmass.f90 --prologue=color

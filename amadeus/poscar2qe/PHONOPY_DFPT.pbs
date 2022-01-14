@@ -1,0 +1,48 @@
+#!/bin/bash
+#SBATCH --partition=g4
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=12
+##
+#SBATCH -J "dftp"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+NAC=1
+if [ $NAC == 1 ] ; then
+cp POSCAR-unitcell   POSCAR
+cp ~/csa_vasp/poscar2qe/INCAR_born        INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+phonopy-vasp-born     vasprun.xml  >g1
+sed -i '1d' g1
+echo 14.399652   >g0
+cat g0 g1        >BORN
+rm g0 g1
+fi
+
+if true; then
+phonopy -d --dim="2 2 2" -c POSCAR-unitcell
+fi
+
+sleep 0.5
+cp SPOSCAR      POSCAR
+cp ~/csa_vasp/poscar2qe/INCAR_dftp   INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+phonopy --fc vasprun.xml
+sleep 0.5
+cp ~/csa_vasp/poscar2qe/band_auto.conf   band.conf
+
+if [ $NAC == 1 ] ; then
+phonopy --dim="2 2 2" -c POSCAR-unitcell  band.conf  --readfc --nac
+else
+phonopy --dim="2 2 2" -c POSCAR-unitcell  band.conf  --readfc
+fi
+#phonopy-bandplot    band.yaml

@@ -1,0 +1,127 @@
+#!/bin/bash
+#SBATCH --partition=g1
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=8
+##
+#SBATCH -J "rdfSERIAL"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if [ "$(ls CSA_SOLDIER.pbs.e* | wc -l)" -ge "1" ]; then
+rm CSA_SOLDIER.pbs.e*
+rm CSA_SOLDIER.pbs.o*
+fi
+
+
+#yourfilenames=`ls ./POSCAR_* | shuf`
+yourfilenames=`ls ./POSCAR_*`
+#yourfilenames=`ls -ltr POSCAR_tm* |awk '$8 >25 && $9 > 18'`
+for eachfile in $yourfilenames
+do
+cp $eachfile     POSCAR   
+if true; then
+if [ -f  POTCAR  ] ;  then
+rm POTCAR
+fi
+sleep 0.3
+variable=`awk -v line=6 'NR==line' POSCAR`
+#echo $variable
+number=0
+for element in $variable ;do
+#echo $element
+number=`expr $number + 1`
+if [ $number -eq 1 ];then
+cat /TGM/Apps/VASP/POTCAR/1.POTPAW.LDA.54.RECOMMEND/$element/POTCAR  > ./POTCAR
+#cat /TGM/Apps/VASP/POTCAR/2.POTPAW.PBE.54.RECOMMEND/$element/POTCAR  > ./POTCAR
+else
+cat /TGM/Apps/VASP/POTCAR/1.POTPAW.LDA.54.RECOMMEND/$element/POTCAR  >> ./POTCAR
+#cat /TGM/Apps/VASP/POTCAR/1.POTPAW.PBE.54.RECOMMEND/$element/POTCAR  >> ./POTCAR
+fi
+done
+fi
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+
+# normal 
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_rlx  INCAR
+sleep 0.3
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+# accurate
+number=1
+while [ $number -lt 4 ]
+do
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_rlxall  INCAR
+cp CONTCAR      POSCAR
+sleep 0.3
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp OUTCAR out.out_$number
+sleep 0.3
+number=`expr $number + 1`
+done
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+cp CONTCAR   $eachfile
+cp CONTCAR      POSCAR
+
+# accurate
+if true; then
+sleep 0.3
+cp $eachfile     POSCAR   
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_mechanical_stability    INCAR
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.5
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=orthorhombic > output_mech
+#python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D -c=monoclinic > output_mech
+python /home/ihlee/csa_vasp/util1/mechanical_stability/MechElastic_V2.py -d=3D > output_mech
+mv output_mech  ${eachfile}output_mech
+fi
+
+# accurate 
+if true; then
+sleep 0.3
+cp $eachfile     POSCAR   
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_rlxall0  INCAR
+sleep 0.3
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_bs  INCAR
+sleep 0.3
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+sleep 0.3
+/home/ihlee/csa_vasp/util1/egap_test/a.out > direct_test 
+mv direct_test   ${eachfile}direct_test
+if false; then
+python /home/ihlee/csa_vasp/poscar2qe/gen_kpath.py
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_bands  INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+python /home/ihlee/csa_vasp/poscar2qe/gen_bands.py
+mv bands.eps   ${eachfile}bands.eps
+fi
+if false; then
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_dos_tetrahedron  INCAR
+sleep 0.3
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+python /home/ihlee/csa_vasp/poscar2qe/gen_dos.py
+mv dos.eps   ${eachfile}dos.eps
+# a good place to calculate effective tensors
+fi
+fi
+
+done

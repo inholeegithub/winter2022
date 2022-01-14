@@ -1,0 +1,42 @@
+#!/bin/bash
+#SBATCH --partition=g1
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=8
+##
+#SBATCH -J "rdfSERIAL"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_bs_pre    INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+cp /home/ihlee/csa_vasp/poscar2qe/INCAR_dos_tetrahedron    INCAR
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+
+# cp ~/csa_vasp/poscar2qe/get_kpoint_from_index.py    .
+# edit following file and run
+# python get_kpoint_from_index.py
+# cp inp_vbm   inp
+# /home/ihlee/csa_vasp/emc-1.50/fortran/emc_gen
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+# /home/ihlee/csa_vasp/emc-1.50/fortran/emc_calc
+# cp inp_cbm   inp
+# /home/ihlee/csa_vasp/emc-1.50/fortran/emc_gen
+sleep 0.5
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/VASP/bin/5.4.4/O3/NORMAL/vasp.5.4.4.pl2.O3.NORMAL.ncl.x > stdout.log
+# /home/ihlee/csa_vasp/emc-1.50/fortran/emc_calc
+rm KPOINTS

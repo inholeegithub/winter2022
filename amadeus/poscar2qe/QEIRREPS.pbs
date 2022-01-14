@@ -1,0 +1,76 @@
+#!/bin/bash
+#SBATCH --partition=g5
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+##
+#SBATCH -J "QEIRREPS"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if false; then
+cp POSCAR    POSCAR__
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/phonopy --tolerance 0.01 --symmetry -c POSCAR >/dev/null
+sleep 0.1
+head -n 1 POSCAR >z1
+sed -e 1d PPOSCAR >>z1
+rm BPOSCAR PPOSCAR
+mv z1 POSCAR
+sleep 0.1
+fi
+
+dirname='rlxallz4.save'
+if [ -d "$dirname" ]; then
+    rm -rf  "$dirname"
+fi
+
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python    /home/ihlee/qe/poscar2qe.py
+sleep 0.1
+if true;then
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+sleep 0.1
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+sleep 0.1
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+fi
+
+if true;then
+dirname='rlxallz4.save'
+if [ -d "$dirname" ]; then
+    rm -rf  "$dirname"
+fi
+dirname='dir-wfn'
+if [ -d "$dirname" ]; then
+    rm -rf  "$dirname"
+fi
+dirname='output'
+if [ -d "$dirname" ]; then
+    rm -rf  "$dirname"
+fi
+cp scf.in_    scf.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.3/bin/pw.x <scf.in > scf.out
+sleep 0.1
+cp rep.in_    rep.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.3/bin/pw.x <rep.in > rep.out
+sleep 0.1
+mkdir dir-wfn
+mkdir output
+sleep 0.1
+/TGM/Apps/QE/6.3/bin/qe2respack     rlxallz4.save
+sleep 0.1
+int000=$( awk '/number of electrons/{printf("%.0f\n", $5)}' scf.out)
+/TGM/Apps/QE/6.3/bin/qeirreps  .  $int000     > qeirreps.log
+fi

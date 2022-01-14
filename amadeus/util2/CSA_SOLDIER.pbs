@@ -1,0 +1,78 @@
+#!/bin/sh
+#PBS -l nodes=1:quad:ppn=8
+#PBS -N csa_sold_exam2
+                                                                                
+NPROCS=`wc -l < $PBS_NODEFILE`
+
+hostname
+date
+
+cd $PBS_O_WORKDIR
+
+# do not change file names, e.g., stdout.log, STATUS
+if [ -f  POSCAR_design  ] ;  then
+rm POSCAR_design
+fi
+if [ -f  KPOINTS  ] ;  then
+rm KPOINTS
+fi
+# normal 
+/home/ihlee/csa_vasp/rlx_design.x > out_design
+sleep 0.1
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+cp POSCAR_design  POSCAR_
+cp POSCAR_design  POSCAR
+cp INCAR_rlx      INCAR
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+cp OUTCAR         out.out_0
+sleep 0.5
+# accurate   600 eV
+number=1
+while [ $number -lt  4   ]
+do
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+cp CONTCAR        POSCAR
+cp INCAR_rlxall   INCAR
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+cp OUTCAR         out.out_$number
+sleep 0.5
+number=`expr $number + 1`
+done
+
+head -n 1 CONTCAR > z1
+awk '/entropy=/  {print $7}'  OUTCAR |tail -n 1 >> z1
+awk 'ORS=NR%2?FS:RS' z1 > z2
+tail -n +2 CONTCAR >> z2
+mv z2 CONTCAR
+rm z1
+
+rm POSCAR_design
+#rm out.out*
+# accurate   600 eV
+if false; then
+if [ -f  STOPCAR  ] ;  then
+rm STOPCAR
+fi
+cp INCAR_bs    INCAR
+cp CONTCAR     POSCAR
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $NPROCS /opt/VASP/bin/vasp.5.2.12_GRAPE_GRAPHENE_NORMAL.mpi.x > stdout.log
+fi
+
+sleep 0.5
+STAMP=$(date +%Y%m%d_%H%M%S)_$RANDOM
+echo $STAMP
+cp CONTCAR    ../deposit/CONTCAR_$STAMP
+cp OUTCAR     ../deposit/OUTCAR_$STAMP
+#cp EIGENVAL   ../deposit/EIGENVAL_$STAMP
+#cp DOSCAR     ../deposit/DOSCAR_$STAMP
+
+sleep 0.5
+touch STOP
+echo "DONE" >> STATUS

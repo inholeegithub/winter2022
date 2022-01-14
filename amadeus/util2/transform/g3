@@ -1,0 +1,49 @@
+       fname='POSCAR_design'
+       open(71,file=trim(fname),form='formatted')
+       write(71,*) mm0
+       write(71,'(a3)') '1.0'
+       write(71,'(3f23.16)') cmat1(1,1),cmat1(1,2),cmat1(1,3)
+       write(71,'(3f23.16)') cmat1(2,1),cmat1(2,2),cmat1(2,3)
+       write(71,'(3f23.16)') cmat1(3,1),cmat1(3,2),cmat1(3,3)
+       write(71,'(20(2x,a2,1x))') (symbl1(i),i=1,nspecies1)
+       write(71,'(20(i4,1x))') (nelements1(i),i=1,nspecies1)
+       write(71,'(a6)') "Direct"
+       natot=0
+       do i=1,nspecies1
+       do j=1,nelements1(i)
+       natot=natot+1
+       write(71,'(3f20.16)') dir(natot,1),dir(natot,2),dir(natot,3)
+       write(6,'(3f20.16)') dir(natot,1),dir(natot,2),dir(natot,3)
+       enddo
+       enddo
+       close(71)
+       write(6,*) 
+       call print2dlattice(cmat1)
+       end
+!23456789
+!      Written by In-Ho Lee, KRISS, September 11, 2013.
+       subroutine print2dlattice(cmat)
+       implicit none
+       real*8 cmat(3,3)
+       real*8 a1(3),a2(3),a3(3),areap
+       real*8 ra,rb,rc,alpha,beta,gama,cosinea,cosineb,cosinec,tmp,pi
+
+       ra=sqrt(cmat(1,1)**2+cmat(1,2)**2+cmat(1,3)**2)
+       rb=sqrt(cmat(2,1)**2+cmat(2,2)**2+cmat(2,3)**2)
+       rc=sqrt(cmat(3,1)**2+cmat(3,2)**2+cmat(3,3)**2)
+       cosinea=(cmat(2,1)*cmat(3,1)+cmat(2,2)*cmat(3,2)+cmat(2,3)*cmat(3,3))/rb/rc
+       cosineb=(cmat(1,1)*cmat(3,1)+cmat(1,2)*cmat(3,2)+cmat(1,3)*cmat(3,3))/rc/ra
+       cosinec=(cmat(1,1)*cmat(2,1)+cmat(1,2)*cmat(2,2)+cmat(1,3)*cmat(2,3))/ra/rb  
+       pi=4.0d0*atan(1.0d0)
+       tmp=180.0d0/pi
+       alpha=tmp*acos(cosinea) ; beta=tmp*acos(cosineb) ; gama=tmp*acos(cosinec)
+       write(6,'(6f16.5)') ra,rb,rc,alpha,beta,gama
+       a1(:)=cmat(1,:) ; a2(:)=cmat(2,:) ; a3(:)=cmat(3,:)
+       tmp=(a1(2)*a2(3)-a1(3)*a2(2))*a3(1) &
+          +(a1(3)*a2(1)-a1(1)*a2(3))*a3(2) &
+          +(a1(1)*a2(2)-a1(2)*a2(1))*a3(3)
+       tmp=abs(tmp)
+       areap=tmp/abs(cmat(3,3)) 
+       write(6,'(f20.6,1x,a5,2x,f20.6,1x,a5)') tmp, '(A^3)', areap, '(A^2)'
+       end
+!234567890

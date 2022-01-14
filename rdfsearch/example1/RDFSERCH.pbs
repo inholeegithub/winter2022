@@ -1,0 +1,31 @@
+#!/bin/bash
+#SBATCH --partition=g1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+##
+#SBATCH -J "RDFSEARCH"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+# Prepare reference POSCAR files
+# Prepare a list of POSCAR files, a file: targets
+# ifort calfinger.f90 ; ./a.out
+# Prepare a file, rdfsearch.in
+# vi gen_replicas_fin ; python gen_replicas_fin.py
+# mpirun -np 8  /home/ihlee/rdfsearch/invsearch.x <rdfsearch.in &> stdout.log &
+
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /home/ihlee/rdfsearch/invsearch.x <rdfsearch.in > stdout.log
+
+#cp ../source/readfort8.f90 .
+#cp ../source/numeral.f .
+#cp ../source/sortnr.f90 .
+#ifort readfort8.f90 numeral.f sortnr.f90 ; ./a.out
+#cp ../source/plot_fort11.py .
+#python plot_fort11.py
+~
+

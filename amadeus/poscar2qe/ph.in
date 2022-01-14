@@ -1,0 +1,14 @@
+phonon
+&INPUTPH
+   prefix = 'rlxallz4',
+   outdir = './',
+   fildyn = 'rlxallz4.dyn'
+ fildvscf = 'dv',
+  fildrho = 'drho',
+    ldisp = .true.,
+ lshift_q = .true.,
+      nq1 = 4, 
+      nq2 = 4,
+      nq3 = 4,
+/
+

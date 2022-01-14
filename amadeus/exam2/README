@@ -1,0 +1,67 @@
+exam2
+This example shows how to do structure prediction in a quasi 2 dimensions when you know the chemical composition.
+
+
+for given chemical compositions (csa.in) and external pressure
+stable quasi 2 dimensional crystal structure
+specific system design (quasi 2D version)
+ionic positions optimization, cell-edges optimization (quasi 2D version, cell volume is fixed)
+a vacuum region should be defined properly
+
+file KPOINTS will not be used
+
+a1(3) = 0.
+a2(3) = 0.
+a3(1) = 0.
+a3(2) = 0.
+
+xy plane will be an infinite plane, two dimensions
+z axis is supposed to be the orthogonal to the xy plane
+repeated unit length along the z axis is a3(3) in Angstrom
+
+file KPOINTS will not be used
+INCAR_rlx (low accuracy, e.g., default), INCAR_rlxall (high accuracy, Change parameters)
+
+  ISIF = 4
+
+  KSPACING = 0.50
+  KGAMMA = .TRUE.
+
+Especially, INCAR_bs is required
+  KSPACING = 0.07
+  KGAMMA = .TRUE. 
+
+do not change file naems : INCAR_bs, INCAR_rlx, INCAR_rlxall, and CSA_SOLDIER.pbs
+(they are waiting to be copied.)
+POTCAR file should be consistent with the contents in file csa.in
+
+just above the working directories (e.g., 0001/, 0002/,....,), and so, an optional input file name,
+../POSCAR_ref
+can be used for setting fixed set of atomic positions if any and/or vacuum thickness
+if ../POSCAR_ref is not present, a default vacuum region will be defined 
+by using two fractional positions, 0.3 and 0.7, along the z direction
+0.3 and 0.7 are expressed in Direct unit along the a3(3) axis
+
+In-Ho Lee: ihlee@kriss.re.kr
+!      Conformational Space Annealing (CSA) with First Principles Electronic Structure Calculations
+!      Atomic positions and six lattice parameters (a,b,c, alpha, beta, gamma) are dynamical variables for the CSA.
+!      References: Phys. Rev. Lett. 91, 080201 (2003); Phys. Rev. B 90, 115209 (2014);
+!      Sci. Rep. 5, 18086 (2015); Phys. Rev. B 93, 085201 (2016); Comput. Phys. Commun. 203, 110 (2016).
+!
+!       ######   ######     ###            ##     ##    ###     ######  ########  
+!      ##    ## ##    ##   ## ##           ##     ##   ## ##   ##    ## ##     ## 
+!      ##       ##        ##   ##          ##     ##  ##   ##  ##       ##     ## 
+!      ##        ######  ##     ## ####### ##     ## ##     ##  ######  ########  
+!      ##             ## #########          ##   ##  #########       ## ##        
+!      ##    ## ##    ## ##     ##           ## ##   ##     ## ##    ## ##        
+!       ######   ######  ##     ##            ###    ##     ##  ######  ##        
+!           
+!               #     #     #     #     ######   #######  #     #   #####   
+!              # #    ##   ##    # #    #     #  #        #     #  #     #  
+!             #   #   # # # #   #   #   #     #  #        #     #  #        
+!            #     #  #  #  #  #     #  #     #  #####    #     #   #####   
+!            #######  #     #  #######  #     #  #        #     #        #         
+!            #     #  #     #  #     #  #     #  #        #     #  #     #  
+!            #     #  #     #  #     #  ######   #######   #####    #####   
+!                        Ab initio MAterials DEsign Using cSa               
+!

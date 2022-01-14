@@ -1,0 +1,62 @@
+#!/bin/bash
+#SBATCH --partition=g7
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+##
+#SBATCH -J "QETET_CSHlda"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 60-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+## don't touch
+. /etc/profile.d/TMI.sh
+##
+
+if false; then
+python ~/csa_vasp/poscar2qe/poscar2qe.py
+fi
+if false; then
+cp POSCAR    POSCAR__
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/phonopy --tolerance 0.01 --symmetry -c POSCAR >/dev/null
+sleep 0.1
+head -n 1 POSCAR >z1
+sed -e 1d PPOSCAR >>z1
+rm BPOSCAR PPOSCAR
+mv z1 POSCAR
+sleep 0.1
+fi
+
+dirname='rlxallz4.save'
+if [ -d "$dirname" ]; then
+    rm -rf  "$dirname"
+fi
+
+if false;then
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python    /home/ihlee/qe/poscar2qe.py
+sleep 0.1
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+sleep 0.1
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+sleep 0.1
+cp vc-relax.in_    vc-relax.in
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <vc-relax.in > vc-relax.out
+sleep 0.1
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python   /home/ihlee/qe/qeout2poscar.py
+/TGM/Apps/PYTHON/3.6.8_intel_2019.0.075/bin/python    /home/ihlee/qe/poscar2qe.py
+fi
+
+cp scf.in_tet  scf.in
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/pw.x <scf.in > scf.out
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/ph.x < ph.in > ph.out
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/ph.x < elph.in > elph.out
+sleep 0.1
+mpirun -genv I_MPI_DEBUG 5 -np $SLURM_NTASKS /TGM/Apps/QE/6.5/bin/alpha2f.x   < elph.in >  rlxallz4a2F.out
